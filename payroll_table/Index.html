@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1>
+        Таблица Zарплат
+      </h1>
+    </div>
+    <div class="btnContainer">
+      <button id="butt" class="btn btnCreate">Создать</button>
+      <button id="buttClear" class="btn btnEdit">Ред Количество</button>
+    </div>
+    <div class="resultContainer">
+      <div id="result" class="result"></div>
+    </div>
+    <table id='table'>
+      <thead id="thead" class="tableHead">
+        <th></th>
+        <th>
+          <p>Дата</p>
+          <input placeholder="Date" id="date" type="date">
+        </th>
+        <th>
+          <p>Продукт</p>
+          <input placeholder="Product" id="product" type="text">
+        </th>
+        <th>
+          <p>Количество шт.</p>
+          <input placeholder="Number" id="number" type="number">
+        </th>
+        <th>
+          <p>Цена в рублях</p>
+          <input placeholder="Price" id="price" type="number">
+        </th>
+        <th>
+          <p id="total">Сумма:</p>
+        </th>
+        <th></th>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

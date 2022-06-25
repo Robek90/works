@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <div class="wrapper">
+          <div>
+              <div class="video_bg">
+                  <video width="100%" height="auto" mute loop poster="./image/background_content.jpg">
+                      <source src=/video/small.web type=video/webm> 
+                      <source src=./video/small.ogv type=video/ogg> 
+                      <source src=./video/small.mp4 type=video/mp4>
+                  </video>
+              </div>
+              <div class="content">
+                  <div class="header">
+                      <ul class="navbar">
+                          <div>
+                              <img src="./icon/burger_menu.svg" alt="">
+                          </div>
+                          <li><a href="">DESIGN</a></li>
+                          <li><a href="">DIMENSIONS</a></li>
+                          <li><a href="">FACT & FIGURES</a></li>
+                          <li><a href="">EVO HiSTORY</a></li>
+                          <li><a href="">REVIEWS</a></li>
+                          <li class="search">
+                              <img src="./icon/search_icon.svg" alt="">
+                              <input type="text" placeholder="SEARCH FOR DETAILS">
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="left_sidebar">
+                      <div class="scrollbar">
+                          <p>Scroll down</p>
+                          <img src="./icon/arrow_downward.svg" alt="">
+                      </div>
+                  </div>
+                  <div class="right_content">
+                      <div class="central_block">
+                          <div class="dot_block"></div>
+                              <h1>MITSUBISHI LANCER EVOLUTION</h1>
+                          <div class="review">
+                            <span class="title">Review</span>
+                            <div class="rating rating2">
+                                <input class="rating_star" aria-label="Ужасно" type="radio" name="health" value="1">
+                                <input class="rating_star" aria-label="Сносно" type="radio" name="health" value="2">
+                                <input class="rating_star" aria-label="Нормально" type="radio" name="health" value="3">
+                                <input class="rating_star" aria-label="Хорошо" type="radio" name="health" value="4">
+                                <input class="rating_star" aria-label="Отлично" type="radio" name="health" value="5">
+                            </div>
+                            <span class="rating_result">0/5</span> 
+                          </div>
+                          <div class="controls video">
+                            <button class="play" data-icon="P" aria-label="play pause toggle"></button>
+                            <a href="">Watch film</a>
+                          </div>
+                          <div class="bookmark">
+                              <div></div>
+                              <a href="">Bookmark for later</a>
+                          </div>
+                      </div>
+                      <div class="bottom_block">
+                          <div>
+                              <h3>Manufacturer</h3>
+                              <p>Mitsubishi Motors</p>
+                          </div>
+                          <div>
+                              <h3>Production</h3>
+                              <p>1992–2016</p>
+                          </div>
+                          <div>
+                              <h3>Engine</h3>
+                              <p>2.0 L I4 turbo</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    <script src="./script.js"></script>
+    </body>
+</html>

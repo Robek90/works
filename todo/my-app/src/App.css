@@ -1,0 +1,371 @@
+.todoWrapper {
+  height: 450px;
+  width: 307px;
+  padding: 20px;
+  margin: 0 auto;
+  background: #1D1B26;
+  z-index: -1;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+  -webkit-box-shadow: 5px 5px 2px 1px rgba(41, 41, 41, 0.2);
+          box-shadow: 5px 5px 2px 1px rgba(41, 41, 41, 0.2);
+}
+
+.todoWrapper .taskList {
+  height: 350px;
+  background: rgba(255, 255, 255, 0);
+}
+
+.todoWrapper .taskList h1 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 35px;
+  text-shadow: 1px 3px 7px #c9c9c9;
+}
+
+.todoWrapper .taskList .tabs {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.todoWrapper .taskList .tabs button {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  position: relative;
+  padding: 10px 6px;
+  border: 1px solid;
+  -o-border-image: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+     border-image: -webkit-gradient(linear, left top, left bottom, from(#f88369), color-stop(#e25b59), color-stop(#ff67a4), to(#c05697));
+     border-image: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+  border-image-slice: 1;
+  background-color: #1D1B26;
+  margin: 5px 5px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: 2px;
+  z-index: 1;
+  -webkit-transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.todoWrapper .taskList .tabs button:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  z-index: -1;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f88369), color-stop(#e25b59), color-stop(#ff67a4), to(#c05697));
+  background: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+  -webkit-transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.todoWrapper .taskList .tabs button:hover {
+  -webkit-box-shadow: 2px 4px 6px 3px #e25b59, 3px 5px 7px 3px #f88369;
+          box-shadow: 2px 4px 6px 3px #e25b59, 3px 5px 7px 3px #f88369;
+}
+
+.todoWrapper .taskList .tabs button:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+
+.todoWrapper .taskList .tabs button.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#f88369), color-stop(#e25b59), color-stop(#ff67a4), to(#c05697));
+  background: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+  -webkit-box-shadow: 2px 4px 6px 0 #e25b59, 3px 5px 7px 0 #f88369;
+          box-shadow: 2px 4px 6px 0 #e25b59, 3px 5px 7px 0 #f88369;
+}
+
+.todoWrapper .taskList ul {
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.todoWrapper .taskList ul::-webkit-scrollbar {
+  width: 15px;
+}
+
+.todoWrapper .taskList ul::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  background-image: linear-gradient(100deg, #f88369, #e25b59, #ff67a4, #c05697);
+  -webkit-box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+          box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+}
+
+.todoWrapper .taskList ul .hidden {
+  display: none;
+}
+
+.todoWrapper .taskList ul .done {
+  background: #49853b;
+  border: 1px solid;
+  -o-border-image: linear-gradient(200deg, #b3f89e, #458336, #4ce047, #4f614a);
+     border-image: linear-gradient(200deg, #b3f89e, #458336, #4ce047, #4f614a);
+  -webkit-box-shadow: 0 2px 3px 0 #458336,0 4px 5px 0 #b3f89e;
+          box-shadow: 0 2px 3px 0 #458336,0 4px 5px 0 #b3f89e;
+  border-image-slice: 1;
+}
+
+.todoWrapper .taskList ul .removed {
+  background: #97a100;
+  border: 1px solid;
+  -o-border-image: linear-gradient(150deg, #303126, #918703, #eeff00, #918703, #777501, #303126);
+     border-image: linear-gradient(150deg, #303126, #918703, #eeff00, #918703, #777501, #303126);
+  -webkit-box-shadow: 0 2px 3px 0 #918703,0 4px 5px 0 #eeff00;
+          box-shadow: 0 2px 3px 0 #918703,0 4px 5px 0 #eeff00;
+  border-image-slice: 1;
+}
+
+.todoWrapper .taskList ul .removed p {
+  text-decoration: line-through;
+  color: black;
+}
+
+.todoWrapper .taskList ul li {
+  height: 26px;
+  margin: 0;
+  padding: 0 10px 0 0;
+  margin: 5px 5px 0;
+  list-style: none;
+  border: 1px solid;
+  -o-border-image: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+     border-image: -webkit-gradient(linear, left top, left bottom, from(#f88369), color-stop(#e25b59), color-stop(#ff67a4), to(#c05697));
+     border-image: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+  border-image-slice: 1;
+  background: #aa5b49;
+  -webkit-box-shadow: 0 2px 3px 0 #e25b59,0 4px 5px 0 #f88369;
+          box-shadow: 0 2px 3px 0 #e25b59,0 4px 5px 0 #f88369;
+}
+
+.todoWrapper .taskList ul li p {
+  width: 200px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.todoWrapper .taskList ul li button {
+  cursor: pointer;
+  position: relative;
+  margin-left: 3px;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  vertical-align: middle;
+  border-radius: 5px;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+.todoWrapper .taskList ul li button.highlight {
+  background: linear-gradient(200deg, #8af869, #31881b, #10e908);
+}
+
+.todoWrapper .taskList ul li button.highlight:hover {
+  -webkit-box-shadow: 0 2px 3px 0 #458336,0 4px 5px 0 #b3f89e;
+          box-shadow: 0 2px 3px 0 #458336,0 4px 5px 0 #b3f89e;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.todoWrapper .taskList ul li button.highlight:after {
+  content: '';
+  position: absolute;
+  top: 6.5px;
+  left: 4.5px;
+  width: 8px;
+  height: 1px;
+  border-radius: 100px;
+  background: white;
+  -webkit-transform: rotate(-68deg);
+  transform: rotate(-68deg);
+}
+
+.todoWrapper .taskList ul li button.highlight:before {
+  content: '';
+  position: absolute;
+  top: 6.5px;
+  left: 1.8px;
+  width: 8px;
+  height: 1px;
+  border-radius: 100px;
+  background: white;
+  -webkit-transform: rotate(68deg);
+  transform: rotate(68deg);
+}
+
+.todoWrapper .taskList ul li button.cutDown {
+  background: linear-gradient(200deg, #f8fa8e, #cf9e18, #ff5e00);
+}
+
+.todoWrapper .taskList ul li button.cutDown:hover {
+  -webkit-box-shadow: 0 2px 5px 0 #cf9e18,0 3px 4px 0 #f8fa8e;
+          box-shadow: 0 2px 5px 0 #cf9e18,0 3px 4px 0 #f8fa8e;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.todoWrapper .taskList ul li button.cutDown:after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 3px;
+  width: 8px;
+  height: 1px;
+  border-radius: 100px;
+  background: white;
+}
+
+.todoWrapper .taskList ul li button.idle {
+  margin-right: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f88369), color-stop(#e25b59), color-stop(#ff67a4), to(#c05697));
+  background: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+}
+
+.todoWrapper .taskList ul li button.idle:hover {
+  -webkit-box-shadow: 0 2px 5px 0 #e25b59,0 3px 4px 0 #f88369;
+          box-shadow: 0 2px 5px 0 #e25b59,0 3px 4px 0 #f88369;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.todoWrapper .taskList ul li button.idle:after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 3px;
+  width: 8px;
+  height: 1.5px;
+  border-radius: 100px;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: white;
+}
+
+.todoWrapper .taskList .clear {
+  cursor: pointer;
+  vertical-align: middle;
+  padding: 5px;
+  margin: 10px 15px 0px 0;
+  border: 1px solid;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f88369), color-stop(#e25b59), color-stop(#ff67a4), to(#c05697));
+  background: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+  -o-border-image: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+     border-image: -webkit-gradient(linear, left top, left bottom, from(#f88369), color-stop(#e25b59), color-stop(#ff67a4), to(#c05697));
+     border-image: linear-gradient(180deg, #f88369, #e25b59, #ff67a4, #c05697);
+  border-image-slice: 1;
+  float: right;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: 2px;
+  color: white;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.todoWrapper .taskList .clear:hover {
+  -webkit-box-shadow: 0 2px 3px 0 #ff3e3b,0 4px 5px 0 #ff6644;
+          box-shadow: 0 2px 3px 0 #ff3e3b,0 4px 5px 0 #ff6644;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.todoWrapper .inputText {
+  width: 293px;
+  margin-top: 20px;
+}
+
+.todoWrapper .inputText .taskInput {
+  padding: 0;
+  border: none;
+  outline: none !important;
+  background: transparent;
+  vertical-align: middle;
+  height: 28px;
+  width: 180px;
+  padding: 0 5px 0 5px;
+  background: white;
+  outline: 0;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+.todoWrapper .inputText .taskInput:hover, .todoWrapper .inputText .taskInput:focus {
+  -webkit-box-shadow: 5px 5px 18px 2px #a5a5a5, 5px 5px 20px 2px #d8d8d8;
+          box-shadow: 5px 5px 18px 2px #a5a5a5, 5px 5px 20px 2px #d8d8d8;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+.todoWrapper .inputText .btn {
+  cursor: pointer;
+  padding: 0;
+  float: right;
+  border: none;
+  outline: none !important;
+  background: transparent;
+  vertical-align: middle;
+  height: 28px;
+  width: 103px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#96f869), color-stop(#80c553), color-stop(#11b93b), to(#0eaa00));
+  background: linear-gradient(180deg, #96f869, #80c553, #11b93b, #0eaa00);
+  color: white;
+  font-size: 16px;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+.todoWrapper .inputText .btn:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  z-index: -1;
+  color: white;
+  -o-border-image: linear-gradient(180deg, #96f869, #a3d184, #11b93b, #0eaa00);
+     border-image: -webkit-gradient(linear, left top, left bottom, from(#96f869), color-stop(#a3d184), color-stop(#11b93b), to(#0eaa00));
+     border-image: linear-gradient(180deg, #96f869, #a3d184, #11b93b, #0eaa00);
+  -webkit-transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.todoWrapper .inputText .btn:hover {
+  -webkit-box-shadow: 2px 4px 90px 3px #0eaa00, 2px 3px 100px 2px #a3d184;
+          box-shadow: 2px 4px 90px 3px #0eaa00, 2px 3px 100px 2px #a3d184;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.todoWrapper .inputText .btn:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,362 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+    background-color: #141414;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: rgba(235, 235, 245, 0.6);
+}
+.two-columns .wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: 1445px; 
+    margin: 0 auto;
+    background-color: #141414;
+}
+.two-columns .container {
+    height: 100%;
+    min-height: 100%;
+    float: left;
+    width: 100%;
+    position: relative;
+}
+/* центральная колонка с контентом */
+.two-columns .column {
+    float: left;
+    position: relative;
+    z-index: 4;
+}
+.two-columns .content {
+    width: 100%;
+}
+.two-columns .contentInner {
+    margin-left: 276px;
+    padding-right: 48px;
+}
+.two-columns .headerCenter {
+    height: 36px;
+    width: 100%;
+    padding-top: 57px;
+    padding-bottom: 35px;
+}
+.two-columns .centerHeaderMenuContainer {
+    width: 400px; 
+}
+.two-columns .searchContainer{
+    margin-left: 400px;
+}
+.two-columns .centerHeaderMenuContainer div:hover {
+    background: #0061FD;
+    border-radius: 143px;
+    color: white;
+    cursor: pointer;
+}
+.two-columns .discover {
+    padding: 8px;
+    float: left;
+    text-align: center;
+}
+.two-columns .browse {
+    padding: 8px;
+    float: left;
+    margin-left: 12px;
+    text-align: center;
+}
+.two-columns .wishlist {
+    padding: 8px;
+    float: left;
+    margin-left: 12px;
+    text-align: center;
+}
+.two-columns .search form {
+    float: left;
+}
+.two-columns .search {
+    height: 36px;
+    width: 318px;
+    background: #2F2F2F;
+    border-radius: 24px;
+    float: right;
+}
+.two-columns .search input, .two-columns .search button {
+    border:none;
+    outline: none !important;
+    background: transparent;
+    vertical-align: middle;
+}
+.two-columns .search input {
+    color: #ffffff;
+    padding-top: 10px;
+}
+.two-columns .searchContainer button img {
+    padding: 10px 9px 0 11px;
+    cursor: pointer;
+    color:#EBEBF5;
+    opacity: 0.6;
+}
+.two-columns .searchContainer>img:hover,
+.two-columns .searchContainer button:hover img {
+    color:white;
+    opacity: 1;
+}
+.two-columns .searchContainer>img {
+    float: right;
+    padding-top: 8px;
+    padding-right: 35px;
+    cursor: pointer;
+    color:#EBEBF5;
+    opacity: 0.6;
+}
+.two-columns .centerContentColumn {
+    padding-bottom: 40px;
+    letter-spacing: -0.3em;
+}
+.two-columns .centerLeft {
+    vertical-align: top;
+    letter-spacing: normal;
+    width: 908px;
+    display: inline-block;
+}
+.two-columns .centerLeft img {
+    border-radius: 12px 0px 0px 12px;
+}
+.two-columns .centerRight {
+    letter-spacing: normal;
+    display: inline-block;
+    width: calc(100% - 912px);
+    background-color: #2F2F2F;
+    border-radius: 0px 12px 12px 0px;
+    border-left: 4px solid #141414;
+}
+.two-columns .centerRight img {
+    padding-top: 8px;
+    padding-bottom: 7px;
+    padding-left: 12px;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 2px;
+    width: 48px;
+}
+.two-columns .centerRight ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    list-style-type: none;
+    width: 100%;
+    padding-inline-start: 0px;
+}
+.two-columns .centerRight a {
+    vertical-align: middle;
+    display: inline-block;
+    width: calc(100%-50px);
+    padding-left: 18px;
+    text-decoration: none;
+    color:#ffffff;
+}
+.two-columns .centerRight li {
+    padding-bottom: 1px;
+    height: auto;
+}
+.two-columns .centerRight li:hover {
+    border-bottom: 0.5px solid rgba(235, 235, 245, 0.3);
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.two-columns .centerRight ul li:last-child {
+    padding-bottom: 0;
+}
+/* Контент центральной нижней части */
+.two-columns .bottomContentColumn {
+    clear: both;
+    height: 30px;
+    padding-bottom: 23px;
+}
+.two-columns .gamesOnSale {
+    float: left;
+    font-size: 16px;
+    color: white;
+}
+.two-columns .arrow {
+    float: right;
+    height: 30px;
+    width: 90px;
+}
+.two-columns .arrow .left {
+    height: 30px;
+    float: left;
+    width: 60px;
+    color:#EBEBF5;
+    opacity: 0.6;
+}
+.two-columns .arrow .right {
+    height: 30px;
+    float: right;
+    color:#EBEBF5;
+    opacity: 0.6;
+    transform: rotate(-180deg);
+}
+.two-columns .arrow .left:hover,
+.two-columns .arrow .right:hover {
+    color: #ffffff;
+    opacity: 1;
+}
+.two-columns .corouselBody ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    list-style-type: none;
+    width: 100%;
+    padding-inline-start: 0px;
+}
+.two-columns .corouselBody li {
+    padding-right: 20px;
+    width: 204px;
+    display: inline-block;
+}
+.two-columns .corouselBody ul li:last-child {
+    padding-right: 0;
+}
+.two-columns .corouselBody li img{
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+.two-columns .corouselBody a {
+    padding-bottom: 7px;
+    text-decoration: none;
+    color:#EBEBF5;
+}
+.two-columns .corouselBody a p {
+    color: rgba(235, 235, 245, 0.6);
+}
+/* Левая колонка с меню */
+.two-columns .container > .left {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 252px;
+    border-right:0.5px solid #38383A;
+}
+.two-columns .headerLeft {
+    width: 252px;
+    height: auto;
+    float: left;
+    padding-bottom: 56px;
+    padding-top: 60px;
+    padding-left: 39px;
+    padding-right: 59px;
+    box-sizing: border-box;
+}
+.two-columns .fourCirсleLogo {
+    float: left;
+    
+}
+.two-columns .gamesModeLogo {
+    padding-left: 9px;
+    padding-top: 5px;
+    float: left;
+}
+.two-columns .leftMenuContainer {
+    height: 100%;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+}
+.two-columns .leftMenuContainer img {
+    opacity: 0.6;
+    padding-left: 40px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.two-columns .leftMenuContainer ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    list-style-type: none;
+    width: 100%;
+    padding-inline-start: 0px;
+}
+.two-columns .leftMenuContainer a {
+    padding-left: 16px;
+    text-decoration: none;
+    color:#EBEBF5;
+    opacity: 0.6;
+    vertical-align: middle;
+    display: inline-block;
+}
+.two-columns .leftMenuContainer li:nth-last-child(-n+2) a {
+    padding-left: 12px;
+}
+.two-columns .leftMenuContainer li{
+    display: inline-block;
+    height: 48px;
+    line-height: 48px;    
+    width: 100%;
+    margin-bottom: 16px;
+}
+.two-columns .leftMenuContainer li:hover{
+    background: #2F2F2F;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.two-columns .leftMenuContainer li:hover a,
+.two-columns .leftMenuContainer li:hover img {
+    color:white;
+    opacity: 1;
+}
+.two-columns .leftBottomContainer {
+    position: fixed;
+    height: 236px;
+    bottom: 0;
+    float: left;
+    width: 252px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+}
+.two-columns .leftBottomContainer img {
+    opacity: 0.6;
+    vertical-align: middle;
+    margin-left: 40px;
+    display: inline-block;
+}
+.two-columns .leftBottomContainer ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    list-style-type: none;
+    width: 100%;
+}
+.two-columns .leftBottomContainer a {
+    text-decoration: none;
+    color:#EBEBF5;
+    opacity: 0.6;
+    padding-left: 15px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.two-columns .leftBottomContainer li{
+    height: 48px;
+    line-height: 48px;
+    width: 100%;
+    margin-bottom:  16px;
+}
+.two-columns .leftBottomContainer li:hover{
+    background: #2F2F2F;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.two-columns .leftBottomContainer li:hover a,
+.two-columns .leftBottomContainer li:hover img {
+    color:white;
+    opacity: 1;
+}
+.two-columns .AvatarIMG {
+    border-radius: 14px;
+}
+.two-columns .AvatarEllipse {
+    padding-top: 18px;
+    margin-left: -12px !important;
+    opacity: 1;
+}

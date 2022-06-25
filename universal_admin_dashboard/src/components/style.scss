@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,body {
+  height: 100%;
+  width: 100%;
+  #root {
+    height: 100%;
+    width: 100%;
+    background: #F7F7F8;
+    display: flex;
+    .workArea {
+      background: #F7F7F8;
+      display: inline-block;
+      height: 100%;
+      vertical-align: top;
+      flex-grow: 1;
+    }
+  }
+}

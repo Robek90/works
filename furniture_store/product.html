@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Hekto - Product Details</title>
+  <link rel="stylesheet" type="text/css" href="common.css"/>
+  <link rel="stylesheet" type="text/css" href="product.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Lato:wght@400;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container-fluid header">
+      <!--Шапка верх-->
+      <div class="container top_header">
+        <div class="row justify-content-center g-0">
+          <div class="col-6 contacts">
+            <a href=""><img src="./icon/envelope_header.svg" alt="">mhhasanul@gmail.com</a>
+            <a href=""><img src="./icon/phone-call.svg" alt="">(12345)67890</a>
+          </div>
+          <div class="col-6 account_menu">
+            <ul>
+              <li><a href="">English<img src="./icon/icons_chevron-down.svg" alt=""></a></li>
+              <li><a href="">USD<img src="./icon/icons_chevron-down.svg" alt=""></a></li>
+              <li><a href="">Login<img src="./icon/user_header.svg" alt=""></a></li> 
+              <li><a href="">Wishlist<img src="./icon/heart_header.svg" alt=""></a></li>
+              <li><a href="shopping_cart.html"><img src="./icon/shopping_cart.svg" alt=""></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--Шапка низ-->
+      <div class="container nav_header">
+        <div class="row justify-content-center g-0">
+          <div class="col-1 nav_logo">
+            <a href="index.html">Hekto</a>
+          </div>
+          <div class="col-11 nav_menu">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="categories.html">Categories</a></li>
+              <li><a href="">Products</a></li> 
+              <li><a href="">Blog</a></li>
+              <li><a href="">Shop</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+            <form class="search-container">
+              <input type="text" id="search-bar" placeholder="Search">
+              <a href="#"><img class="search-icon" src="./icon/magnifier_header.svg"></a>
+            </form>   
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Главный контейнер-->
+    <div class="container-fluid page_product">
+      <!--баннер контейнер-->
+      <div class="container-fluid page_product_title">
+        <div class="container product_details">
+          <h2>Product Details</h2>
+          <span>Home</span>
+          <span>. Pages</span>
+          <span class="customWord">. Shop Left Sidebar</span>
+        </div>
+      </div>
+      <div class="container top_content_product">
+        <div class="container-fluid card_product">
+          <div class="row g-0">
+            <div class="col gx-0">
+              <div class="images">
+                <div class="left_img">
+                  <div><img src="./image/left_product_img.jpg" alt=""></div>
+                  <div><img src="./image/left_product_img (2).jpg" alt=""></div>
+                  <div><img src="./image/left_product_img (3).jpg" class="last-child" alt=""></div>
+                </div>
+                <div class="right_img">
+                  <img src="./image/right_product_img.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="col gx-0">
+              <div class="info">
+                <h2>Playwood arm chair</h2>
+                <div class="rating">
+                  <div class="rating-group">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>(22)</p>
+                  </div>
+                </div>
+                <p class="card_price">
+                  $32.00<del>$32.00</del>
+                </p>
+                <span class="card_color">Color</span>
+                <p class="card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.</p>
+                <div class="cart_add">
+                  <span>Add To cart</span>
+                  <div class="svg_background">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.1202 3.45748C14.3239 2.66099 13.2682 2.17673 12.1451 2.09277C11.022 2.00881 9.90605 2.33073 9.00021 2.99998C8.04595 2.29021 6.8582 1.96837 5.67615 2.09926C4.49409 2.23016 3.40554 2.80407 2.62969 3.70542C1.85384 4.60678 1.44832 5.76862 1.49481 6.95699C1.54129 8.14536 2.03632 9.27198 2.88021 10.11L8.46771 15.6975C8.53743 15.7678 8.62038 15.8236 8.71177 15.8617C8.80317 15.8997 8.9012 15.9193 9.00021 15.9193C9.09922 15.9193 9.19725 15.8997 9.28864 15.8617C9.38003 15.8236 9.46299 15.7678 9.53271 15.6975L15.1202 10.11C15.5572 9.67327 15.9039 9.15474 16.1404 8.58401C16.3769 8.01327 16.4986 7.40153 16.4986 6.78373C16.4986 6.16593 16.3769 5.55419 16.1404 4.98346C15.9039 4.41272 15.5572 3.89419 15.1202 3.45748ZM14.0627 9.05248L9.00021 14.1075L3.93771 9.05248C3.49159 8.60451 3.18769 8.03477 3.06413 7.41474C2.94057 6.79471 3.00285 6.152 3.24317 5.56723C3.48349 4.98246 3.89113 4.48168 4.41497 4.1277C4.9388 3.77372 5.5555 3.58231 6.18771 3.57748C7.03229 3.57955 7.84153 3.91673 8.43771 4.51498C8.50743 4.58528 8.59038 4.64107 8.68177 4.67915C8.77317 4.71723 8.8712 4.73683 8.97021 4.73683C9.06922 4.73683 9.16725 4.71723 9.25864 4.67915C9.35003 4.64107 9.43299 4.58528 9.50271 4.51498C10.1165 3.98314 10.9093 3.70434 11.7209 3.735C12.5324 3.76566 13.302 4.10349 13.8738 4.68012C14.4457 5.25675 14.7771 6.02911 14.8011 6.84087C14.825 7.65264 14.5396 8.44317 14.0027 9.05248H14.0627Z" fill="#535399"/>
+                      </svg>                            
+                  </div>
+                  <p class="categories">Categories:</p>
+                  <p class="categories">Tags</p>
+                  <div class="categories">
+                    <p>Share</p>
+                    <img src="./icon/facebook_share.jpg" alt="">
+                    <img src="./icon/instagrame_share.jpg" alt="">
+                    <img src="./icon/twitter_share.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid middle_content_product">
+        <div class="container info_product">
+          <ul class="nav nav-tabs info_menu" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description"
+              aria-selected="true">Description</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="false">Additional Info</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#video" type="button" role="tab" aria-controls="video" aria-selected="false">Video</button>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="description" role="tabpanel">
+              <div class="info_content">
+                <h3>Description.</h3>
+                <p class="text">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+              </div>
+              <div class="details">
+                <ul>
+                  <h3>More details</h3>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr . 
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p class="text">
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="info" role="tabpanel">
+              <div class="info_content">
+                <h3>Additional Info.</h3>
+                <p class="text">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+              </div>
+              <div class="details">
+                <ul>
+                  <h3>More details</h3>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr . 
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p class="text">
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="reviews" role="tabpanel">
+              <div class="info_content">
+                <h3>Reviews.</h3>
+                <p class="text">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+              </div>
+              <div class="details">
+                <ul>
+                  <h3>More details</h3>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr . 
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p class="text">
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="video" role="tabpanel">
+              <div class="info_content">
+                <h3>Video.</h3>
+                <p class="text">Aliquam dis vulputate vulputate integer sagittis. Faucibus dolor ornare faucibus vel sed et eleifend habitasse amet. Montes, mauris varius ac est bibendum. Scelerisque a, risus ac ante. Velit consectetur neque, elit, aliquet. Non varius proin sed urna, egestas consequat laoreet diam tincidunt. Magna eget faucibus cras justo, tortor sed donec tempus. Imperdiet consequat, quis diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .</p>
+              </div>
+              <div class="details">
+                <ul>
+                  <h3>More details</h3>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr . 
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p>
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="3 3 10 10">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                    <p class="text">
+                      Aliquam dis vulputate vulputate integer sagittis. Faucibus ds diam arcu, nulla lobortis justo netus dis. Eu in fringilla vulputate nunc nec. Dui, massa viverr .
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container bottom_content_product">
+        <div class="row justify-content-start g-0">
+          <div class="col-auto title">Related Products</div>
+        </div>
+        <div class="row row-cols-1 row-cols-4 gx-5">
+          <div class="col product_col">
+            <div class="card product_card">
+              <img src="./image/foto1.jpg" class="card-img-top" alt="...">
+              <div class="card-body card_content">
+                <h5 class="card-title">Mens Fashion Wear</h5>
+                <div class="rating">
+                  <div class="rating-group">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </div>
+                <p class="card_price">$43.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="col product_col">
+            <div class="card product_card">
+              <img src="./image/foto2.jpg" class="card-img-top" alt="...">
+              <div class="card-body card_content">
+                <h5 class="card-title">Women’s Fashion</h5>
+                <div class="rating">
+                  <div class="rating-group">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </div>
+                <p class="card_price">$67.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="col product_col">
+            <div class="card product_card">
+              <img src="./image/foto3.jpg" class="card-img-top" alt="...">
+              <div class="card-body card_content">
+                <h5 class="card-title">Wolx Dummy Fashion</h5>
+                <div class="rating">
+                  <div class="rating-group">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </div>
+                <p class="card_price">$67.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="col product_col">
+            <div class="card product_card">
+              <img src="./image/foto4.jpg" class="card-img-top" alt="...">
+              <div class="card-body card_content">
+                <h5 class="card-title">Top Wall Digital Clock</h5>
+                <div class="rating">
+                  <div class="rating-group">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </div>
+                <p class="card_price">$51.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="text-center logo_brand">
+          <img src="./image/logo_brand.jpg" class="rounded" alt="">
+        </div>
+      </div>
+    </div>
+    <!--Подвал-->
+    <div class="container-fluid footer">
+      <!--Подвал верх-->
+      <div class="container menu_footer">
+        <div class="row g-0">
+          <div class="col-5">
+            <div class="title"><a href="">Hekto</a></div>
+            <form>
+              <p>
+                <input class="search" placeholder="Enter Email Address">
+                <input class="button" type="submit" value="Sign Up">
+              </p>
+            </form>
+            <p class="text">Contact Info</p>
+            <p class="text">17 Princess Road, London, Greater London NW1 8JR, UK</p>
+          </div>
+          <div class="col">
+            <h6>Catagories</h6>
+            <ul class="list-group">
+              <li class="list-group">Laptops & Computers</li>
+              <li class="list-group">Cameras & Photography</li>
+              <li class="list-group">Smart Phones & Tablets</li>
+              <li class="list-group">Video Games & Consoles</li>
+              <li class="list-group">Waterproof Headphones</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Customer Care</h6>
+            <ul class="list-group">
+              <li class="list-group">My Account</li>
+              <li class="list-group">Discount</li>
+              <li class="list-group">Returns</li>
+              <li class="list-group">Orders History</li>
+              <li class="list-group">Order Tracking</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Pages</h6>
+            <ul class="list-group">
+              <li class="list-group">Blog</li>
+              <li class="list-group">Browse the Shop</li>
+              <li class="list-group">Category</li>
+              <li class="list-group">Pre-Built Pages</li>
+              <li class="list-group">Visual Composer Elements</li>
+              <li class="list-group">WooCommerce Pages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--Подвал низ-->
+      <div class="container-fluid bottom_footer">
+        <div class="container copy_footer">
+          <div class="row justify-content-center g-0">
+            <div class="col-auto me-auto contacts">
+              <p href="">©Webecy - All Rights Reserved</p>
+            </div>
+            <div class="col-auto account_menu">
+              <div>
+                <img src="./icon/facebook.svg" alt="">
+                <img src="./icon/twitter.svg" alt="">
+                <img src="./icon/instagram.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+</body>
+</html

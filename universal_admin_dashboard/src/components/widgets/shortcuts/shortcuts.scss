@@ -1,0 +1,51 @@
+.shortContainer {
+  padding-top: 30px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: 10vh;
+  grid-gap: 30px;
+  .shortcuts {
+    background: #FFFFFF;
+    border-radius: 10px;
+    display: inline-block;
+    min-height: 90px;
+    .content {
+      margin: 0 auto;
+      width: 200px;
+      padding-top: 15px;
+      .imgContent {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        box-sizing: border-box;
+        max-width: 60px;
+        margin-right: 10%;
+        img {
+          max-width: 100%;
+        }
+      }
+      .textContent {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        .numberContainer {
+          text-align: start;
+          font-weight: 800;
+          font-size: 22px;
+          line-height: 30px;
+          color: #030229;
+          opacity: 0.7;
+        }
+        .textContainer {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 19px;
+          color: #030229;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

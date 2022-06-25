@@ -1,0 +1,372 @@
+.shopping_cart {
+  padding: 0;
+  .shopping_cart_title {
+    padding: 0;
+    background: #F6F5FF;
+    margin-bottom: 131px;
+    .cart_details {
+      padding-top: 96px;
+      padding-bottom: 126px;
+      h2 {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 36px;
+        line-height: 42px;
+
+        color: #101750;
+      }
+      span {
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #000000;
+      }
+      .customWord {
+        color: #FB2E86;
+      }
+    }
+  }
+  .content_shoppingCart {
+    margin-bottom: 145px;
+    .content {
+      padding: 0;
+      .left_col {
+        padding-right: 30px;
+        .table {
+          thead {
+            tr {
+              th:first-child {
+                width: 300px;
+                text-align: start;
+              }
+              th {
+                padding: 0;
+                text-align: center;
+                padding-bottom: 30px;
+                border-bottom-width: 0;
+              }
+              th:nth-last-child(1),
+              th:nth-last-child(3) {
+                width: 60px;
+                text-align: center;;
+              }
+            }
+          }
+          tbody{
+            border-top: 0;
+            tr {
+              th {
+                position: relative;
+                width: 300px;
+                height: 116px;
+                padding: 0;
+                .image {
+                  position: relative;
+                  display: inline-block;
+                  vertical-align: top;
+                  margin-top: 14px;
+                  .cross {
+                    position: absolute;
+                    top: -6px;
+                    right: -3px;
+                  }
+                }
+                .card_content {
+                  display: inline-block;
+                  vertical-align: top;
+                  padding: 0;
+                  margin-top: 24px;
+                  margin-left: 13px;
+                  .card_title {
+                    margin: 0;
+                    margin-bottom: 7px;
+                    font-family: 'Josefin Sans', sans-serif;
+                    font-size: 14px;
+                    line-height: 16px;
+  
+                    color: #000000;
+                  }
+                  .card_text {
+                    margin: 0;
+                    margin-bottom: 7px;
+                    font-family: 'Josefin Sans', sans-serif;
+                    font-size: 12px;
+                    line-height: 14px;
+  
+                    color: #A1A8C1;
+                    span {
+                      font-size: 14px;
+                      line-height: 16px;
+                    }
+                  }
+                }
+              }
+              td:nth-last-child(1) {
+                width: 60px;
+                text-align: center;
+              }
+              td {
+                padding: 0;
+                vertical-align: middle;
+                text-align: center;
+                font-family: 'Josefin Sans', sans-serif;
+                font-size: 14px;
+                line-height: 16px;
+  
+                color: #15245E;
+                .cartInput {
+                  width: 57px;
+                  margin: 0 auto;
+                  text-align: center;
+                  .value-button {
+                    display: inline-block;
+                    margin: 0px;
+                    width: 12px;
+                    height: 15px;
+                    text-align: center;
+                    vertical-align: middle;
+                    background: #E7E7EF;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    
+                    font-family: 'Josefin Sans', sans-serif;
+                    font-size: 12px;
+                    line-height: 14px;
+  
+                    color: #BEBFC2;
+                  }
+                  .value-button:hover {
+                    cursor: pointer;
+                  }
+                  .inputNumber {
+                    text-align: center;
+                    border: none;
+                    margin: 0;
+                    margin-bottom: 1px;
+                    padding: 0;
+                    width: 27px;
+                    height: 16px;
+                    background: #F0EFF2;
+  
+                    font-family: 'Josefin Sans', sans-serif;
+                    font-size: 12px;
+                    line-height: 14px;
+  
+                    color: #BEBFC2;
+                  }
+                  input[type=number]::-webkit-inner-spin-button,
+                  input[type=number]::-webkit-outer-spin-button {
+                      -webkit-appearance: none;
+                      margin: 0;
+                  }
+                }
+                .cartInput #decrease {
+                  margin-right: -4px;
+                }
+                .cartInput #increase {
+                  margin-left: -4px;
+                }
+                .cartInput #input-wrap {
+                  margin: 0px;
+                  padding: 0px;
+                }
+              }
+            }
+          }
+        }
+        .two_button {
+          margin-top: 37px;
+          .update_button {
+            float: left;
+            cursor: pointer;
+            text-align: center;
+            width: 134px;
+            height: 40px;
+
+            background: #FB2E86;
+            border-radius: 2px;
+            span {
+              font-family: 'Lato', sans-serif;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: 40px;
+              
+              color: #FFFFFF;
+            }
+          }
+          .clear_button {
+            float: right;
+            cursor: pointer;
+            text-align: center;
+            width: 134px;
+            height: 40px;
+
+            background: #FB2E86;
+            border-radius: 2px;
+            span {
+              font-family: 'Lato', sans-serif;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: 40px;
+              
+              color: #FFFFFF;
+            }
+          }
+        }
+      }
+      .right_col {
+        .top_element {
+          margin-left: 30px;
+          margin-bottom: 32px;
+          h4 {
+            margin-bottom: 40px;
+            text-align: center;
+
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #1D3178;
+          }
+          .container-fluid {
+            background: #F4F4FC;
+            border-radius: 3px;
+            padding: 30px 30px 32px 29px;
+            .text {
+              position: relative;
+              margin-bottom: 42px;
+              font-family: 'Lato', sans-serif;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 22px;
+              
+              color: #1D3178;
+              span {
+                float: right;
+              }
+              &:after {
+                position: absolute;
+                content: '';
+                top: 33px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: #E8E6F1;
+              }
+            }
+            .check {
+              vertical-align: middle;
+
+              font-family: 'Lato', sans-serif;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 12px;
+              line-height: 14px;
+
+              color: #8A91AB;
+              svg {
+                vertical-align: middle;
+                margin-right: 5px;
+              }
+            }
+            .proceed_button {
+              cursor: pointer;
+              text-align: center;
+              margin-top: 30px;
+              width: 300px;
+              height: 40px;
+              background: #19D16F;
+              border-radius: 3px;
+              a {
+                text-decoration: none;
+                font-family: 'Lato', sans-serif;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 40px;
+                
+                color: #FFFFFF;
+              }
+            }
+          }
+        }
+        .bottom_element {
+          margin-left: 30px;
+          h4 {
+            margin-bottom: 26px;
+            text-align: center;
+
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #1D3178;
+          }
+          .container-fluid {
+            background: #F4F4FC;
+            border-radius: 3px;
+            padding: 30px 32px 21px 32px;
+            form {
+              padding: 0;
+              background: #F4F4FC;
+              input {
+                position: relative;
+                border: 0;
+                padding: 0;
+                border-bottom: 1px solid #C7CEE4;
+                outline: 0;
+                width: 300px;
+                height: 35px;
+                margin-bottom: 30px;
+                background: #F4F4FC;
+  
+                font-family: 'Josefin Sans', sans-serif;
+                font-size: 14px;
+                line-height: 16px;
+
+                color: #C5CBE3;
+              }
+              input:nth-last-child(1) {
+                margin-bottom: 30px;
+              }
+              input[type="text"]::-webkit-input-placeholder {
+                color: rgba(21, 24, 117, 0.1);;
+               } 
+              a {
+                float: right;
+                margin-right: 15px;
+                text-align: center;
+                vertical-align: middle;
+              }
+            }
+            .calculate_button {
+              cursor: pointer;
+              text-align: center;
+              width: 179px;
+              height: 41px;
+              background: #FB2E86;
+              border-radius: 2px;
+              a {
+                text-decoration: none;
+                font-family: 'Josefin Sans', sans-serif;
+                font-size: 16px;
+                line-height: 41px;
+                
+                color: #FFFFFF;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
