@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans: 300,400,700,800');
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 68px;
+}
+
+.container {
+  max-width: 1210px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.screen--bg {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.screen-navigation {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.screen--header {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.screen-about-us {
+}
+
+.screen--services {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.screen--certificate {
+  background-color: #F0F0F0;
+  text-align: center;
+}
+
+.screen--portfolio {
+  background-color: rgb(34, 34, 34);
+}
+
+.screen--social {
+  background-color: rgb(240, 240, 240);
+}
+
+.screen--footer {
+  height: 68px;
+  margin-top: -68px;
+  padding-top: 20px;
+  background-color: rgb(34, 34, 34);
+  text-align: center;
+}
+
+.block-header {
+  background-color: rgba(40, 40, 46, .8);
+  padding-top: 150px;
+  padding-bottom: 150px;
+  text-align: center;
+}
+
+.header-title-text {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.header-line {
+  height: 3px;
+  max-width: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.header-content-text {
+  display: block;
+  color: #fff;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-button-link {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: transparent;
+  text-align: center;
+  border: 2px solid #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #fff;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.header-button-link:hover {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-link-block {
+  text-align: center;
+}
+
+.nav-link {
+  display: inline-block;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.nav-link:hover {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  text-decoration: none;
+  color: #fff;
+}
+
+.about-us-item {
+  width: 30%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.about-us-avatar {
+  max-width: 100%;
+}
+
+.item-avatar {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.services-item {
+  width: 40%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.block-flex {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.item-title {
+  color: #3d3d3d;
+  font-size: 30px;
+  display: block;
+  margin-top: -5px;
+  font-weight: bold;
+}
+
+.item-title-sub {
+  color: #3d3d3d;
+  font-size: 30px;
+  display: block;
+  margin-top: -5px;
+  font-weight: bold;
+}
+
+.item-ul {
+	list-style-type: none;
+}
+
+.item-li:before {
+	content: '• ';
+	font-size: 20px;
+}
+
+.line {
+  background-color: #f16522;
+  height: 3px;
+  max-width: 50px;
+  border-radius: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.item-content {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.botton-link {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: transparent;
+  text-align: center;
+  border: 2px solid #000;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.botton-link:hover {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  text-decoration: none;
+  color: inherit;
+}
+
+.item-set {
+  width: 50%;
+}
+
+.item-link:hover {
+  text-decoration: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~ item flex grid (Services) ~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.item-flex-grid {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  text-align: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.item-grid {
+  width: 47%;
+  padding-top: 10px;
+  background-color: #fff;
+}
+
+.item-grid-icon {
+  color: #3722f1;
+}
+
+.item-grid-text {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 9px;
+}
+
+.item-line {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.certificate-slide {
+  width: 350px;
+  max-height: 300px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.certificate--container {
+	max-width: 800px
+}
+
+.img-slide {
+  max-width: 100%;
+  max-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition-duration: 2s;
+  transition-duration: 2s;
+}
+
+.img-slide:hover {
+  -webkit-transform: scale(0.8, 0.8);
+  transform: scale(0.8, 0.8);
+}
+
+.title-c {
+  text-transform: uppercase;
+}
+
+.line-c {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paddings--screen {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 760px) {
+  .block-flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+  }
+  .line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-us-item,
+	.services-item {
+    width: 80%;
+  }
+  .item-set {
+    width: 90%;
+  }
+}
+
+.block-portfolio {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.portfolio-holder {
+  position: relative;
+  max-width: 540px;
+  margin-top: 30px;
+}
+
+.portfolio-block {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  background: rgba(0, 0, 0, .8);
+  padding: 5px;
+  padding-top: 18%;
+  display: none;
+}
+
+.portfolio-holder:hover .portfolio-block {
+  display: block;
+}
+
+.portfolio-img {
+  width: 100%;
+}
+
+.portfolio-link {
+  display: block;
+  max-width: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 2px solid #f16522;
+  font-weight: 700;
+  color: #f16522;
+}
+
+.portfolio-link:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.portfolio-title {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.portfolio-content {
+  color: #fff;
+}
+
+.block-social {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.social-title {
+  font-size: 20px;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+.social-conent {
+  font-size: 19px;
+}
+
+.social-item {
+  margin-top: 35px;
+}
+
+.footer-text {
+  color: #fff;
+}
+/*# sourceMappingURL=index.css.map */
