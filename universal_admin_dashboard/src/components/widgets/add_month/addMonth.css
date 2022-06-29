@@ -1,0 +1,12 @@
+.addMonthContainer {
+  grid-column: span 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 4;
+  background: white;
+}
+
+.addMonthContainer .addMonth {
+  text-align: center;
+}
+/*# sourceMappingURL=addMonth.css.map */

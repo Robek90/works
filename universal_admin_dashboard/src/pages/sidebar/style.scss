@@ -1,0 +1,49 @@
+#sidebar {
+  .logo {
+    width: 72px;
+    height: 42px;
+  }
+  .textLogo {
+    margin: 0;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+  }
+  .MuiList {
+    background: linear-gradient(90deg, #ACA9FF 0%, rgba(172, 169, 255, 0) 30.25%);
+    border-radius: 0px 5px 5px 0px;
+  }
+  .MuiListItem-button:hover {
+    background: linear-gradient(90deg, #ACA9FF 0%, rgba(172, 169, 255, 0) 30.25%);
+    border-radius: 0px 5px 5px 0px;
+  }
+  .profileAva {
+    margin: 0 5px;
+    width: 45px;
+    height: 45px;
+  }
+  .text1 {
+    flex: 1 1 auto;
+    margin: 0 5px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #000000;
+  }
+  .text2 {
+    flex: 1 1 auto;
+    margin: 0 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 14px;
+    color: #000000;
+    opacity: 0.5;
+  }
+}
+.logOutImg {
+  margin: 10px;
+}
+
