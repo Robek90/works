@@ -12,8 +12,15 @@ html, body {
   .wrapper {
     display: flex;
     flex-direction: column;
-    .bg-dark {
-      background: rgb(0, 0, 0, 0)!important;
+    @media screen and (max-width: 992px) {
+      .bg-dark {
+        background: rgb(0, 0, 0, 0)!important;
+      }
+    }
+    @media screen and (min-width: 992px) {
+      .bg-dark {
+        background: rgb(0, 0, 0)!important;
+      }
     }
     .page-header {
       position: absolute;
@@ -26,7 +33,7 @@ html, body {
           .nav-item {
             list-style: none;
             display: inline-block;
-            margin: 10px 10px;
+            margin: 0px 10px;
             cursor: pointer;
             .nav-link {
               text-decoration: none;
