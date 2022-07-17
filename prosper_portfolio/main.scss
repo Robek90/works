@@ -10,8 +10,7 @@ html, body {
   margin: 0;
   padding: 0;
   .wrapper {
-    display: flex;
-    flex-direction: column;
+    height: 100vh;
     @media screen and (max-width: 992px) {
       .bg-dark {
         background: rgb(0, 0, 0, 0)!important;
@@ -24,6 +23,7 @@ html, body {
     }
     .page-header {
       position: absolute;
+      padding: 0;
       width: 100%;
       z-index: 100;
       .collapsing, .collapse, .show {
@@ -31,9 +31,9 @@ html, body {
         .navbar-nav {
           justify-content: center;
           .nav-item {
+            height: 5vh;
             list-style: none;
             display: inline-block;
-            margin: 0px 10px;
             cursor: pointer;
             .nav-link {
               text-decoration: none;
@@ -45,34 +45,12 @@ html, body {
         }
       }
     }
-    // @media screen and (max-width: 550px) {
-    //   .page-header {
-    //     vertical-align: middle;
-    //     position: absolute;
-    //     z-index: 100;
-    //     .collapse {
-    //       ul {
-    //         li {
-    //           list-style: none;
-    //           margin: 8px 10px;
-    //           cursor: pointer;
-    //           a {
-    //             text-decoration: none;
-    //             text-transform: uppercase;
-    //             color: whitesmoke;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // @media screen and (max-width: 550px) {
-    //   .page-content {
-    //     height: calc(100% - 40px);
-    //   }
-    // }
+    @media screen and (min-width: 992px) {
+      .page-content {
+        padding-top: 5vh;
+      }
+    }
     .page-content {
-      height: calc(100% - 70px);
       width: 100%;
       font-family: 'Open Sans', sans-serif;
       background: #444;
@@ -80,16 +58,40 @@ html, body {
         background:#444;
         text-align: center;
         .carousel-item .img-fluid {
-          max-width: none;
-          height: 100%;
-          object-fit: cover;	
+          max-width: 200%;
+        }
+        @media screen and (min-width: 2160px) {
+          .img-fluid {
+            margin: 0 auto;
+            min-width: 0% !important;
+            max-width: 2100px !important;
+            max-height: calc(100vh - 10vh);
+          }
+        }
+        @media screen and (min-width: 1921px) {
+          .img-fluid {
+            margin: 0 auto;
+            min-width: 0% !important;
+            max-width: 1920px !important;
+            max-height: calc(100vh - 10vh);
+          }
+        }
+        @media screen and (min-width: 992px) {
+          .img-fluid {
+            min-width: 100%;
+            max-height: calc(100vh - 10vh);
+          }
+        }
+        @media screen and (max-width: 992px) {
+          .img-fluid {
+            min-width: 100%;
+            max-height: calc(100vh - 5vh);
+          }
         }
       }
     }
     .page-footer {
-      height: 40px;
-      display: flex;
-      flex-direction: column-reverse;
+      height: 5vh;
       background: rgb(0, 0, 0);
       color: whitesmoke;
     }

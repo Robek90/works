@@ -10,8 +10,7 @@ html, body {
   padding: 0;
 }
 html .wrapper, body .wrapper {
-  display: flex;
-  flex-direction: column;
+  height: 100vh;
 }
 @media screen and (max-width: 992px) {
   html .wrapper .bg-dark, body .wrapper .bg-dark {
@@ -25,6 +24,7 @@ html .wrapper, body .wrapper {
 }
 html .wrapper .page-header, body .wrapper .page-header {
   position: absolute;
+  padding: 0;
   width: 100%;
   z-index: 100;
 }
@@ -35,9 +35,9 @@ html .wrapper .page-header .collapsing .navbar-nav, html .wrapper .page-header .
   justify-content: center;
 }
 html .wrapper .page-header .collapsing .navbar-nav .nav-item, html .wrapper .page-header .collapse .navbar-nav .nav-item, html .wrapper .page-header .show .navbar-nav .nav-item, body .wrapper .page-header .collapsing .navbar-nav .nav-item, body .wrapper .page-header .collapse .navbar-nav .nav-item, body .wrapper .page-header .show .navbar-nav .nav-item {
+  height: 5vh;
   list-style: none;
   display: inline-block;
-  margin: 0px 10px;
   cursor: pointer;
 }
 html .wrapper .page-header .collapsing .navbar-nav .nav-item .nav-link, html .wrapper .page-header .collapse .navbar-nav .nav-item .nav-link, html .wrapper .page-header .show .navbar-nav .nav-item .nav-link, body .wrapper .page-header .collapsing .navbar-nav .nav-item .nav-link, body .wrapper .page-header .collapse .navbar-nav .nav-item .nav-link, body .wrapper .page-header .show .navbar-nav .nav-item .nav-link {
@@ -46,8 +46,12 @@ html .wrapper .page-header .collapsing .navbar-nav .nav-item .nav-link, html .wr
   color: whitesmoke;
   opacity: 1;
 }
+@media screen and (min-width: 992px) {
+  html .wrapper .page-content, body .wrapper .page-content {
+    padding-top: 5vh;
+  }
+}
 html .wrapper .page-content, body .wrapper .page-content {
-  height: calc(100% - 70px);
   width: 100%;
   font-family: "Open Sans", sans-serif;
   background: #444;
@@ -57,15 +61,38 @@ html .wrapper .page-content .carousel, body .wrapper .page-content .carousel {
   text-align: center;
 }
 html .wrapper .page-content .carousel .carousel-item .img-fluid, body .wrapper .page-content .carousel .carousel-item .img-fluid {
-  max-width: none;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-width: 200%;
+}
+@media screen and (min-width: 2160px) {
+  html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
+    margin: 0 auto;
+    min-width: 0% !important;
+    max-width: 2100px !important;
+    max-height: 90vh;
+  }
+}
+@media screen and (min-width: 1921px) {
+  html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
+    margin: 0 auto;
+    min-width: 0% !important;
+    max-width: 1920px !important;
+    max-height: 90vh;
+  }
+}
+@media screen and (min-width: 992px) {
+  html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
+    min-width: 100%;
+    max-height: 90vh;
+  }
+}
+@media screen and (max-width: 992px) {
+  html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
+    min-width: 100%;
+    max-height: 95vh;
+  }
 }
 html .wrapper .page-footer, body .wrapper .page-footer {
-  height: 40px;
-  display: flex;
-  flex-direction: column-reverse;
+  height: 5vh;
   background: rgb(0, 0, 0);
   color: whitesmoke;
 }/*# sourceMappingURL=main.css.map */
