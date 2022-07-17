@@ -60,7 +60,7 @@ html, body {
         .carousel-item .img-fluid {
           max-width: 200%;
         }
-        @media screen and (min-width: 2160px) {
+        @media screen and (min-device-width: 2160px) {
           .img-fluid {
             margin: 0 auto;
             min-width: 0% !important;
@@ -68,7 +68,7 @@ html, body {
             max-height: calc(100vh - 10vh);
           }
         }
-        @media screen and (min-width: 1921px) {
+        @media screen and (min-device-width: 1921px) {
           .img-fluid {
             margin: 0 auto;
             min-width: 0% !important;
@@ -76,13 +76,19 @@ html, body {
             max-height: calc(100vh - 10vh);
           }
         }
-        @media screen and (min-width: 992px) {
+        @media screen and (min-device-width: 992px) {
           .img-fluid {
             min-width: 100%;
             max-height: calc(100vh - 10vh);
           }
         }
-        @media screen and (max-width: 992px) {
+        @media (min-device-width: 279px) and (max-device-width: 800px) and (orientation: portrait) {
+          .img-fluid {
+            min-width: 100%;
+            max-height: calc(100vh - 5vh);
+          }
+        }
+        @media (min-device-width: 279px) and (max-device-width: 800px) and (orientation: landscape) {
           .img-fluid {
             min-width: 100%;
             max-height: calc(100vh - 5vh);

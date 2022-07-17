@@ -63,7 +63,7 @@ html .wrapper .page-content .carousel, body .wrapper .page-content .carousel {
 html .wrapper .page-content .carousel .carousel-item .img-fluid, body .wrapper .page-content .carousel .carousel-item .img-fluid {
   max-width: 200%;
 }
-@media screen and (min-width: 2160px) {
+@media screen and (min-device-width: 2160px) {
   html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
     margin: 0 auto;
     min-width: 0% !important;
@@ -71,7 +71,7 @@ html .wrapper .page-content .carousel .carousel-item .img-fluid, body .wrapper .
     max-height: 90vh;
   }
 }
-@media screen and (min-width: 1921px) {
+@media screen and (min-device-width: 1921px) {
   html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
     margin: 0 auto;
     min-width: 0% !important;
@@ -79,13 +79,19 @@ html .wrapper .page-content .carousel .carousel-item .img-fluid, body .wrapper .
     max-height: 90vh;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-device-width: 992px) {
   html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
     min-width: 100%;
     max-height: 90vh;
   }
 }
-@media screen and (max-width: 992px) {
+@media (min-device-width: 279px) and (max-device-width: 800px) and (orientation: portrait) {
+  html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
+    min-width: 100%;
+    max-height: 95vh;
+  }
+}
+@media (min-device-width: 279px) and (max-device-width: 800px) and (orientation: landscape) {
   html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
     min-width: 100%;
     max-height: 95vh;
