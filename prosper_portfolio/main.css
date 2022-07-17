@@ -14,14 +14,11 @@ html .wrapper, body .wrapper {
   flex-direction: column;
 }
 html .wrapper .bg-dark, body .wrapper .bg-dark {
-  background: black !important;
+  background: rgba(0, 0, 0, 0) !important;
 }
 html .wrapper .page-header, body .wrapper .page-header {
   position: absolute;
-  height: 70px;
   width: 100%;
-  margin: 5;
-  padding: 5;
   z-index: 100;
 }
 html .wrapper .page-header .collapsing, html .wrapper .page-header .collapse, html .wrapper .page-header .show, body .wrapper .page-header .collapsing, body .wrapper .page-header .collapse, body .wrapper .page-header .show {
@@ -33,18 +30,14 @@ html .wrapper .page-header .collapsing .navbar-nav, html .wrapper .page-header .
 html .wrapper .page-header .collapsing .navbar-nav .nav-item, html .wrapper .page-header .collapse .navbar-nav .nav-item, html .wrapper .page-header .show .navbar-nav .nav-item, body .wrapper .page-header .collapsing .navbar-nav .nav-item, body .wrapper .page-header .collapse .navbar-nav .nav-item, body .wrapper .page-header .show .navbar-nav .nav-item {
   list-style: none;
   display: inline-block;
-  margin: 0 10px;
+  margin: 10px 10px;
   cursor: pointer;
 }
 html .wrapper .page-header .collapsing .navbar-nav .nav-item .nav-link, html .wrapper .page-header .collapse .navbar-nav .nav-item .nav-link, html .wrapper .page-header .show .navbar-nav .nav-item .nav-link, body .wrapper .page-header .collapsing .navbar-nav .nav-item .nav-link, body .wrapper .page-header .collapse .navbar-nav .nav-item .nav-link, body .wrapper .page-header .show .navbar-nav .nav-item .nav-link {
   text-decoration: none;
   text-transform: uppercase;
   color: whitesmoke;
-}
-@media screen and (max-width: 550px) {
-  html .wrapper .page-content, body .wrapper .page-content {
-    height: calc(100% - 40px);
-  }
+  opacity: 1;
 }
 html .wrapper .page-content, body .wrapper .page-content {
   height: calc(100% - 70px);

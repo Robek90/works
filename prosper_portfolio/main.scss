@@ -13,14 +13,11 @@ html, body {
     display: flex;
     flex-direction: column;
     .bg-dark {
-      background: black!important;
+      background: rgb(0, 0, 0, 0)!important;
     }
     .page-header {
       position: absolute;
-      height: 70px;
       width: 100%;
-      margin: 5;
-      padding: 5;
       z-index: 100;
       .collapsing, .collapse, .show {
         align-items: center;
@@ -29,12 +26,13 @@ html, body {
           .nav-item {
             list-style: none;
             display: inline-block;
-            margin: 0 10px;
+            margin: 10px 10px;
             cursor: pointer;
             .nav-link {
               text-decoration: none;
               text-transform: uppercase;
               color: whitesmoke;
+              opacity: 1;
             }
           }
         }
@@ -61,11 +59,11 @@ html, body {
     //     }
     //   }
     // }
-    @media screen and (max-width: 550px) {
-      .page-content {
-        height: calc(100% - 40px);
-      }
-    }
+    // @media screen and (max-width: 550px) {
+    //   .page-content {
+    //     height: calc(100% - 40px);
+    //   }
+    // }
     .page-content {
       height: calc(100% - 70px);
       width: 100%;
