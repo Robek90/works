@@ -102,12 +102,20 @@ html, body {
         .carousel-item .img-fluid {
           max-width: 200%;
         }
+        @media screen and (min-width: 3440px) {
+          .img-fluid {
+            margin: 0 auto;
+            min-width: 0% !important;
+            max-width: 2100px !important;
+            max-height: calc(100% - 100px);
+          }
+        }
         @media screen and (min-width: 2160px) {
           .img-fluid {
             margin: 0 auto;
             min-width: 0% !important;
             max-width: 2100px !important;
-            max-height: calc(100vh - 100px);
+            max-height: calc(100% - 100px);
           }
         }
         @media screen and (min-width: 1921px) {
@@ -115,19 +123,19 @@ html, body {
             margin: 0 auto;
             min-width: 0% !important;
             max-width: 1920px !important;
-            max-height: calc(100vh - 100px);
+            max-height: calc(100% - 100px);
           }
         }
         @media screen and (min-width: 992px) {
           .img-fluid {
             min-width: 100%;
-            max-height: calc(100vh - 100px);
+            max-height: calc(100% - 100px);
           }
         }
         @media (min-width: 279px) and (max-width: 991px) {
           .img-fluid {
             min-width: 100%;
-            max-height: calc(100vh - 50px);
+            max-height: calc(100% - 50px);
           }
         }
       }
