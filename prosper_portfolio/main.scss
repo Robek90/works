@@ -5,7 +5,17 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+@media only screen and (pointer: coarse) and (min-width: 279px) and (max-width: 769px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -15,6 +25,12 @@ html, body {
       .bg-dark {
         background: rgb(0, 0, 0, 0)!important;
       }
+      .page-header {
+        box-shadow: none !important;
+        top: 10px;
+        left: 20px;
+        width: 100px !important;
+      }
     }
     @media screen and (min-width: 992px) {
       .bg-dark {
@@ -23,15 +39,24 @@ html, body {
     }
     .page-header {
       position: absolute;
+      height: 50px;
       padding: 0;
       width: 100%;
       z-index: 100;
+      box-shadow: 5px 10px 5px rgb(49, 49, 49, 0.6);
+      .navbar-toggler:hover {
+        box-shadow: 5px 5px 5px rgb(49, 49, 49, 0.6);
+      }
+      .navbar-toggler:focus {
+        outline: none !important;
+        box-shadow: 5px 5px 5px rgb(49, 49, 49, 0.6);
+      }
       .collapsing, .collapse, .show {
         align-items: center;
         .navbar-nav {
           justify-content: center;
+          margin: 0 auto;
           .nav-item {
-            height: 5vh;
             list-style: none;
             display: inline-block;
             cursor: pointer;
@@ -39,7 +64,24 @@ html, body {
               text-decoration: none;
               text-transform: uppercase;
               color: whitesmoke;
-              opacity: 1;
+            }
+            @media screen and (max-width: 992px) {
+              .dropdown-menu {
+                position: absolute;
+                top: -10px;
+                left: 100px;
+                width: 300px;
+                background: rgb(0, 0, 0, 0)!important;
+              }
+            }
+            .dropdown-menu {
+              background: rgb(0, 0, 0);
+              border: 1px solid rgba(150, 150, 150, 0.15);
+              box-shadow: 5px 5px 5px rgb(49, 49, 49, 0.6);
+              .dropdown-item {
+                text-transform: uppercase;
+                color: whitesmoke;
+              }
             }
           }
         }
@@ -47,7 +89,7 @@ html, body {
     }
     @media screen and (min-width: 992px) {
       .page-content {
-        padding-top: 5vh;
+        padding-top: 50px;
       }
     }
     .page-content {
@@ -60,44 +102,38 @@ html, body {
         .carousel-item .img-fluid {
           max-width: 200%;
         }
-        @media screen and (min-device-width: 2160px) {
+        @media screen and (min-width: 2160px) {
           .img-fluid {
             margin: 0 auto;
             min-width: 0% !important;
             max-width: 2100px !important;
-            max-height: calc(100vh - 10vh);
+            max-height: calc(100vh - 100px);
           }
         }
-        @media screen and (min-device-width: 1921px) {
+        @media screen and (min-width: 1921px) {
           .img-fluid {
             margin: 0 auto;
             min-width: 0% !important;
             max-width: 1920px !important;
-            max-height: calc(100vh - 10vh);
+            max-height: calc(100vh - 100px);
           }
         }
-        @media screen and (min-device-width: 992px) {
+        @media screen and (min-width: 992px) {
           .img-fluid {
             min-width: 100%;
-            max-height: calc(100vh - 10vh);
+            max-height: calc(100vh - 100px);
           }
         }
-        @media (min-device-width: 279px) and (max-device-width: 800px) and (orientation: portrait) {
+        @media (min-width: 279px) and (max-width: 991px) {
           .img-fluid {
             min-width: 100%;
-            max-height: calc(100vh - 5vh);
-          }
-        }
-        @media (min-device-width: 279px) and (max-device-width: 800px) and (orientation: landscape) {
-          .img-fluid {
-            min-width: 100%;
-            max-height: calc(100vh - 5vh);
+            max-height: calc(100vh - 50px);
           }
         }
       }
     }
     .page-footer {
-      height: 5vh;
+      height: 50px;
       background: rgb(0, 0, 0);
       color: whitesmoke;
     }
