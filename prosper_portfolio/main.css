@@ -19,6 +19,9 @@
 html, body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0, linear-gradient(225deg, black 25%, transparent 25%) -50px 0, linear-gradient(315deg, black 25%, transparent 25%), linear-gradient(45deg, black 25%, transparent 25%);
+  background-size: 2em 2em;
+  background-color: #232323;
 }
 html .wrapper, body .wrapper {
   height: 100vh;
@@ -110,15 +113,14 @@ html .wrapper .page-content .carousel .carousel-item .img-fluid, body .wrapper .
   html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
     margin: 0 auto;
     min-width: 0% !important;
-    max-width: 2100px !important;
+    max-width: 2160px;
     max-height: calc(100vh - 100px);
   }
 }
 @media screen and (min-width: 1921px) {
   html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
     margin: 0 auto;
-    min-width: 0% !important;
-    max-width: 1920px !important;
+    min-width: 100%;
     max-height: calc(100vh - 100px);
   }
 }
