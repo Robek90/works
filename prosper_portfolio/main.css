@@ -119,7 +119,6 @@ html .wrapper .page-content .carousel .carousel-item .img-fluid, body .wrapper .
 }
 @media screen and (min-width: 1921px) {
   html .wrapper .page-content .carousel .img-fluid, body .wrapper .page-content .carousel .img-fluid {
-    margin: 0 auto;
     min-width: 100%;
     max-height: calc(100vh - 100px);
   }
