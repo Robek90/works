@@ -28,52 +28,46 @@ export default () => {
     { name: 'price', title: 'Цена в рублях'},
     { name: 'summ', title: 'Сумма'},
   ]);
-  
-  const [rows, setRows] = useState([{
-    columnValues: 
-      {
-        product: '',
-        number: '',
-        price: '',
-        summ: '',
-      },
-      length: 0
-  }]);
 
   const [editingStateColumnExtensions] = useState([
     { columnName: 'summ', editingEnabled: false },
   ]);
 
   const commitChanges = ({ added, changed, deleted }) => {
-    console.log(added, changed, deleted);
     let changedRows;
     if (added) {
       changedRows = [
-        ...rows,
+        ...data,
         ...added.map((row) => ({
           ...row,
         })),
       ];
     }
     if (changed) {
-      changedRows = rows.map((row,index) => {
-        console.log(row)
-        (changed[index] ? { ...row, ...changed[index] } : row)
-      });
+      changedRows = data.map((row,index) => 
+      (changed[index] ? { ...row, ...changed[index] } : row));
     }
     if (deleted) {
       const deletedSet = new Set(deleted);
-      changedRows = rows.filter((row,index) => !deletedSet.has(index));
+      changedRows = data.filter((row,index) => !deletedSet.has(index));
     }
 
-    dispatch(replaceArr(changedRows))
-    setRows(changedRows)
+    let result = changedRows.map((item)=>{
+      return {
+        product: item.product,
+        number: item.number,
+        price: item.price,
+        summ: +item.number + +item.price,
+      }
+    })
+
+    dispatch(replaceArr(result))
   };
 
   return (
     <Paper>
       <Grid
-        rows={rows}
+        rows={data}
         columns={columns}
       >
         <EditingState
