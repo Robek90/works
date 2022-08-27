@@ -1,0 +1,116 @@
+html, body {
+  margin: 0;
+  background: black;
+  height: 100%;
+}
+html #root, body #root {
+  height: 100%;
+}
+html .wrapper, body .wrapper {
+  position: relative;
+  overflow: scroll-x;
+  box-sizing: border-box;
+  margin: 0 auto;
+  min-height: 100%;
+  width: 1400px;
+  background: #bba996;
+  padding: 20px;
+}
+html .wrapper .header, body .wrapper .header {
+  width: 300px;
+  margin: 0 auto;
+  background: #56433D;
+  text-align: center;
+  border: 2px solid #F9C941;
+  border-radius: 0 30% 0 20%;
+}
+html .wrapper .header h1, body .wrapper .header h1 {
+  font-family: "Open Sans", sans-serif;
+  color: #F9C941;
+}
+html .wrapper .btnContainer, body .wrapper .btnContainer {
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+}
+html .wrapper .btnContainer .btn, body .wrapper .btnContainer .btn {
+  margin: 10px;
+  padding: 5px;
+}
+html .wrapper .btnContainer .btnCreate, body .wrapper .btnContainer .btnCreate {
+  float: right;
+  margin-right: 230px;
+  border-radius: 20%;
+  padding: 10px;
+  color: #F9C941;
+  background: #81995a;
+}
+html .wrapper .btnContainer .btnEdit, body .wrapper .btnContainer .btnEdit {
+  float: left;
+  margin-left: 210px;
+  border-radius: 10%;
+  padding: 10px;
+  color: #F9C941;
+  background: #81995a;
+}
+html .wrapper .btnContainer .btnEditActive, body .wrapper .btnContainer .btnEditActive {
+  float: left;
+  margin-left: 210px;
+  border-radius: 10%;
+  padding: 10px;
+  color: #e4d8b7;
+  background: #b95334;
+}
+html .wrapper .resultContainer, body .wrapper .resultContainer {
+  margin: 10px;
+  width: 150px;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  background: #f1e4c0;
+  border: 1px solid #56433D;
+}
+html .wrapper .resultContainer .result, body .wrapper .resultContainer .result {
+  font-family: "Open Sans", sans-serif;
+}
+html .wrapper table, body .wrapper table {
+  width: 1200px;
+  border-spacing: 0 10px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  margin: 0 auto;
+}
+html .wrapper tbody, body .wrapper tbody {
+  width: 1000px;
+}
+html .wrapper tbody .buttDel, body .wrapper tbody .buttDel {
+  border-radius: 20%;
+  padding: 5px;
+  color: #e4d8b7;
+  background: #b95334;
+}
+html .wrapper tbody td, body .wrapper tbody td {
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  border-top: 2px solid #56433D;
+  border-bottom: 2px solid #56433D;
+  border-right: 2px solid #56433D;
+}
+html .wrapper tbody td:first-child, body .wrapper tbody td:first-child {
+  border-left: 2px solid #56433D;
+  border-right: 2px solid #56433D;
+}
+html .wrapper tbody .buttEdit, body .wrapper tbody .buttEdit {
+  width: 115px;
+  background: #f1e4c0;
+  border-radius: 20%;
+  padding: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+html .wrapper tbody .buttSave, body .wrapper tbody .buttSave {
+  color: #F9C941;
+  background: #81995a;
+}/*# sourceMappingURL=style.css.map */

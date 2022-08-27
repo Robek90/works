@@ -1,0 +1,135 @@
+html,body {
+  margin: 0;
+  background: black;
+  height: 100%;
+  #root {
+    height: 100%;
+  }
+  .wrapper {
+    position: relative;
+    overflow: scroll-x;
+    box-sizing: border-box;
+    margin: 0 auto;
+    min-height: 100%;
+    width: 1400px;
+    background: #bba996;
+    padding: 20px;
+    .header {
+      width: 300px;
+      margin: 0 auto;
+      background: #56433D;
+      text-align: center;
+      border: 2px solid #F9C941;
+      border-radius: 0 30% 0 20%;
+      h1 {
+        font-family: 'Open Sans', sans-serif;
+        color: #F9C941;
+      }
+    }
+    .btnContainer {
+      margin: 0 auto;
+      width: 100%;
+      height: 50px;
+      .btn {
+        margin: 10px;
+        padding: 5px;
+      }
+      .btnCreate {
+        float: right;
+        margin-right: 230px;
+        border-radius: 20%;
+        padding: 10px;
+        color: #F9C941;
+        background: #81995a;
+      }
+      .btnEdit {
+        float: left;
+        margin-left: 210px;
+        border-radius: 10%;
+        padding: 10px;
+        color: #F9C941;
+        background: #81995a;
+      }
+      .btnEditActive {
+        float: left;
+        margin-left: 210px;
+        border-radius: 10%;
+        padding: 10px;
+        color: #e4d8b7;
+        background: #b95334;
+      }
+    }
+    .resultContainer {
+      margin: 10px;
+      width: 150px;
+      margin: 0 auto;
+      padding: 5px;
+      text-align: center;
+      background: #f1e4c0;
+      border: 1px solid #56433D;
+      .result {
+        font-family: 'Open Sans', sans-serif;
+      }
+    }
+    table {
+      width: 1200px;
+      border-spacing: 0 10px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: bold;
+      margin: 0 auto;
+      }
+    // thead {
+    //   th {
+    //     padding: 10px 10px;
+    //     background: #56433D;
+    //     color: #F9C941;
+    //     border-right: 2px solid; 
+    //     font-size: 0.9em;
+    //     }
+    //   th:first-child {
+    //     width: 80px;
+    //     text-align: left;
+    //     background: #bba996;
+    //     }
+    //   th:last-child {
+    //     width: 120px;
+    //     border-right: none;
+    //     background: #bba996;
+    //     }
+    // }
+    tbody {
+      width: 1000px;
+      .buttDel {
+        border-radius: 20%;
+        padding: 5px;
+        color: #e4d8b7;        
+        background: #b95334;
+      }
+      td {
+        vertical-align: middle;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border-top: 2px solid #56433D;
+        border-bottom: 2px solid #56433D;
+        border-right: 2px solid #56433D;
+        }
+      td:first-child {
+        border-left: 2px solid #56433D;
+        border-right: 2px solid #56433D;
+        }
+      .buttEdit {
+        width: 115px;
+        background: #f1e4c0;
+        border-radius: 20%;
+        padding: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+      }
+      .buttSave {
+        color: #F9C941;
+        background: #81995a;
+      }
+    }
+  }
+}
