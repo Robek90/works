@@ -11,57 +11,54 @@ import {
 } from '@devexpress/dx-react-grid-material-ui';
 import {
   storeValue,
-  addValue,
-  replaceArr,
 } from '../reducer/tablereducer';
-// import Service from './service.js';
+import Service from './service.js';
 
 export default () => {
   let data = useSelector(storeValue);
-  const dispatch = useDispatch();
 
-  // const service = new Service({ dispatch: dispatch, data: data });
+  const dispatch = useDispatch();
   
   const [columns] = useState([
-    { name: 'product', title: 'Продукт'},
-    { name: 'number', title: 'Количество шт.'},
-    { name: 'price', title: 'Цена в рублях'},
-    { name: 'summ', title: 'Сумма'},
+    { name: 'product', title: 'Product'},
+    { name: 'number', title: 'Numbers'},
+    { name: 'price', title: 'Price'},
+    { name: 'summ', title: 'Summ'},
   ]);
 
   const [editingStateColumnExtensions] = useState([
     { columnName: 'summ', editingEnabled: false },
   ]);
+  const [validationStatus, setValidationStatus] = useState({});
 
-  const commitChanges = ({ added, changed, deleted }) => {
-    let changedRows;
-    if (added) {
-      changedRows = [
-        ...data,
-        ...added.map((row) => ({
-          ...row,
-        })),
-      ];
-    }
-    if (changed) {
-      changedRows = data.map((row,index) => 
-      (changed[index] ? { ...row, ...changed[index] } : row));
-    }
-    if (deleted) {
-      const deletedSet = new Set(deleted);
-      changedRows = data.filter((row,index) => !deletedSet.has(index));
-    }
+  const service = new Service({ 
+    dispatch: dispatch, 
+    data: data, 
+    columns: columns, 
+    validationStatus: validationStatus, 
+    setValidationStatus: setValidationStatus,
+  });
 
-    let result = changedRows.map((item)=>{
-      return {
-        product: item.product,
-        number: item.number,
-        price: item.price,
-        summ: +item.number + +item.price,
-      }
-    })
+  const Cell = React.useCallback((props) => {
+    const { tableRow: { rowId }, column: { name: columnName } } = props;
+    const columnStatus = validationStatus[rowId]?.[columnName];
+    const valid = !columnStatus || columnStatus.isValid;
+    const style = {
+      ...(!valid ? { border: '1px solid red' } : null),
+    };
+    const title = valid ? '' : validationStatus[rowId][columnName].error;
 
-    dispatch(replaceArr(result))
+    return (
+      <Table.Cell
+        {...props}
+        style={style}
+        title={title}
+      />
+    );
+  }, [validationStatus]);
+
+  function commitChangesProps({ added, changed, deleted }) {
+    service.commitChanges({ added, changed, deleted })
   };
 
   return (
@@ -71,10 +68,12 @@ export default () => {
         columns={columns}
       >
         <EditingState
-          onCommitChanges={commitChanges}
+          onCommitChanges={commitChangesProps}
           columnExtensions={editingStateColumnExtensions}
         />
-        <Table />
+        <Table 
+          cellComponent={Cell}
+        />
         <TableHeaderRow />
         <TableEditRow />
         <TableEditColumn
