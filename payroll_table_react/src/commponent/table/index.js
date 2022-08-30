@@ -31,7 +31,7 @@ export default () => {
   ]);
   const [validationStatus, setValidationStatus] = useState({});
 
-  const [finalSumm, setFinalSumm] = useState();
+  const [finalAmount, setFinalAmount] = useState();
 
   const service = new Service({ 
     dispatch: dispatch, 
@@ -41,7 +41,7 @@ export default () => {
     setValidationStatus: setValidationStatus,
   });
 
-  const Cell1 = useCallback((props) => {
+  const Cell = useCallback((props) => {
     const { tableRow: { rowId }, column: { name: columnName } } = props;
     const columnStatus = validationStatus[rowId]?.[columnName];
     const valid = !columnStatus || columnStatus.isValid;
@@ -59,22 +59,18 @@ export default () => {
     );
   }, [validationStatus]);
 
-  // function Cell(props) {
-  //   service.noValidCell(props)
-  // };
-
   function commitChangesProps({ added, changed, deleted }) {
     service.commitChanges({ added, changed, deleted })
   };
 
   useEffect(() => {
-    setFinalSumm(service.finalAmount())
+    setFinalAmount(service.finalAmount())
   },[data]);
 
   return (
     <Paper>
       <div>
-        {finalSumm}
+        {finalAmount}
       </div>
       <Grid
         rows={data}
@@ -85,7 +81,7 @@ export default () => {
           columnExtensions={editingStateColumnExtensions}
         />
         <Table 
-          cellComponent={Cell1}
+          cellComponent={Cell}
         />
         <TableHeaderRow />
         <TableEditRow />

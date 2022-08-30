@@ -13,8 +13,18 @@ class Table {
   finalAmount() {
     let arrSumm = [];
     this.data.map(item => arrSumm.push(item.summ))
-    let finalSumm = this.data.reduce((summ,current)=> summ + current.summ , 0 )
-    return finalSumm 
+    let finalSumm = this.data.reduce((summ,current) => summ + +current.summ, 0)
+    return finalSumm.toFixed(2)
+  };
+
+  mul(a,b) {
+    let c; 
+    if(isNaN(a) && isNaN(b)) {
+      c = 0.00
+    } else {
+      c = +a * +b
+    }
+    return c.toFixed(2)
   };
 
   commitChanges(params) {
@@ -51,18 +61,14 @@ class Table {
         product: item.product,
         number: item.number,
         price: item.price,
-        summ: +item.number * +item.price,
+        summ: this.mul(item.number, item.price),
       }
     })
     
     return (
       this.dispatch(replaceArr(result))
     )
-    
   };
-
-  // noValidCell(props, react) {
-  //   }
 }
 
 export default Table;
