@@ -8,12 +8,20 @@ class Table {
     this.columns = params.columns;
     this.validationStatus = params.validationStatus;
     this.setValidationStatus = params.setValidationStatus;
-    // this.validate = params.validate;
+  };
+
+  finalAmount() {
+    let arrSumm = [];
+    this.data.map(item => arrSumm.push(item.summ))
+    let finalSumm = this.data.reduce((summ,current)=> summ + current.summ , 0 )
+    return finalSumm 
   };
 
   commitChanges(params) {
     let { added, changed, deleted } = params;
+
     let changedRows;
+
     if (added) {
       changedRows = [
         ...this.data,
@@ -21,14 +29,17 @@ class Table {
           ...row,
         })),
       ];
+
+      this.setValidationStatus({ ...this.validationStatus, ...validate(added, this.validationStatus) });
     }
+
     if (changed) {
       changedRows = this.data.map((row,index) => 
       (changed[index] ? { ...row, ...changed[index] } : row));
 
-      console.log(changed);
       this.setValidationStatus({ ...this.validationStatus, ...validate(changed, this.validationStatus) });
     }
+
     if (deleted) {
       const deletedSet = new Set(deleted);
       changedRows = this.data.filter((row,index) => !deletedSet.has(index));
@@ -43,9 +54,15 @@ class Table {
         summ: +item.number * +item.price,
       }
     })
+    
     return (
-    this.dispatch(replaceArr(result))
+      this.dispatch(replaceArr(result))
     )
+    
   };
+
+  // noValidCell(props, react) {
+  //   }
 }
+
 export default Table;
