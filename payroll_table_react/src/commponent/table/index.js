@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Paper from '@mui/material/Paper';
 import { useSelector, useDispatch } from 'react-redux';
 import { EditingState } from '@devexpress/dx-react-grid';
@@ -31,6 +31,8 @@ export default () => {
   ]);
   const [validationStatus, setValidationStatus] = useState({});
 
+  const [finalSumm, setFinalSumm] = useState();
+
   const service = new Service({ 
     dispatch: dispatch, 
     data: data, 
@@ -39,7 +41,7 @@ export default () => {
     setValidationStatus: setValidationStatus,
   });
 
-  const Cell = React.useCallback((props) => {
+  const Cell1 = useCallback((props) => {
     const { tableRow: { rowId }, column: { name: columnName } } = props;
     const columnStatus = validationStatus[rowId]?.[columnName];
     const valid = !columnStatus || columnStatus.isValid;
@@ -57,12 +59,23 @@ export default () => {
     );
   }, [validationStatus]);
 
+  // function Cell(props) {
+  //   service.noValidCell(props)
+  // };
+
   function commitChangesProps({ added, changed, deleted }) {
     service.commitChanges({ added, changed, deleted })
   };
 
+  useEffect(() => {
+    setFinalSumm(service.finalAmount())
+  },[data]);
+
   return (
     <Paper>
+      <div>
+        {finalSumm}
+      </div>
       <Grid
         rows={data}
         columns={columns}
@@ -72,7 +85,7 @@ export default () => {
           columnExtensions={editingStateColumnExtensions}
         />
         <Table 
-          cellComponent={Cell}
+          cellComponent={Cell1}
         />
         <TableHeaderRow />
         <TableEditRow />
