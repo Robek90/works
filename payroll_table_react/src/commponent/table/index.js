@@ -29,6 +29,7 @@ export default () => {
   const [editingStateColumnExtensions] = useState([
     { columnName: 'summ', editingEnabled: false },
   ]);
+  
   const [validationStatus, setValidationStatus] = useState({});
 
   const [finalAmount, setFinalAmount] = useState();
