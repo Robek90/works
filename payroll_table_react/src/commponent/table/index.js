@@ -69,7 +69,7 @@ export default () => {
 
   return (
     <Paper>
-      <div>
+      <div className='mulResultContainer'>
         {finalAmount}
       </div>
       <Grid
