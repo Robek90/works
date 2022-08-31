@@ -20,7 +20,7 @@ export default () => {
   const dispatch = useDispatch();
   
   const [columns] = useState([
-    { name: 'product', title: 'Product'},
+    { name: 'products', title: 'Products'},
     { name: 'number', title: 'Numbers'},
     { name: 'price', title: 'Price'},
     { name: 'summ', title: 'Summ'},
@@ -29,7 +29,7 @@ export default () => {
   const [editingStateColumnExtensions] = useState([
     { columnName: 'summ', editingEnabled: false },
   ]);
-  
+
   const [validationStatus, setValidationStatus] = useState({});
 
   const [finalAmount, setFinalAmount] = useState();
