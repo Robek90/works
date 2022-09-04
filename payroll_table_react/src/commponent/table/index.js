@@ -20,7 +20,7 @@ export default () => {
   const dispatch = useDispatch();
   
   const [columns] = useState([
-    { name: 'products', title: 'Products'},
+    { name: 'product', title: 'Products'},
     { name: 'number', title: 'Numbers'},
     { name: 'price', title: 'Price'},
     { name: 'summ', title: 'Summ'},

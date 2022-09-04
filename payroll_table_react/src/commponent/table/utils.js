@@ -7,11 +7,11 @@ const validationRules = {
   number: {
     isValid: number => number.match(/^(0|[1-9]\d*)(\.[0-9]{1,2})?$/, ''),
     errorText: 'Your Number must have only number!',
-  } || requiredRule,
+  },
   price: {
     isValid: price => price.match(/^(0|[1-9]\d*)(\.[0-9]{1,2})?$/),
     errorText: 'Your Price must have only number!',
-  } || requiredRule,
+  },
   product: requiredRule,
 };
 
