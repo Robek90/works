@@ -5,7 +5,7 @@ import MenuList from "./whMenuList/index";
 
 export default function Sidebar() {
   return (
-    <div className="sidebar">
+    <div className="sidebar_container">
       <div className="sidebar_race_logo">
         LOGO
       </div>

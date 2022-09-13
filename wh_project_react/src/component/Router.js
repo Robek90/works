@@ -29,13 +29,9 @@ const routes = [
 export default function AppRouter() {
   return (
     <Router>
-      <div style={{ display: "flex" }}>
+      <div className="router_container">
         <div
-          style={{
-            padding: "10px",
-            width: "40%",
-            background: "#f0f0f0"
-          }}
+          className="sidebar"
         >
           <Switch>
             {routes.map((route, index) => (
