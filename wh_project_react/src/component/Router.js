@@ -1,34 +1,27 @@
 import {
   BrowserRouter as Router,
+  Redirect,
   Route,
   Switch
 } from "react-router-dom";
+import history from "../utils/history";
 
 import Sidebar from "./sidebar";
 import Category from "../pages/category";
 
-const routes = [
-  {
-    path: "/",
-    exact: true,
-    sidebar: () => <Sidebar/>,
-    main: () => <Category/>
-  },
-  {
-    path: "/wh30K",
-    sidebar: () => <Sidebar/>,
-    main: () => <Category/>
-  },
-  {
-    path: "/wh40k",
-    sidebar: () => <Sidebar/>,
-    main: () => <Category/>
-  }
-];
-
 export default function AppRouter() {
+  const routes = [
+    {
+      path: '/books',
+      exact: true,
+      sidebar: () => <Sidebar/>,
+      main: () => <Category/>
+    },
+  ];
+
   return (
-    <Router>
+    <Router
+      history={history}>
       <div className="router_container">
         <div
           className="sidebar"
@@ -40,7 +33,8 @@ export default function AppRouter() {
                 path={route.path}
                 exact={route.exact}
                 children={<route.sidebar />}
-              />
+              >
+              </Route>
             ))}
           </Switch>
         </div>
@@ -58,6 +52,8 @@ export default function AppRouter() {
           </Switch>
         </div>
       </div>
+      <Redirect to={`/books?category=allbooks&page=1`} />
     </Router>
+    
   )
 }

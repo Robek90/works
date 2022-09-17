@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import history from '../../utils/history';
 import { usePagination, DOTS } from '../../hooks/usePagination';
 import './style.css';
 
@@ -33,6 +34,7 @@ const Pagination = props => {
   };
 
   let lastPage = paginationRange[paginationRange.length - 1];
+
   return (
     <ul
       className={classnames('pagination-container', { [className]: className })}
@@ -55,7 +57,12 @@ const Pagination = props => {
             className={classnames('pagination-item', {
               selected: pageNumber === currentPage
             })}
-            onClick={() => onPageChange(pageNumber)}
+            onClick={
+              () => {
+                onPageChange(pageNumber);
+                // history.push(`/books?category=allbooks&page=${currentPage}`);
+              }  
+            }
           >
             {pageNumber}
           </li>

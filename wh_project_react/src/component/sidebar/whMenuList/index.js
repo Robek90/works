@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
@@ -12,27 +12,6 @@ import People from '@mui/icons-material/People';
 import PermMedia from '@mui/icons-material/PermMedia';
 import Dns from '@mui/icons-material/Dns';
 import Public from '@mui/icons-material/Public';
-
-const menuData = {
-  wh30k: [
-    { icon: <PermMedia />, label: <Link to="/wh30k">Все книги 30K</Link> },
-    { icon: <People />, label: <Link to="/wh30k/imperium">Империум</Link> },
-    { icon: <Dns />, label: <Link to="/wh30k/chaos">Хаос</Link> },
-    { icon: <People />, label: <Link to="/wh30k/orks">Орки</Link> },
-    { icon: <Dns />, label: <Link to="/wh30k/tau">Тау</Link> },
-    { icon: <PermMedia />, label: <Link to="/wh30k/eldar">Эльдары</Link> },
-    { icon: <Public />, label: <Link to="/wh30k/darkeldar">Темные Эльдары</Link> },
-  ],
-  wh40k: [
-    { icon: <PermMedia />, label: <Link to="/wh40k">Все книги 40K</Link> },
-    { icon: <People />, label: <Link to="/wh40k/imperium">Империум</Link> },
-    { icon: <Dns />, label: <Link to="/wh40k/chaos">Хаос</Link> },
-    { icon: <PermMedia />, label: <Link to="/wh40k/orks">Орки</Link> },
-    { icon: <Dns />, label: <Link to="/wh40k/tau">Тау</Link> },
-    { icon: <PermMedia />, label: <Link to="/wh40k/eldar">Эльдары</Link> },
-    { icon: <Public />, label: <Link to="/wh40k/darkeldar">Темные Эльдары</Link> },
-  ]
-};
 
 const FireNav = styled(List)({
   '& .MuiListItemButton-root': {
@@ -49,9 +28,33 @@ const FireNav = styled(List)({
 });
 
 export default function MenuList(props) {
-  const { tittle, items } = props;
+  const menuData = {
+    wh30k: [
+      { key:1, icon: <PermMedia />, label: 'Все книги 30K', path: "?category=wh30k", tag: ['wh30k']},
+      { key:2, icon: <People />, label: 'Империум', path: "?category=wh30&race=imperium", tag: ['wh30k', 'imperium']},
+      { key:3, icon: <Dns />, label: 'Хаос', path: "?category=wh30&race=chaos", tag: ['wh30k', 'chaos']},
+      { key:4, icon: <People />, label: 'Орки', path: "?category=wh30&race=orks", tag: ['wh30k', 'orks']},
+      { key:5, icon: <Dns />, label: 'Тау', path: "?category=wh30&race=tau", tag: ['wh30k', 'tau']},
+      { key:6, icon: <PermMedia />, label: 'Эльдары', path: "?category=wh30&race=eldar", tag: ['wh30k', 'eldar']},
+      { key:7, icon: <Public />, label: 'Темные Эльдары', path: "?category=wh30&race=darkeldar", tag: ['wh30k', 'darkeldar']},
+    ],
+    wh40k: [
+      { key:8, icon: <PermMedia />, label: 'Все книги 40K', path: "/wh40k", tag: ['wh40k']},
+      { key:9, icon: <People />, label: 'Империум', path: "/wh40k/imperium", tag: ['wh40k', 'imperium']},
+      { key:10, icon: <Dns />, label: 'Хаос', path: "/wh40k/chaos", tag: ['wh40k', 'chaos']},
+      { key:11, icon: <PermMedia />, label: 'Орки', path: "/wh40k/orks", tag: ['wh40k', 'orks']},
+      { key:12, icon: <Dns />, label: 'Тау', path: "/wh40k/tau", tag: ['wh40k', 'tau']},
+      { key:13, icon: <PermMedia />, label: 'Эльдары', path: "/wh40k/eldar", tag: ['wh40k', 'eldar']},
+      { key:14, icon: <Public />, label: 'Темные Эльдары', path: "/wh40k/darkeldar", tag: ['wh40k', 'darkeldar']},
+    ]
+  };
 
-  const [open, setOpen] = React.useState(false);
+  const { tittle, items, utils } = props;
+
+  const setMenu = props.menufilter.setMenu;
+
+  const [open, setOpen] = useState(false);
+
   return (
     <Box sx={{ display: 'flex' }}>
       <ThemeProvider
@@ -116,20 +119,24 @@ export default function MenuList(props) {
               </ListItemButton>
               {open && menuData[items] && 
                 menuData[items].map((item) => (
-                  <ListItemButton
-                    key={item.label}
-                    sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                  <Link 
+                    to= {item.path}
+                    onClick={() => {utils.menuFilterBooks(item.tag, setMenu)}}
                   >
-                    <ListItemIcon sx={{ color: 'inherit' }}>
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.label}
-                      primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
-                    />
-                  </ListItemButton>
+                    <ListItemButton
+                      key={item.key}
+                      sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                    >
+                      <ListItemIcon sx={{ color: 'inherit' }}>
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={item.label}
+                        primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
+                      />
+                    </ListItemButton>
+                  </Link>
                 ))
-                
               }
             </Box>
           </FireNav>

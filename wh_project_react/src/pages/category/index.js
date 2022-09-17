@@ -3,20 +3,24 @@ import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
 import './style.css';
 
-let PageSize = 9;
+let itemPerPage = 9;
 let data = [];
 
-export default inject('books') (
+export default inject('books', 'menufilter') (
   observer((props) => {
-    data = props.books.books;
+    if(props.menufilter.menufilter.length === 0) {
+      data = props.books.books;
+    } else {
+      data = props.menufilter.menufilter;
+    }  
 
     const [currentPage, setCurrentPage] = useState(1);
-  
+
     const currentTableData = useMemo(() => {
-      const firstPageIndex = (currentPage - 1) * PageSize;
-      const lastPageIndex = firstPageIndex + PageSize;
+      const firstPageIndex = (currentPage - 1) * itemPerPage;
+      const lastPageIndex = firstPageIndex + itemPerPage;
       return data.slice(firstPageIndex, lastPageIndex);
-    }, [currentPage]);
+    }, [currentPage, data]);
 
     return (
       <>
@@ -41,7 +45,7 @@ export default inject('books') (
           className="pagination-bar"
           currentPage={currentPage}
           totalCount={data.length}
-          pageSize={PageSize}
+          pageSize={itemPerPage}
           onPageChange={page => setCurrentPage(page)}
         />
       </>
