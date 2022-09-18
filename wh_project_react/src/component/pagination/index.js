@@ -48,6 +48,7 @@ const Pagination = props => {
         <div className="arrow left" />
       </li>
       {paginationRange.map(pageNumber => {
+        console.log(pageNumber);
         if (pageNumber === DOTS) {
           return <li className="pagination-item dots">&#8230;</li>;
         }
@@ -60,7 +61,7 @@ const Pagination = props => {
             onClick={
               () => {
                 onPageChange(pageNumber);
-                // history.push(`/books?category=allbooks&page=${currentPage}`);
+                // history.push(`?category=allbooks&page=${pageNumber}`);
               }  
             }
           >

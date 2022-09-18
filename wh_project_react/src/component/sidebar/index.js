@@ -8,15 +8,17 @@ import Utils from '../utils';
 
 export default inject('books', 'menufilter') (
   observer((props)=> {
-  const [currentPage, setCurrentPage] = useState(1);
   
   const location = useLocation();
     
   const urlParams = new URLSearchParams(location.search);
-  const pageId = urlParams.get('page');
+  let pageId = urlParams.get('page');
 
-  console.log(pageId);
+  // if (pageId === null) {
+  //   pageId = 1
+  // }
   
+  console.log(pageId);
   const utils = new Utils({
     books: props.books.books,
   });
@@ -30,14 +32,14 @@ export default inject('books', 'menufilter') (
       <ul style={{ listStyleType: "none", padding: 0 }}>
             <li>
               <Link 
-                to={`/books?category=allbooks&page=${currentPage}`}
+                to={`?category=allbooks&page=${pageId}`}
+                onClick={()=>{props.menufilter.setMenu([])}}
               >
                 Все книги
               </Link>
             </li>
             <li>
               <MenuList 
-                setPage={setCurrentPage}
                 items="wh30k" 
                 tittle={'Warhammer30k'} 
                 books={props.books} 
@@ -47,7 +49,6 @@ export default inject('books', 'menufilter') (
             </li>
             <li>
               <MenuList 
-                setPage={setCurrentPage}
                 items="wh40k" 
                 tittle={'Warhammer40k'} 
                 books={props.books} 
