@@ -1,63 +1,75 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useMemo, useEffect } from 'react';
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { inject, observer } from "mobx-react";
 
+import Utils from '../utils';
 import MenuList from "./whMenuList/index";
 
-import { inject, observer } from "mobx-react";
-import Utils from '../utils';
 
 export default inject('books', 'menufilter') (
-  observer((props)=> {
-  
-  const location = useLocation();
-    
-  const urlParams = new URLSearchParams(location.search);
-  let pageId = urlParams.get('page');
+  observer((props)=> { 
+    // const [pageId, setPageId] = useState();
 
-  // if (pageId === null) {
-  //   pageId = 1
-  // }
-  
-  console.log(pageId);
-  const utils = new Utils({
-    books: props.books.books,
-  });
+    // let locationUrl = useLocation()
 
-  return (
-    <div className="sidebar_container">
-      <div className="sidebar_race_logo">
-        LOGO
+    // useMemo(()=>{
+    //   let urlParams = new URLSearchParams(locationUrl.search);
+    //   setPageId(urlParams.get('page'))
+    // },[props.history])
+
+    const utils = new Utils({
+      books: props.books.books,
+    });
+
+    // const location = {
+    //   pathname: '/books',
+    //   search: `?category=allbooks&page=1`,
+    // }
+
+    return (
+      <div className="sidebar_container">
+        <div className="sidebar_race_logo">
+          LOGO
+        </div>
+        <div className="sidebar_menu">
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                <Link 
+                  to={
+                    {pathname: '/books', search: `?category=allbooks`}
+                  }
+                  // onClick={()=>{
+                  //   props.menufilter.setMenu([]);
+                  //   props.history.push(location)
+                  // }}
+                >
+                  Все книги
+                </Link>
+              </li>
+              <li>
+                <MenuList 
+                  items="wh30k" 
+                  tittle={'Warhammer30k'} 
+                  history={props.history}
+                  books={props.books} 
+                  menufilter={props.menufilter} 
+                  utils={utils}
+                />
+              </li>
+              <li>
+                <MenuList 
+                  items="wh40k" 
+                  tittle={'Warhammer40k'} 
+                  history={props.history}
+                  books={props.books} 
+                  menufilter={props.menufilter} 
+                  utils={utils}
+                />
+              </li>
+            </ul>
+        </div>
       </div>
-      <div className="sidebar_menu">
-      <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li>
-              <Link 
-                to={`?category=allbooks&page=${pageId}`}
-                onClick={()=>{props.menufilter.setMenu([])}}
-              >
-                Все книги
-              </Link>
-            </li>
-            <li>
-              <MenuList 
-                items="wh30k" 
-                tittle={'Warhammer30k'} 
-                books={props.books} 
-                menufilter={props.menufilter} 
-                utils={utils}
-              />
-            </li>
-            <li>
-              <MenuList 
-                items="wh40k" 
-                tittle={'Warhammer40k'} 
-                books={props.books} 
-                menufilter={props.menufilter} 
-                utils={utils}
-              />
-            </li>
-          </ul>
-      </div>
-    </div>
-  )
-}))
+    )
+  }
+))

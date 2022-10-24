@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useLocation, useSearchParams } from "react-router-dom";
 import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
 import './style.css';
@@ -8,19 +9,55 @@ let data = [];
 
 export default inject('books', 'menufilter') (
   observer((props) => {
+    let [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.get('category'));
+    const [currentPage, setCurrentPage] = useState(1);
+
+    let location = useLocation()
+    let urlParams = new URLSearchParams(location.search);
+    let category = urlParams.get('category')
+    let race = urlParams.get('race')
+    let urlSearch;
+    // if(race !== null) {
+    //   urlSearch = `?category=${category}&race=${race}`;
+    // } else {
+    //   urlSearch = `?category=${category}`;
+    // };
+
+    
+
+    // useMemo(()=>{
+    //   props.history.listen(() => {
+    //     let urlParams = new URLSearchParams(props.history.location.search);
+    //     let pageId = urlParams.get('page')
+    //     console.log(pageId);
+    //   })
+    // },[props.history])
+
+    
+    // const locationPage = {
+    //   pathname: '/books',
+    //   search: `${urlSearch}&page=${currentPage}`,
+    // };
+    
+    // props.history.push(locationPage)
+
     if(props.menufilter.menufilter.length === 0) {
       data = props.books.books;
     } else {
       data = props.menufilter.menufilter;
     }  
 
-    const [currentPage, setCurrentPage] = useState(1);
-
     const currentTableData = useMemo(() => {
       const firstPageIndex = (currentPage - 1) * itemPerPage;
       const lastPageIndex = firstPageIndex + itemPerPage;
-      return data.slice(firstPageIndex, lastPageIndex);
-    }, [currentPage, data]);
+      const getDataSlice = data.slice(firstPageIndex, lastPageIndex)
+      if(getDataSlice === []) {
+        setCurrentPage(1)
+      } else {
+        return data.slice(firstPageIndex, lastPageIndex);
+      }
+    }, [data, currentPage]);
 
     return (
       <>

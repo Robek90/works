@@ -1,15 +1,15 @@
 import React from "react";
 
-import Header from "./header";
+import Header from "./component/header";
 import Router from "./Router";
 import "./style.css";
 
 
-export default function App() {
+export default function App(props) {
   return (
     <div className="wrapper">
       <Header/>
-      <Router/>
+      <Router history={props.history}/>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import history from '../../utils/history';
 import { usePagination, DOTS } from '../../hooks/usePagination';
 import './style.css';
 
@@ -20,11 +19,7 @@ const Pagination = props => {
     siblingCount,
     pageSize
   });
-
-  if (currentPage === 0 || paginationRange.length < 2) {
-    return null;
-  }
-
+  
   const onNext = () => {
     onPageChange(currentPage + 1);
   };
@@ -48,7 +43,6 @@ const Pagination = props => {
         <div className="arrow left" />
       </li>
       {paginationRange.map(pageNumber => {
-        console.log(pageNumber);
         if (pageNumber === DOTS) {
           return <li className="pagination-item dots">&#8230;</li>;
         }
@@ -61,7 +55,6 @@ const Pagination = props => {
             onClick={
               () => {
                 onPageChange(pageNumber);
-                // history.push(`?category=allbooks&page=${pageNumber}`);
               }  
             }
           >
