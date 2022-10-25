@@ -39,19 +39,19 @@ export default function MenuList(props) {
       { key:7, icon: <Public />, label: 'Темные Эльдары', path: "?category=wh30k&race=darkeldar", tag: ['wh30k', 'darkeldar']},
     ],
     wh40k: [
-      { key:8, icon: <PermMedia />, label: 'Все книги 40K', path: "/wh40k", tag: ['wh40k']},
-      { key:9, icon: <People />, label: 'Империум', path: "/wh40k/imperium", tag: ['wh40k', 'imperium']},
-      { key:10, icon: <Dns />, label: 'Хаос', path: "/wh40k/chaos", tag: ['wh40k', 'chaos']},
-      { key:11, icon: <PermMedia />, label: 'Орки', path: "/wh40k/orks", tag: ['wh40k', 'orks']},
-      { key:12, icon: <Dns />, label: 'Тау', path: "/wh40k/tau", tag: ['wh40k', 'tau']},
-      { key:13, icon: <PermMedia />, label: 'Эльдары', path: "/wh40k/eldar", tag: ['wh40k', 'eldar']},
-      { key:14, icon: <Public />, label: 'Темные Эльдары', path: "/wh40k/darkeldar", tag: ['wh40k', 'darkeldar']},
+      { key:8, icon: <PermMedia />, label: 'Все книги 40K', path: "?category=wh40k", tag: ['wh40k']},
+      { key:9, icon: <People />, label: 'Империум', path: "?category=wh40k&race=imperium", tag: ['wh40k', 'imperium']},
+      { key:10, icon: <Dns />, label: 'Хаос', path: "?category=wh40k&race=chaos", tag: ['wh40k', 'chaos']},
+      { key:11, icon: <PermMedia />, label: 'Орки', path: "?category=wh40k&race=orks", tag: ['wh40k', 'orks']},
+      { key:12, icon: <Dns />, label: 'Тау', path: "?category=wh40k&race=tau", tag: ['wh40k', 'tau']},
+      { key:13, icon: <PermMedia />, label: 'Эльдары', path: "?category=wh40k&race=eldar", tag: ['wh40k', 'eldar']},
+      { key:14, icon: <Public />, label: 'Темные Эльдары', path: "?category=wh40k&race=darkeldar", tag: ['wh40k', 'darkeldar']},
     ]
   };
 
   const { tittle, items, utils } = props;
 
-  const setMenu = props.menufilter.setMenu;
+  // const setMenu = props.menufilter.setMenu;
 
   const [open, setOpen] = useState(false);
 
@@ -122,7 +122,7 @@ export default function MenuList(props) {
                   <Link 
                     to={`/books${item.path}&page=1`} 
                     onClick={() => {
-                      utils.menuFilterBooks(item.tag, setMenu);
+                      // utils.menuFilterBooks(item.tag, setMenu);
                       props.history.push(`/books${item.path}&page=1`);
                     }}
                   >

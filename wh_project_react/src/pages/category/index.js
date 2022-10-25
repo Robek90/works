@@ -2,33 +2,65 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useLocation, useSearchParams } from "react-router-dom";
 import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
+
+import Utils from '../../component/utils';
 import './style.css';
 
 let itemPerPage = 9;
-let data = [];
 
 export default inject('books', 'menufilter') (
   observer((props) => {
+    let setMenu = props.menufilter.setMenu;
+    let menufilter = props.menufilter.menufilter;
+    let books = props.books.books;
+    
     const [searchParams, setSearchParams] = useSearchParams();
 
     const [currentPage, setCurrentPage] = useState(searchParams.get('page')||1);
 
+    const [booksArray, setBooksArray] = useState([]);
+
     let location = useLocation();
     props.history.push(location)
 
-    if(props.menufilter.menufilter.length === 0) {
-      data = props.books.books;
-    } else {
-      data = props.menufilter.menufilter;
-    }  
+    let category = searchParams.get('category');
+    let race = searchParams.get('race');
 
-    const currentTableData = useMemo(() => {
+    const utils = new Utils({
+      books: books,
+    });
+    console.log(utils);
+    useMemo(()=>{
+      switch (category) {
+        case "allbooks":
+          setBooksArray(books);
+          break;
+        case "wh30k":
+          utils.menuFilterBooks([category,race], setMenu);
+          setBooksArray(menufilter);
+          console.log(menufilter);
+          break;
+        case "wh40k":
+          utils.menuFilterBooks([category,race], setMenu);
+          setBooksArray(menufilter);
+          console.log(menufilter);
+          break;
+        default:
+          break;
+      }
+    },[category, race])
+
+    if(+searchParams.get('page') !== +currentPage){
       setCurrentPage(searchParams.get('page'));
-
+    }
+    
+    const currentTableData = useMemo(() => {
+      
       const firstPageIndex = (currentPage - 1) * itemPerPage;
       const lastPageIndex = firstPageIndex + itemPerPage;
-      return data.slice(firstPageIndex, lastPageIndex);
-    }, [currentPage, searchParams]);
+
+      return booksArray.slice(firstPageIndex, lastPageIndex);
+    }, [currentPage, booksArray]);
 
     return (
       <>
@@ -52,7 +84,7 @@ export default inject('books', 'menufilter') (
         <Pagination
           className="pagination-bar"
           currentPage={+searchParams.get('page')||1}
-          totalCount={data.length}
+          totalCount={booksArray.length}
           pageSize={itemPerPage}
           onPageChange={page => {
             setCurrentPage(page);

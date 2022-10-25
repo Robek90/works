@@ -24,7 +24,7 @@ export default inject('books', 'menufilter') (
                 <Link 
                   to={`/books?category=allbooks&page=1`}
                   onClick={()=>{
-                    props.menufilter.setMenu([]);
+                    // props.menufilter.setMenu([]);
                     props.history.push(`/books?category=allbooks&page=1`);
                   }}
                 >
@@ -38,7 +38,7 @@ export default inject('books', 'menufilter') (
                   history={props.history}
                   books={props.books} 
                   menufilter={props.menufilter} 
-                  utils={utils}
+                  // utils={utils}
                 />
               </li>
               <li>
@@ -48,7 +48,7 @@ export default inject('books', 'menufilter') (
                   history={props.history}
                   books={props.books} 
                   menufilter={props.menufilter} 
-                  utils={utils}
+                  // utils={utils}
                 />
               </li>
             </ul>

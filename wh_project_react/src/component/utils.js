@@ -1,4 +1,4 @@
-class Filters {
+class MenuFilter {
   constructor(params) {
     this.books = params.books;
   };
@@ -14,13 +14,14 @@ class Filters {
         }
       })
       if(filter) {
-        if(wh[1]) {
+        if(wh[1] !== null) {
           item.tags.forEach((x) => {
             if(x === wh[1]) {
               arr.push(item)
             }
           })
         } else {
+          console.log(item);
           arr.push(item)
         }
       }
@@ -29,4 +30,4 @@ class Filters {
   };
 }
 
-export default Filters;
+export default MenuFilter;
