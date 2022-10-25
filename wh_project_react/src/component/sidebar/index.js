@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 
@@ -9,23 +9,9 @@ import MenuList from "./whMenuList/index";
 
 export default inject('books', 'menufilter') (
   observer((props)=> { 
-    // const [pageId, setPageId] = useState();
-
-    // let locationUrl = useLocation()
-
-    // useMemo(()=>{
-    //   let urlParams = new URLSearchParams(locationUrl.search);
-    //   setPageId(urlParams.get('page'))
-    // },[props.history])
-
     const utils = new Utils({
       books: props.books.books,
     });
-
-    // const location = {
-    //   pathname: '/books',
-    //   search: `?category=allbooks&page=1`,
-    // }
 
     return (
       <div className="sidebar_container">
@@ -36,13 +22,11 @@ export default inject('books', 'menufilter') (
         <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
                 <Link 
-                  to={
-                    {pathname: '/books', search: `?category=allbooks`}
-                  }
-                  // onClick={()=>{
-                  //   props.menufilter.setMenu([]);
-                  //   props.history.push(location)
-                  // }}
+                  to={`/books?category=allbooks&page=1`}
+                  onClick={()=>{
+                    props.menufilter.setMenu([]);
+                    props.history.push(`/books?category=allbooks&page=1`);
+                  }}
                 >
                   Все книги
                 </Link>

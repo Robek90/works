@@ -9,38 +9,12 @@ let data = [];
 
 export default inject('books', 'menufilter') (
   observer((props) => {
-    let [searchParams, setSearchParams] = useSearchParams();
-    console.log(searchParams.get('category'));
-    const [currentPage, setCurrentPage] = useState(1);
+    const [searchParams, setSearchParams] = useSearchParams();
 
-    let location = useLocation()
-    let urlParams = new URLSearchParams(location.search);
-    let category = urlParams.get('category')
-    let race = urlParams.get('race')
-    let urlSearch;
-    // if(race !== null) {
-    //   urlSearch = `?category=${category}&race=${race}`;
-    // } else {
-    //   urlSearch = `?category=${category}`;
-    // };
+    const [currentPage, setCurrentPage] = useState(searchParams.get('page')||1);
 
-    
-
-    // useMemo(()=>{
-    //   props.history.listen(() => {
-    //     let urlParams = new URLSearchParams(props.history.location.search);
-    //     let pageId = urlParams.get('page')
-    //     console.log(pageId);
-    //   })
-    // },[props.history])
-
-    
-    // const locationPage = {
-    //   pathname: '/books',
-    //   search: `${urlSearch}&page=${currentPage}`,
-    // };
-    
-    // props.history.push(locationPage)
+    let location = useLocation();
+    props.history.push(location)
 
     if(props.menufilter.menufilter.length === 0) {
       data = props.books.books;
@@ -49,15 +23,12 @@ export default inject('books', 'menufilter') (
     }  
 
     const currentTableData = useMemo(() => {
+      setCurrentPage(searchParams.get('page'));
+
       const firstPageIndex = (currentPage - 1) * itemPerPage;
       const lastPageIndex = firstPageIndex + itemPerPage;
-      const getDataSlice = data.slice(firstPageIndex, lastPageIndex)
-      if(getDataSlice === []) {
-        setCurrentPage(1)
-      } else {
-        return data.slice(firstPageIndex, lastPageIndex);
-      }
-    }, [data, currentPage]);
+      return data.slice(firstPageIndex, lastPageIndex);
+    }, [currentPage, searchParams]);
 
     return (
       <>
@@ -80,10 +51,13 @@ export default inject('books', 'menufilter') (
         </div>
         <Pagination
           className="pagination-bar"
-          currentPage={currentPage}
+          currentPage={+searchParams.get('page')||1}
           totalCount={data.length}
           pageSize={itemPerPage}
-          onPageChange={page => setCurrentPage(page)}
+          onPageChange={page => {
+            setCurrentPage(page);
+            setSearchParams({ ...Object.fromEntries([...searchParams]), page });
+          }}
         />
       </>
     );

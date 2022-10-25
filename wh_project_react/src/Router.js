@@ -48,7 +48,7 @@ function AppRouter(props) {
           <Routes>
             <Route
               path="/"
-              element={<Navigate to="/books" replace />}
+              element={<Navigate to="/books?category=allbooks" replace />}
             />
           </Routes>
         </div>

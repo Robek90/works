@@ -120,10 +120,10 @@ export default function MenuList(props) {
               {open && menuData[items] && 
                 menuData[items].map((item) => (
                   <Link 
-                    to={`/books${item.path}`} 
+                    to={`/books${item.path}&page=1`} 
                     onClick={() => {
                       utils.menuFilterBooks(item.tag, setMenu);
-                      props.history.push(`/books${item.path}`);
+                      props.history.push(`/books${item.path}&page=1`);
                     }}
                   >
                     <ListItemButton
