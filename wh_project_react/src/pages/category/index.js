@@ -3,20 +3,19 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
 
-import Utils from '../../component/utils';
+import Filter from '../../utils/service';
 import './style.css';
 
 let itemPerPage = 9;
 
-export default inject('books', 'menufilter') (
+export default inject('books') (
   observer((props) => {
-    let setMenu = props.menufilter.setMenu;
-    let menufilter = props.menufilter.menufilter;
     let books = props.books.books;
     
     const [searchParams, setSearchParams] = useSearchParams();
 
     const [currentPage, setCurrentPage] = useState(searchParams.get('page')||1);
+    console.log(currentPage);
 
     const [booksArray, setBooksArray] = useState([]);
 
@@ -26,24 +25,20 @@ export default inject('books', 'menufilter') (
     let category = searchParams.get('category');
     let race = searchParams.get('race');
 
-    const utils = new Utils({
+    const filter = new Filter({
       books: books,
     });
-    console.log(utils);
+    
     useMemo(()=>{
       switch (category) {
         case "allbooks":
           setBooksArray(books);
           break;
         case "wh30k":
-          utils.menuFilterBooks([category,race], setMenu);
-          setBooksArray(menufilter);
-          console.log(menufilter);
+          setBooksArray(filter.menuFilterBooks([category,race]));
           break;
         case "wh40k":
-          utils.menuFilterBooks([category,race], setMenu);
-          setBooksArray(menufilter);
-          console.log(menufilter);
+          setBooksArray(filter.menuFilterBooks([category,race]));
           break;
         default:
           break;

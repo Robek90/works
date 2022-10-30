@@ -21,12 +21,11 @@ class MenuFilter {
             }
           })
         } else {
-          console.log(item);
           arr.push(item)
         }
       }
     })
-    setMenu(arr)
+    return arr
   };
 }
 
