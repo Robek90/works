@@ -1,32 +1,32 @@
-class MenuFilter {
+class Filters {
   constructor(params) {
     this.books = params.books;
+    this.filteredBooks = params.filteredBooks;
   };
 
-  menuFilterBooks(wh, setMenu) {
-    let arr = [];
+  menuFilterBooks(wh) {
+    let whFilter = wh;
 
-    this.books.forEach((item) => {
-      let filter;
-      item.tags.forEach((x) => {
-        if(x === wh[0]) {
-          filter = true
-        }
-      })
-      if(filter) {
-        if(wh[1] !== null) {
-          item.tags.forEach((x) => {
-            if(x === wh[1]) {
-              arr.push(item)
-            }
-          })
-        } else {
-          arr.push(item)
-        }
-      }
+    if(wh[1] === null) {
+      whFilter = [wh[0]];
+    };
+
+    let menuFilter = this.books.filter((books)=> {
+      let tag = whFilter.every(i => books.tags.includes(i));
+      return tag
     })
-    return arr
+
+    return menuFilter
   };
+
+  tagsFilterBooks(tags) {
+    let tagfilter = this.filteredBooks.filter((books)=> {
+      let tag = tags.every(i => books.tags.includes(i));
+      return tag
+    })
+    
+    return tagfilter
+  }
 }
 
-export default MenuFilter;
+export default Filters;

@@ -4,6 +4,7 @@ import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
 
 import Filter from '../../utils/service';
+import FiltersModalPage from '../../component/modal/index';
 import './style.css';
 
 let itemPerPage = 9;
@@ -15,7 +16,6 @@ export default inject('books') (
     const [searchParams, setSearchParams] = useSearchParams();
 
     const [currentPage, setCurrentPage] = useState(searchParams.get('page')||1);
-    console.log(currentPage);
 
     const [booksArray, setBooksArray] = useState([]);
 
@@ -25,8 +25,9 @@ export default inject('books') (
     let category = searchParams.get('category');
     let race = searchParams.get('race');
 
-    const filter = new Filter({
+    const filters = new Filter({
       books: books,
+      filteredBooks: booksArray,
     });
     
     useMemo(()=>{
@@ -35,10 +36,10 @@ export default inject('books') (
           setBooksArray(books);
           break;
         case "wh30k":
-          setBooksArray(filter.menuFilterBooks([category,race]));
+          setBooksArray(filters.menuFilterBooks([category,race]));
           break;
         case "wh40k":
-          setBooksArray(filter.menuFilterBooks([category,race]));
+          setBooksArray(filters.menuFilterBooks([category,race]));
           break;
         default:
           break;
@@ -60,6 +61,7 @@ export default inject('books') (
     return (
       <>
         <div>Страница {currentPage}</div>
+        <FiltersModalPage/>
         <div className="books">
           {currentTableData.map(item => {
             return (
