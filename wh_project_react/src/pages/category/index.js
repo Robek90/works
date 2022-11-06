@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLocation, useSearchParams } from "react-router-dom";
 import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
@@ -61,7 +61,9 @@ export default inject('books') (
     return (
       <>
         <div>Страница {currentPage}</div>
-        <FiltersModalPage/>
+        <FiltersModalPage 
+          category={category}
+        />
         <div className="books">
           {currentTableData.map(item => {
             return (

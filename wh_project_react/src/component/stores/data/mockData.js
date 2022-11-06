@@ -1,4 +1,3 @@
-import { Filter } from "@mui/icons-material";
 import Img from "../../../assets/books/wh30k/The_Horus_Heresy_Book_vengeful_spirit.jpg"
 
 export const mockData = [
