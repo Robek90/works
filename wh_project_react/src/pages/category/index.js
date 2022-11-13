@@ -5,6 +5,7 @@ import { inject, observer } from 'mobx-react';
 
 import Filter from '../../utils/service';
 import FiltersModalPage from '../../component/modal/index';
+import { splitUrl } from '../../utils/common';
 import './style.css';
 
 let itemPerPage = 9;
@@ -26,8 +27,8 @@ export default inject('books') (
     let category = searchParams.get('category');
     let race = searchParams.get('race');
     let tag = searchParams.get('tag');
-
-    let filteredTags = category + (',') + race + (',') + tag;
+    
+    let filteredTags = `${category},${race || 'none'},${tag || 'none'}`;
 
     const filters = new Filter({
       books: books,
@@ -37,13 +38,13 @@ export default inject('books') (
     useMemo(()=>{
       switch (category) {
         case "allbooks":
-          setBooksArray(filters.menuFilterBooks(filteredTags.split(",")));
+          setBooksArray(filters.getFilteredBooks(splitUrl(filteredTags)));
           break;
         case "wh30k":
-          setBooksArray(filters.menuFilterBooks(filteredTags.split(",")));
+          setBooksArray(filters.getFilteredBooks(splitUrl(filteredTags)));
           break;
         case "wh40k":
-          setBooksArray(filters.menuFilterBooks(filteredTags.split(",")));
+          setBooksArray(filters.getFilteredBooks(splitUrl(filteredTags)));
           break;
         default:
           break;
@@ -55,7 +56,6 @@ export default inject('books') (
     }
     
     const currentTableData = useMemo(() => {
-      
       const firstPageIndex = (currentPage - 1) * itemPerPage;
       const lastPageIndex = firstPageIndex + itemPerPage;
 

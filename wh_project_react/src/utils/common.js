@@ -1,0 +1,1 @@
+export const splitUrl = (url => url.split(','));

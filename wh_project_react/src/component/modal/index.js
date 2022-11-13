@@ -25,7 +25,7 @@ const style = {
 const tagsList = {
   allbooks: ["примарх", "хорус луперкаль", "ересь хоруса", "лоялисты", "предатели", "космодесант", "сыны хоруса", "жилиман", "ультрамарины", "абадон", "предатели", "космодесант", "царкех"],
   wh30k: ["примарх", "хорус луперкаль", "ересь хоруса", "лоялисты", "предатели", "космодесант", "сыны хоруса"],
-  wh40k: ["примарх", "жилиман", "ультрамарины", "абадон", "предатели", "космодесант", "царкех"],
+  wh40k: ["примарх", "жилиман", "ультрамарины", "абадон", "предатели", "космодесант", "царех"],
 };
 
 export default function FilterModal(props) {
@@ -53,7 +53,6 @@ export default function FilterModal(props) {
   
 
   const handleClick = (event, item) => {
-    console.log(event.target);
     if(event.target.checked === false) {
       setSelectFiltersArr(selectFiltersArr.filter(i => i !== item))
     } else {
@@ -75,7 +74,7 @@ export default function FilterModal(props) {
     } else {
       path = `?category=${props.category}&race=${props.race}`
     };
-  }
+  };
   
   return (
     <div>
@@ -94,6 +93,7 @@ export default function FilterModal(props) {
             {tags.map((item,index) => (
               <div className="filter_block">
                 <Checkbox 
+                  defaultChecked = {false}
                   className="filter_checkbox"
                   onClick={(event) => handleClick(event, item)}
                   key={index}          
