@@ -22,8 +22,12 @@ export default inject('books') (
     let location = useLocation();
     props.history.push(location)
 
+    
     let category = searchParams.get('category');
     let race = searchParams.get('race');
+    let tag = searchParams.get('tag');
+
+    let filteredTags = category + (',') + race + (',') + tag;
 
     const filters = new Filter({
       books: books,
@@ -33,18 +37,18 @@ export default inject('books') (
     useMemo(()=>{
       switch (category) {
         case "allbooks":
-          setBooksArray(books);
+          setBooksArray(filters.menuFilterBooks(filteredTags.split(",")));
           break;
         case "wh30k":
-          setBooksArray(filters.menuFilterBooks([category,race]));
+          setBooksArray(filters.menuFilterBooks(filteredTags.split(",")));
           break;
         case "wh40k":
-          setBooksArray(filters.menuFilterBooks([category,race]));
+          setBooksArray(filters.menuFilterBooks(filteredTags.split(",")));
           break;
         default:
           break;
       }
-    },[category, race])
+    },[category, race, tag])
 
     if(+searchParams.get('page') !== +currentPage){
       setCurrentPage(searchParams.get('page'));
@@ -63,6 +67,9 @@ export default inject('books') (
         <div>Страница {currentPage}</div>
         <FiltersModalPage 
           category={category}
+          race={race}
+          tag={tag}
+          history={props.history}
         />
         <div className="books">
           {currentTableData.map(item => {

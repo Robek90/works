@@ -5,28 +5,21 @@ class Filters {
   };
 
   menuFilterBooks(wh) {
-    let whFilter = wh;
+    let tagFilter = [];
 
-    if(wh[1] === null) {
-      whFilter = [wh[0]];
-    };
-
+    wh.forEach((tag) => {
+      if(tag !== 'null') {
+        tagFilter.push(tag)
+      }
+    });
+    
     let menuFilter = this.books.filter((books)=> {
-      let tag = whFilter.every(i => books.tags.includes(i));
+      let tag = tagFilter.every(i => books.tags.includes(i));
       return tag
     })
 
     return menuFilter
   };
-
-  tagsFilterBooks(tags) {
-    let tagfilter = this.filteredBooks.filter((books)=> {
-      let tag = tags.every(i => books.tags.includes(i));
-      return tag
-    })
-    
-    return tagfilter
-  }
 }
 
 export default Filters;

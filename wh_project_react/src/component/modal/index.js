@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link  } from "react-router-dom";
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -27,7 +29,6 @@ const tagsList = {
 };
 
 export default function FilterModal(props) {
-
   let tags;
 
   switch (props.category) {
@@ -45,27 +46,40 @@ export default function FilterModal(props) {
   }
 
   const [open, setOpen] = useState(false);
+  const [selectFiltersArr, setSelectFiltersArr] = useState([]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  let selectFiltersArr = [];
+  
 
   const handleClick = (event, item) => {
+    console.log(event.target);
     if(event.target.checked === false) {
-      selectFiltersArr.splice(selectFiltersArr.indexOf(item), 1)
+      setSelectFiltersArr(selectFiltersArr.filter(i => i !== item))
     } else {
-      selectFiltersArr.push(item)
+      setSelectFiltersArr(selectFiltersArr => [...selectFiltersArr, item])
     }
   };
-  
-  const pushTags = () => {
-    console.log(selectFiltersArr);
-  };
 
+  let path;
+
+  if(selectFiltersArr.length !== 0) {
+    if(props.race === null) {
+      path = `?category=${props.category}&tag=${selectFiltersArr}`
+    } else {
+      path = `?category=${props.category}&race=${props.race}&tag=${selectFiltersArr}`
+    };
+  } else {
+    if(props.race === null) {
+      path = `?category=${props.category}`
+    } else {
+      path = `?category=${props.category}&race=${props.race}`
+    };
+  }
+  
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Фильтрация</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -74,7 +88,7 @@ export default function FilterModal(props) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            Фильтрация по тегам
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {tags.map((item,index) => (
@@ -94,7 +108,15 @@ export default function FilterModal(props) {
               </div>
             ))} 
           </Typography>
-          <button onClick={()=>pushTags()}/>
+          <Link
+            to={`/books${path}&page=1`}
+            onClick={()=> {
+              handleClose();
+              props.history.push(`/books${path}&page=1`);
+            }}
+          >
+            отправить
+          </Link>
         </Box>
       </Modal>
     </div>
