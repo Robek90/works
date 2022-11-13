@@ -10,7 +10,6 @@ import Checkbox from '@mui/material/Checkbox';
 
 import './style.css';
 import { useEffect } from 'react';
-import category from '../../pages/category';
 
 const style = {
   position: 'absolute',
@@ -35,7 +34,7 @@ export default function FilterModal(props) {
   
   const [open, setOpen] = useState(false);
   const [selectFiltersArr, setSelectFiltersArr] = useState([]);
-  console.log(selectFiltersArr);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   
