@@ -9,6 +9,8 @@ import { blue } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 
 import './style.css';
+import { useEffect } from 'react';
+import category from '../../pages/category';
 
 const style = {
   position: 'absolute',
@@ -23,14 +25,20 @@ const style = {
 };
 
 const tagsList = {
-  allbooks: ["примарх", "хорус луперкаль", "ересь хоруса", "лоялисты", "предатели", "космодесант", "сыны хоруса", "жилиман", "ультрамарины", "абадон", "предатели", "космодесант", "царкех"],
+  allbooks: ["примарх", "хорус луперкаль", "ересь хоруса", "лоялисты", "предатели", "космодесант", "сыны хоруса", "жилиман", "ультрамарины", "абадон", "космодесант", "царкех"],
   wh30k: ["примарх", "хорус луперкаль", "ересь хоруса", "лоялисты", "предатели", "космодесант", "сыны хоруса"],
   wh40k: ["примарх", "жилиман", "ультрамарины", "абадон", "предатели", "космодесант", "царех"],
 };
 
 export default function FilterModal(props) {
   let tags;
-
+  
+  const [open, setOpen] = useState(false);
+  const [selectFiltersArr, setSelectFiltersArr] = useState([]);
+  console.log(selectFiltersArr);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  
   switch (props.category) {
     case "allbooks":
       tags = tagsList.allbooks;
@@ -43,14 +51,11 @@ export default function FilterModal(props) {
       break;
     default:
       break;
-  }
+  };
 
-  const [open, setOpen] = useState(false);
-  const [selectFiltersArr, setSelectFiltersArr] = useState([]);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  
+  useEffect(() => {
+    setSelectFiltersArr([])
+  },[props.category, props.race]);
 
   const handleClick = (event, item) => {
     if(event.target.checked === false) {
@@ -76,6 +81,20 @@ export default function FilterModal(props) {
     };
   };
   
+  function handleChange(item) {
+    let checked;
+    if(props.tag === null) {
+      checked = false
+    } else {
+      props.splitUrl(props.tag).forEach(elem => {
+        if(elem === item) {
+          checked = true
+        }
+      })
+    }
+    return checked
+  };
+
   return (
     <div>
       <Button onClick={handleOpen}>Фильтрация</Button>
@@ -93,7 +112,7 @@ export default function FilterModal(props) {
             {tags.map((item,index) => (
               <div className="filter_block">
                 <Checkbox 
-                  defaultChecked = {false}
+                  defaultChecked={handleChange(item)}
                   className="filter_checkbox"
                   onClick={(event) => handleClick(event, item)}
                   key={index}          

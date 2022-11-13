@@ -69,6 +69,7 @@ export default inject('books') (
           category={category}
           race={race}
           tag={tag}
+          splitUrl={splitUrl}
           history={props.history}
         />
         <div className="books">
