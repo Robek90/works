@@ -23,34 +23,12 @@ const style = {
   p: 4,
 };
 
-const tagsList = {
-  allbooks: ["примарх", "хорус луперкаль", "ересь хоруса", "лоялисты", "предатели", "космодесант", "сыны хоруса", "жилиман", "ультрамарины", "абадон", "космодесант", "царкех"],
-  wh30k: ["примарх", "хорус луперкаль", "ересь хоруса", "лоялисты", "предатели", "космодесант", "сыны хоруса"],
-  wh40k: ["примарх", "жилиман", "ультрамарины", "абадон", "предатели", "космодесант", "царех"],
-};
-
 export default function FilterModal(props) {
-  let tags;
-  
   const [open, setOpen] = useState(false);
   const [selectFiltersArr, setSelectFiltersArr] = useState([]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  
-  switch (props.category) {
-    case "allbooks":
-      tags = tagsList.allbooks;
-      break;
-    case "wh30k":
-      tags = tagsList.wh30k;
-      break;
-    case "wh40k":
-      tags = tagsList.wh40k;
-      break;
-    default:
-      break;
-  };
 
   useEffect(() => {
     setSelectFiltersArr([])
@@ -108,7 +86,7 @@ export default function FilterModal(props) {
             Фильтрация по тегам
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {tags.map((item,index) => (
+            {props.createTags.map((item,index) => (
               <div className="filter_block">
                 <Checkbox 
                   defaultChecked={handleChange(item)}

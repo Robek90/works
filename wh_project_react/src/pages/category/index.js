@@ -69,6 +69,7 @@ export default inject('books') (
           category={category}
           race={race}
           tag={tag}
+          createTags={filters.createTagsArrays(category)}
           splitUrl={splitUrl}
           history={props.history}
         />
