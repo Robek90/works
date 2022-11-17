@@ -16,6 +16,7 @@ export default function inject(props) {
             <Link 
               to={`/books?category=allbooks&page=1`}
               onClick={()=>{
+                props.setChangePage(false)
                 props.history.push(`/books?category=allbooks&page=1`);
               }}
             >
@@ -24,6 +25,7 @@ export default function inject(props) {
           </li>
           <li>
             <MenuList 
+              setChangePage={props.setChangePage}
               history={props.history}
             />
           </li>

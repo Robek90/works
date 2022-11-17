@@ -6,7 +6,7 @@ class Filters {
 
   getFilteredBooks(tags) {
     let tagFilter = tags.filter((item)=> item !== 'none');
-    let filter = this.books.filter((books)=> {
+    let filter = this.books.filter((books) => {
       let tag = tagFilter.every(i => books.categories.concat(books.tags).includes(i));
       return tag
     });

@@ -53,6 +53,7 @@ export default function MenuList(props) {
               <Link 
                 to={`/books${item.path}&page=1`} 
                 onClick={() => {
+                  props.setChangePage(false)
                   props.history.push(`/books${item.path}&page=1`);
                 }}
               >
@@ -71,6 +72,7 @@ export default function MenuList(props) {
               <Link 
                 to={`/books${item.path}&page=1`} 
                 onClick={() => {
+                  props.setChangePage(false)
                   props.history.push(`/books${item.path}&page=1`);
                 }}
               >

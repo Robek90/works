@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { useLocation, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
 
@@ -76,16 +76,21 @@ export default inject('books') (
         <div className="books">
           {currentTableData.map(item => {
             return (
-              <div className="books_card">
-                <div className="books_img">
-                  <img alt="" src={item.img}/>
+              <Link 
+                to={`/books?isbn=${item.id}`}
+                state={{ from: item.id }}
+                onClick={()=> props.setChangePage(true)}
+              >
+                <div className="books_card">
+                  <div className="books_img">
+                    <img alt="" src={item.img}/>
+                  </div>
+                  <div>{item.author}</div>
+                  <div>{item.title}</div>
+                  <div>{item.dateRealeased}</div>
+                  <div>{item.dateContext}</div>
                 </div>
-                <div>{item.id}</div>
-                <div>{item.author}</div>
-                <div>{item.tittle}</div>
-                <div>{item.dateRealeased}</div>
-                <div>{item.dateContext}</div>
-              </div>
+              </Link>
             );
           })}
         </div>
