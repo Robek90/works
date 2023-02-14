@@ -1,0 +1,20 @@
+header {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(90, 5, 5);
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.774);
+  .header_logo {
+    
+  }
+  .header_search {
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+  }
+  .header_vk {
+    
+  }
+}

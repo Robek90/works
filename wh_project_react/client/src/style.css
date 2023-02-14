@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body .wrapper {
+  height: 100vh;
+  background-color: white;
+  font-family: AlergiaNormal, "Segoe UI", "San Francisco", sans-serif;
+}
+body .wrapper .router_container {
+  display: flex;
+}
+body .wrapper .router_container .sidebar {
+  height: 840px;
+  background-color: white;
+  box-sizing: border-box;
+  border-left: 2px solid rgb(90, 5, 5);
+}
+body .wrapper .router_container .categories {
+  height: 840px;
+  background-color: white;
+  flex: 1;
+  border-right: 2px solid rgb(90, 5, 5);
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,90 @@
+.book_loading {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  img {
+    margin-top: 20%;
+  }
+  p {
+    font-family: Merriweather,Georgia,Cambria,Serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 18px;
+  }
+}
+.book_error {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  p {
+    margin-top: 30%;
+    font-family: Merriweather,Georgia,Cambria,Serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 18px;
+  }
+}
+.book_container {
+  height: 840px;
+  .book_container_button {
+    padding: 20px;
+    height: 25px;
+  }
+  .book_list {
+    padding-top: 50px;
+    height: calc(100% - 205px);
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-items: center;
+    .book_img {
+      img {
+        max-width: 400px;
+      }
+    }
+    .book_text {
+      font-family: 'courier', monospace;
+      color: rgb(10, 10, 10);
+      .book_title {
+        text-transform: capitalize;
+        font-weight: 700;
+        font-style: normal;
+        padding: 4px 0px 8px;
+        font-size: 30px;
+      }
+      .book_author {
+        text-transform: capitalize;
+        padding: 4px 0px 4px;
+        font-weight: 600;
+        font-size: 22px;
+        font-style: normal;
+      }
+      .book_dateRealeased {
+        padding: 8px 0px 8px;
+        font-weight: 200;
+        font-size: 18px;
+        font-style: normal;
+      }
+      .book_dateContext {
+        padding: 8px 0px 8px;
+        font-weight: 200;
+        font-size: 18px;
+        font-style: normal;
+      }
+      .book_isbn {
+        padding: 8px 0px 8px;
+        font-weight: 200;
+        font-size: 18px;
+        font-style: normal;
+      }
+      .book_description {
+        font-family:  'Helvetica', sans-serif;
+        line-height:40px;
+        margin-right: 40px;
+        padding: 10px 0px 10px;
+        font-weight: 200;
+        font-size: 20px;
+        font-style: normal;
+      }
+    }
+  }
+}

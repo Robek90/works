@@ -1,0 +1,104 @@
+.categories_container {
+  .categories_loading {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    img {
+      margin-top: 20%;
+    }
+    p {
+      font-family: Merriweather,Georgia,Cambria,Serif;
+      font-weight: 800;
+      font-style: normal;
+      font-size: 18px;
+    }
+  }
+  .categories_error {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    p {
+      margin-top: 20%;
+      font-family: Merriweather,Georgia,Cambria,Serif;
+      font-weight: 800;
+      font-style: normal;
+      font-size: 18px;
+    }
+  }
+  .current_page {
+    font-family: Merriweather,Georgia,Cambria,Serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    height: 30px;
+    padding: 10px 20px 10px;
+  }
+  .books {
+    min-height: 100%;
+    display: grid;
+    gap: 10%;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,180px);
+    justify-items: stretch;
+  }
+  a:-webkit-any-link {
+    text-decoration: none;
+  }
+  .books_card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    text-transform: capitalize;
+    color: #222;;
+    :hover {
+      color: #eb3246;
+    }
+    .books_img {
+      text-align: center;
+      padding: 14px 0px 14px 10px;
+      img {
+        width: 100px;
+        height: 150px;
+      }
+    }
+    .books_text {
+      padding: 14px 14px 14px 0px;
+      .books_title {
+        font-family: 'courier', monospace;
+        font-weight: 700;
+        font-style: normal;
+        padding: 4px 0px 8px;
+        font-size: 20px;
+      }
+      .books_author {
+        padding: 4px 0px 4px;
+        font-weight: 600;
+        font-size: 14px;
+        font-style: normal;
+      }
+      .books_dateRealeased {
+        padding: 4px 0px 4px;
+        font-weight: 200;
+        font-size: 14px;
+        font-style: normal;
+      }
+      .books_dateContext {
+        padding: 4px 0px 4px;
+        font-weight: 200;
+        font-size: 14px;
+        font-style: normal;
+      }
+    }
+  }
+  .pagination-bar {
+    grid-row: 4;
+    grid-column: 2;
+    height: 40px;
+    margin: 0 auto;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+  }
+}
+

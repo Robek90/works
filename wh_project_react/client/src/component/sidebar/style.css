@@ -1,0 +1,37 @@
+.sidebar_container .sidebar_race_logo {
+  height: 50px;
+}
+.sidebar_container .sidebar_menu .sidebar_list {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.sidebar_container .sidebar_menu .sidebar_list .sidebar_main_button_container {
+  width: 100%;
+  font-family: Merriweather, Georgia, Cambria, Serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  height: 36px;
+}
+.sidebar_container .sidebar_menu .sidebar_list .sidebar_main_button_container :hover {
+  color: #eb3246 !important;
+}
+.sidebar_container .sidebar_menu .sidebar_list .sidebar_main_button_container .sidebar_main_button_link {
+  width: 100%;
+  min-width: 5.5rem;
+  height: 36px;
+  align-items: center;
+  line-height: 1;
+  border: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  color: #222;
+}
+.sidebar_container .sidebar_menu .sidebar_list .sidebar_filters_container {
+  width: 100%;
+  height: 700px;
+}/*# sourceMappingURL=style.css.map */
