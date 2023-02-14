@@ -22,7 +22,7 @@ export default class BooksList {
 
       this.setState("done")
 
-      return data
+      return this.books
     } catch (e) {
       this.setState("error")
     }
