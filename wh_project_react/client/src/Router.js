@@ -1,10 +1,27 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Sidebar from "./component/sidebar";
 import Book from "./pages/book";
 import Admin from './pages/admin/index';
 import Categories from "./pages/categories";
+/*
+  1) Если я в адресную строку, пишу /admin
+  в роутере будет условие, if (route === 'admin') {
+      сделать редирект на порт с запущенной nodejs, например    
+      localhost:1234/admin (ну естественно в приложении сервера, тоже должен быть такой роут, типа app.get('admin.... 
 
+  2) отправлять вместе с редиректом параметр
+  будущий локалстораж
+  )
+      authorized: true,
+      name: stas,
+      email
+  )
+
+  3) на сервере проверять, а если ли такой пользователь у меня в БД (но если ее нету то просто заведи где нибудь, в отдельном файле переменную с пользователями-админами)
+*/
 function AppRouter(props) {
+  let location = useLocation();
+
   const routes = [
     {
       path: "/books",
@@ -12,12 +29,11 @@ function AppRouter(props) {
       main: (props) => <Categories {...props} />
     }
   ];
-  
   return (
     <>
       <div className="router_container">
         <div
-          className="sidebar"
+          className={`${location.pathname !== "/books" ? "sidebar_none" : "sidebar"}`}
         >
           <Routes>
             {routes.map((route, index) => (
@@ -30,7 +46,7 @@ function AppRouter(props) {
           </Routes>
         </div>
         <div 
-          className="categories"
+          className={`categories ${location.pathname !== "/books" ? "" : "categories_flex"}`}
         >
           <Routes>
             {routes.map((route, index) => (
@@ -47,12 +63,16 @@ function AppRouter(props) {
           </Routes>
           <Routes>
             <Route
-              path="admin"
-              element={<Admin to="/admin" />}
+              path="/admin"
+              element={<Admin history={props.history}/>}
             />
             <Route
-              path="book"
-              element={<Book history={props.history} to="/book" />}
+              path= "/"
+              element={<Navigate to="/admin?categories=bookslist" replace />}
+            />
+            <Route
+              path="/book"
+              element={<Book history={props.history}/>}
             />
           </Routes>
         </div>

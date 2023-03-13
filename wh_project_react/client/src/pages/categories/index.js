@@ -3,7 +3,7 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import Pagination from '../../component/pagination/index';
 import { inject, observer } from 'mobx-react';
 
-import Filter from '../../utils/filtersService';
+import Filters from '../../utils/filtersService';
 import { splitUrl } from '../../utils/common';
 import { useGetUrlParams } from '../../services/url/index';
 
@@ -21,8 +21,8 @@ export default inject('books') (
     const [currentPage, setCurrentPage] = useState(searchParams.get('page')||1);
 
     const [booksArray, setBooksArray] = useState([]);
-
-    const filters = new Filter({
+    
+    const filters = new Filters({
       books: getBooksList,
     });
 
@@ -60,7 +60,7 @@ export default inject('books') (
         setBooksArray(filters.getFilteredBooks(categories, splitUrl(filteredTags)));
       }
     },[getBooksList, categories, race, author, dateRealeased, dateContext, tags, isbn, search]);
-
+    
     return (
       <div className="categories_container">
         {props.books.state === 'pending' ? 

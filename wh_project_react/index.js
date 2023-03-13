@@ -1,38 +1,77 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const mockData = require("./mockData");
 
-app.get("/booksList", (req, res) => {
-  res.json(mockData.mockData);
+const sqlite3 = require('sqlite3').verbose();
+const multer  = require('multer');
+const upload = multer({ dest: 'client/src/assets/images/uploads/' });
+
+let db = new sqlite3.Database("./server_db/books.sqlite3", sqlite3.OPEN_READWRITE,(err) => {
+  if (err) {
+    console.error(err.message);
+  }
+  console.log('Connected to the warhammerBooksList database.');
 });
 
-app.use(express.urlencoded());
+app.get("/booksList", (req, res) => {
+  getDataBase().then(x=>{
+    res.json(x)
+  })
+});
 
 app.use(express.json());
 
-app.post('/newBook', function(request, response){
-  console.log(request.body);
+app.post("/verification", (req, res) => {
+  if(req.body.uid === 323940){
+    res.json(true)
+  } else {
+    res.json(false)
+  }
 });
+
+app.post("/newBook", (req, res) => {
+  let book = req.body
+  insertDataBase(book);
+});
+
+app.post('/uploads', upload.single('avatar'), (req, res) => {
+  console.log("Using Multer: ", req.body)
+})
 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
 
-// const sqlite3 = require('sqlite3').verbose();
-// const db = new sqlite3.Database('./server_db/books.sqlite3');
+function getDataBase() {
+  return new Promise((resolve, reject) => {
+    db.all("SELECT * FROM whbooks", function(err, rows) {
+      if(err) {
+        console.log(err)
+      }
+      resolve(rows);
+    })
+  });
+}
 
-// db.serialize(() => {
-//   db.run("CREATE TABLE Books (info TEXT)");
+function insertDataBase(book) {
+  let col = Object.keys(book).join(", ");
+  let placeholder = Object.keys(book).fill('?').join(", ");
 
-//   const stmt = db.prepare("INSERT INTO Books VALUES (?)");
-//   for (let i = 0; i < 10; i++) {
-//       stmt.run("Ipsum " + i);
-//   }
-//   stmt.finalize();
+  db.run('INSERT INTO whbooks (' + col + ') VALUES (' + placeholder + ')',Object.values(book)), (err)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('success');
+    }
+  }
+}
+// dataBaseClose()
 
-//   db.each("SELECT rowid AS id, info FROM Books", (err, row) => {
-//       console.log(row.id + ": " + row.info);
+
+// function dataBaseClose() {
+//   db.close((err) => {
+//     if (err) {
+//       return console.error(err.message);
+//     }
+//     console.log('Close the database connection.')
 //   });
-// });
-
-// db.close();
+// };

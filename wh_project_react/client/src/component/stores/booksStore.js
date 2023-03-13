@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import { formatBooksArray } from '../../utils/formatData';
 
 export default class BooksList {
   books = [];
@@ -20,38 +21,52 @@ export default class BooksList {
 
       this.setBooks(data)
 
-      this.setState("done")
+      this.setState("done") 
 
-      return this.books
+      return this.books.then(res=>formatBooksArray(res))
     } catch (e) {
       this.setState("error")
     }
   };
-  
-  sendNewBooksData = async () => {
+
+  sendNewBooksData = async (newBook) => {
     let url = '/newBook';
-    const response =  await fetch(url, {
+
+    await fetch(url, {
+      mode: 'no-cors',
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify(
-        {
-          id: 20,
-          title: "мстительный дух",
-          author: ["Гремм Макнилл"],
-          dateRealeased: ["2014"],
-          dateContext: ["32000"],
-          categories: ["allbooks", "wh40k"],
-          race: ["imperium", "chaos"],
-          tags: ["horus", "horus_heresy"],
-        }
+        newBook
       )
     });
+  };
 
-    const responseText = await response.text();
+  sendNewImageData = async (data,checkbox) => {
+    let url = '/uploads';
 
-    console.log(responseText);
+    let formData = new FormData();
+    formData.append('id', data.id.value)
+    formData.append('title', data.title.value)
+    formData.append('author', data.author.value)
+    formData.append('dateRealeased', data.dateRealeased.value)
+    formData.append('dateContext', data.dateContext.value)
+    formData.append('categories', data.categories.value)
+    formData.append('race', checkbox)
+    formData.append('tags', data.tags.value)
+    formData.append('description', data.description.value)
+    formData.append('img', data.img.value)
+
+    let response = await fetch(url, {
+      method: 'POST',
+      body: formData,
+    });
+
+    let result = await response.json();
+
+    alert(result.message);
   };
 
   setBooks = (data) => {

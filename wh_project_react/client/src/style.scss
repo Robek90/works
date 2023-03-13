@@ -13,9 +13,14 @@ body {
         box-sizing: border-box;
         border-left: 2px solid rgb(90, 5, 5);
       }
+      .sidebar_none{
+        display: none;
+      }
       .categories {
         height: 840px;
         background-color: white;
+      }
+      .categories_flex {
         flex: 1;
         border-right: 2px solid rgb(90, 5, 5);
       }

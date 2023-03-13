@@ -26,22 +26,14 @@ export default inject('books') (
     });
 
     useEffect(()=>{
-      /**
-      * Покурить тему разобраться и разобрать данную функцию попробовать написать проще
-      * разобраться, доработать
-      */
-      async function responseList() {
-        await props.books.getBooksRequestData();
-
-        const data = await props.books.books;
-
+      props.books.getBooksRequestData()
+      .then(res=>{
         if(props.books.state === 'done') {
-          setGetBooksList(data);
+          setGetBooksList(res);
         }
-      }
-
-      responseList();
-    },[]);
+      })
+      .catch(error=>console.log(error))
+    },[props.books]);
 
     return (
       <>

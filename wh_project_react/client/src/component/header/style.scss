@@ -1,5 +1,5 @@
 header {
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   background-color: rgb(90, 5, 5);
@@ -9,12 +9,17 @@ header {
     
   }
   .header_search {
-    height: 100px;
+    height: 80px;
     text-align: center;
     vertical-align: middle;
     justify-content: center;
   }
   .header_vk {
-    
+    // &.disabled {
+    //   display: none;
+    // }
+    // &.enabled {
+    //   display: block;
+    // }
   }
 }

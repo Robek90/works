@@ -1,7 +1,6 @@
 class Filters {
   constructor(params) {
     this.books = params.books;
-    // this.filteredBooks = params.filteredBooks;
   };
 
   /**

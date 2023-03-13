@@ -1,0 +1,56 @@
+.admin_books {
+  min-height: 100%;
+  display: grid;
+  gap: 10%;
+  grid-template-columns: repeat(5,260px);
+  grid-template-rows: repeat(6,100px);
+  justify-items: stretch;
+  .books_card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    text-transform: capitalize;
+    color: #222;;
+    :hover {
+      color: #eb3246;
+    }
+    .books_img {
+      text-align: center;
+      padding: 14px 0px 14px 10px;
+      img {
+        width: 70px;
+        height: 100px;
+      }
+    }
+    .books_text {
+      padding: 14px 14px 14px 0px;
+      .books_title {
+        font-weight: 600;
+        font-style: normal;
+        padding: 4px 0px 4px;
+        font-size: 15px;
+      }
+      .books_author {
+        padding: 4px 0px 4px;
+        font-weight: 600;
+        font-size: 12px;
+        font-style: normal;
+      }
+      .books_dateRealeased {
+        padding: 4px 0px 4px;
+        font-weight: 200;
+        font-size: 14px;
+        font-style: normal;
+      }
+      .books_dateContext {
+        padding: 4px 0px 4px;
+        font-weight: 200;
+        font-size: 14px;
+        font-style: normal;
+      }
+    }
+  }
+}
+a:-webkit-any-link {
+  text-decoration: none;
+}
+

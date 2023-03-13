@@ -16,9 +16,14 @@ body .wrapper .router_container .sidebar {
   box-sizing: border-box;
   border-left: 2px solid rgb(90, 5, 5);
 }
+body .wrapper .router_container .sidebar_none {
+  display: none;
+}
 body .wrapper .router_container .categories {
   height: 840px;
   background-color: white;
+}
+body .wrapper .router_container .categories_flex {
   flex: 1;
   border-right: 2px solid rgb(90, 5, 5);
 }/*# sourceMappingURL=style.css.map */
