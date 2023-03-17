@@ -3,7 +3,6 @@ const app = express();
 
 const sqlite3 = require('sqlite3').verbose();
 const multer  = require('multer');
-const upload = multer({ dest: 'client/src/assets/images/uploads/' });
 
 let db = new sqlite3.Database("./server_db/books.sqlite3", sqlite3.OPEN_READWRITE,(err) => {
   if (err) {
@@ -28,13 +27,31 @@ app.post("/verification", (req, res) => {
   }
 });
 
-app.post("/newBook", (req, res) => {
-  let book = req.body
-  insertDataBase(book);
-});
+// app.post("/newBook", upload.single("img"), (req, res) => {
+//   let book = req.body
+//   insertDataBase(book);
+// });
 
-app.post('/uploads', upload.single('avatar'), (req, res) => {
-  console.log("Using Multer: ", req.body)
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'client/src/assets/images/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+const upload = multer({ storage: storage })
+
+app.post('/addNewBook', upload.single("files"), (req, res) => {
+  insertDataBase(req.body)
+  res.json({ message:  "Книга успешно добавлена" });
+})
+
+app.post('/deleteBook', upload.single("files"), (req, res) => {
+  console.log(req.body['id']);
+  deleteRowDataBase(req.body['id'])
+  res.json({ message:  "Книга успешно удалена" });
 })
 
 const PORT = process.env.PORT || 8080;
@@ -64,14 +81,14 @@ function insertDataBase(book) {
     }
   }
 }
-// dataBaseClose()
 
-
-// function dataBaseClose() {
-//   db.close((err) => {
-//     if (err) {
-//       return console.error(err.message);
-//     }
-//     console.log('Close the database connection.')
-//   });
-// };
+function deleteRowDataBase(rowid) {
+  console.log(rowid);
+  db.run(`DELETE FROM whbooks WHERE rowid = ${rowid}`), (err)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('success');
+    }
+  }
+}

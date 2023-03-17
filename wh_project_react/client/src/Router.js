@@ -57,7 +57,11 @@ function AppRouter(props) {
               />
             ))}
             <Route
-              path= "/"
+              path="/"
+              element={<Navigate to="/books?categories=allbooks&page=1" replace />}
+            />
+            <Route
+              path="/books"
               element={<Navigate to="/books?categories=allbooks&page=1" replace />}
             />
           </Routes>
@@ -67,8 +71,8 @@ function AppRouter(props) {
               element={<Admin history={props.history}/>}
             />
             <Route
-              path= "/"
-              element={<Navigate to="/admin?categories=bookslist" replace />}
+              path= "/admin"
+              element={<Navigate to="/admin?bookslist" replace />}
             />
             <Route
               path="/book"

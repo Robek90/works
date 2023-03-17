@@ -6,9 +6,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import { getVerification } from '../../services/verification';
+import { inject, observer } from 'mobx-react';
 import VK, { Auth } from 'react-vk';
 
-export default function VKDialog(props) {
+export default inject('books') (
+  observer((props) => {
   const [open, setOpen] = useState(false);
 
   let [storage, setStorage] = useState(false);
@@ -68,9 +70,9 @@ export default function VKDialog(props) {
              userInfo ? userVerification ? <div>
               <Button variant="outlined" onClick={handleClose}>
                 <Link 
-                  to={`/admin?categories=bookslist`}
+                  to={`/admin?bookslist=1`}
                   onClick={()=> {
-                    props.history.push(`/admin?categories=bookslist`)
+                    props.history.push(`/admin?bookslist=1`)
                   }}
                 >
                   Мастерская шестеренки
@@ -83,4 +85,4 @@ export default function VKDialog(props) {
       </Dialog>
     </div>
   );
-}
+}))

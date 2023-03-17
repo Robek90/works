@@ -1,53 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
+import Button from '@mui/material/Button';
 
-import AddBook from '../../component/addbook/index';
+import BookDialog from '../../component/bookdialoginputs/index';
 
 import './style.css';
 
 export default inject('books') (
   observer((props) => {
-    const [getBooksList, setGetBooksList] = useState([]);
+    const [booksList, setGetBooksList] = useState([]);
+    const [loading, setLoading] = useState(0);
+    
+    props.history.push(props.history.location);
 
-    let location = useLocation();
-    props.history.push(location);
+    const handleDelete = (index) => {
+      props.books.sendDeleteBook(index+1);
+    };
 
     useEffect(()=>{
       props.books.getBooksRequestData()
         .then(res=>setGetBooksList(res))
         .catch(error=>console.log(error))
-    },[]);
+    },[loading]);
 
     return (
       <>
-        <AddBook/>
-        <div className="admin_books">
-            {getBooksList.map((item, index) => {
+        <div className="admin_panel">
+          <BookDialog 
+            history={props.history}
+            title={"добавить книгу"}
+            variant={"outlined"}
+            bookAdd={null}
+            booksList={booksList}
+            setLoading={setLoading}
+          />
+          <div className="admin_books">
+            {booksList.map((item, index) => {
               return (
-                <div key={index} className="books_card">
-                  <div className="books_img">
+                <div 
+                  key={index} 
+                  className="book_card"
+                >
+                  <div className="book_img">
                     <img alt="" src={require(`../../assets/images/${item.img}`)}/>
                   </div>
-                  <div className="books_text">
-                    <div className="books_title">{item.title}</div>
-                    <div className="books_author">Автор: {item.author}</div>
-                    <div className="books_dateRealeased">издание: {item.dateRealeased}г.</div>
+                  <div className="book_text">
+                    <div className="book_title">{item.title}</div>
+                    <div className="book_author">Автор: {item.author}</div>
+                    <div className="book_dateRealeased">издание: {item.dateRealeased}г.</div>
+                  </div>
+                  <div className="book_button">
+                    <Button 
+                      className="book_delete" 
+                    >
+                      <Link
+                        to={`/admin?bookslist=${booksList.length-1}`}
+                        onClick={()=>{
+                          setLoading(booksList.length-1)
+                          handleDelete(index);
+                          props.history.push(`/admin?bookslist=${booksList.length-1}`);
+                        }}
+                      >
+                        удалить
+                      </Link>
+                    </Button>
+                    <BookDialog 
+                      className="book_edit"
+                      bookId={index}
+                      bookValue={item}
+                      title={"редактировать"}
+                      variant={"none"} 
+                      history={props.history}
+                      booksList={booksList}
+                      setLoading={setLoading}
+                    />
                   </div>
                 </div>
               );
             })}
-            {/* <Pagination
-            className="pagination-bar"
-            currentPage={+searchParams.get('page')||1}
-            totalCount={booksArray.length}
-            pageSize={itemPerPage}
-            onPageChange={page => {
-              setCurrentPage(page);
-              setSearchParams({ ...Object.fromEntries([...searchParams]), page });
-            }}
-          /> */}
           </div>
+        </div> 
       </>
     )
   })

@@ -9,11 +9,6 @@ import './style.css';
 export default function Header(props) {
   const [isdisabled, setIsdisabled] = useState(true);
 
-  // const authHandler=()=>{
-  //   setIsdisabled(false)
-  // };
-
-  // console.log(isdisabled);
   return (
     <header>
       <div className="header_logo">
@@ -23,17 +18,7 @@ export default function Header(props) {
         <InputSearch history={props.history}/>
       </div>
       <div className="header_vk">
-        
         <Vkdialog history={props.history}/>
-        {/* <span onClick={authHandler}>
-          {
-            localstorage ? 'выйти' : 'войти'
-          }
-        </span> */}
-        {/* {
-          !localstorage && !isdisabled && (<div id="vk_auth"></div>)
-        }
-        <Verification/> */}
       </div>
       
     </header>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { inject, observer } from 'mobx-react';
 
-import BooksFilters from '../../booksFilters';
+import BooksFilters from '../../booksfilters/index';
 
 export default inject('books') (
   observer((props) => {

@@ -11,7 +11,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 import { newSetArray, splitUrl } from '../../utils/common';
 import { useGetUrlParams, pathCol } from '../../services/url/index';
-import { changeCheckedStatus, getCheckboxFromUrl } from '../../services/booksFilters/index';
+import { changeCheckedStatus, getCheckboxFromUrl } from '../../services/filters/index';
 
 import './style.css';
 

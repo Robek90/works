@@ -1,56 +1,70 @@
-.admin_books {
+.admin_panel {
+  min-height: 100%;
+}
+.admin_panel .admin_books {
+  margin: 0 auto;
   min-height: 100%;
   display: grid;
-  gap: 10%;
-  grid-template-columns: repeat(5, 260px);
-  grid-template-rows: repeat(6, 100px);
+  grid-template-columns: repeat(7, 270px);
   justify-items: stretch;
 }
-.admin_books .books_card {
+.admin_panel .admin_books .book_card {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "A B" "C C";
   text-transform: capitalize;
   color: #222;
 }
-.admin_books .books_card :hover {
+.admin_panel .admin_books .book_card :hover {
   color: #eb3246;
 }
-.admin_books .books_card .books_img {
+.admin_panel .admin_books .book_card .book_img {
+  grid-area: A;
   text-align: center;
-  padding: 14px 0px 14px 10px;
+  padding: 14px 20px 14px;
 }
-.admin_books .books_card .books_img img {
+.admin_panel .admin_books .book_card .book_img img {
   width: 70px;
   height: 100px;
 }
-.admin_books .books_card .books_text {
+.admin_panel .admin_books .book_card .book_text {
+  grid-area: B;
+  height: 100px;
   padding: 14px 14px 14px 0px;
 }
-.admin_books .books_card .books_text .books_title {
+.admin_panel .admin_books .book_card .book_text .book_title {
   font-weight: 600;
   font-style: normal;
   padding: 4px 0px 4px;
   font-size: 15px;
 }
-.admin_books .books_card .books_text .books_author {
+.admin_panel .admin_books .book_card .book_text .book_author {
   padding: 4px 0px 4px;
   font-weight: 600;
   font-size: 12px;
   font-style: normal;
 }
-.admin_books .books_card .books_text .books_dateRealeased {
+.admin_panel .admin_books .book_card .book_text .book_dateRealeased {
   padding: 4px 0px 4px;
   font-weight: 200;
   font-size: 14px;
   font-style: normal;
 }
-.admin_books .books_card .books_text .books_dateContext {
+.admin_panel .admin_books .book_card .book_text .book_dateContext {
   padding: 4px 0px 4px;
   font-weight: 200;
   font-size: 14px;
   font-style: normal;
 }
-
-a:-webkit-any-link {
+.admin_panel .admin_books .book_button {
+  grid-area: C;
+  padding: 0px 14px 0px;
+}
+.admin_panel .admin_books .book_button .books_delete {
+  padding: 1px 3px !important;
+}
+.admin_panel .admin_books .book_button .books_edit {
+  padding: 1px 3px !important;
+}
+.admin_panel a:-webkit-any-link {
   text-decoration: none;
 }/*# sourceMappingURL=style.css.map */

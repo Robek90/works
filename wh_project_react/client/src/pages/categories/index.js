@@ -21,14 +21,15 @@ export default inject('books') (
     const [currentPage, setCurrentPage] = useState(searchParams.get('page')||1);
 
     const [booksArray, setBooksArray] = useState([]);
-    
+
     const filters = new Filters({
       books: getBooksList,
     });
 
     let location = useLocation();
+
     props.history.push(location);
-    
+
     const urlParams = useGetUrlParams();
 
     const {categories, race, author, dateRealeased, dateContext, tags, isbn, search} = urlParams;
@@ -59,7 +60,7 @@ export default inject('books') (
       if(categories) {
         setBooksArray(filters.getFilteredBooks(categories, splitUrl(filteredTags)));
       }
-    },[getBooksList, categories, race, author, dateRealeased, dateContext, tags, isbn, search]);
+    },[getBooksList]);
     
     return (
       <div className="categories_container">
@@ -87,7 +88,6 @@ export default inject('books') (
                   onClick={()=> {
                     props.history.push(`/book?isbn=${item.id}`)
                   }}
-                  
                 >
                   <div className="books_card">
                     <div className="books_img">
@@ -104,15 +104,15 @@ export default inject('books') (
               );
             })}
             <Pagination
-            className="pagination-bar"
-            currentPage={+searchParams.get('page')||1}
-            totalCount={booksArray.length}
-            pageSize={itemPerPage}
-            onPageChange={page => {
-              setCurrentPage(page);
-              setSearchParams({ ...Object.fromEntries([...searchParams]), page });
-            }}
-          />
+              className="pagination-bar"
+              currentPage={+searchParams.get('page')||1}
+              totalCount={booksArray.length}
+              pageSize={itemPerPage}
+              onPageChange={page => {
+                setCurrentPage(page);
+                setSearchParams({ ...Object.fromEntries([...searchParams]), page });
+              }}
+            />
           </div>
         </>
         }
