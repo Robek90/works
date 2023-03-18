@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import Button from '@mui/material/Button';
 
-import BookDialog from '../../component/bookdialoginputs/index';
+import BookDialog from '../../component/bookdialog/index';
 
 import './style.css';
 
@@ -11,11 +11,11 @@ export default inject('books') (
   observer((props) => {
     const [booksList, setGetBooksList] = useState([]);
     const [loading, setLoading] = useState(0);
-    
+
     props.history.push(props.history.location);
 
     const handleDelete = (index) => {
-      props.books.sendDeleteBook(index+1);
+      props.books.sendDeleteBookData(index+1);
     };
 
     useEffect(()=>{
@@ -31,7 +31,6 @@ export default inject('books') (
             history={props.history}
             title={"добавить книгу"}
             variant={"outlined"}
-            bookAdd={null}
             booksList={booksList}
             setLoading={setLoading}
           />
@@ -67,14 +66,16 @@ export default inject('books') (
                     </Button>
                     <BookDialog 
                       className="book_edit"
-                      bookId={index}
-                      bookValue={item}
                       title={"редактировать"}
-                      variant={"none"} 
+                      variant={""}
                       history={props.history}
                       booksList={booksList}
                       setLoading={setLoading}
-                    />
+                      bookItem={item}
+                      bookIndex={index}
+                    >
+                      редактировать
+                    </BookDialog>
                   </div>
                 </div>
               );

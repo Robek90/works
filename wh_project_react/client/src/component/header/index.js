@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import InputSearch from '../inputSearch/index';
 import Vkdialog from '../vkdialog/index';
 // import TitleLogo from '../../assets/logo/KK_logo.png'
@@ -7,8 +6,6 @@ import TitleLogo from '../../assets/logo/KK_logo.gif'
 import './style.css';
 
 export default function Header(props) {
-  const [isdisabled, setIsdisabled] = useState(true);
-
   return (
     <header>
       <div className="header_logo">

@@ -13,11 +13,10 @@ import './style.css';
 export default inject('books') (
   observer((props) => {
   const [ open, setOpen ] = useState(false);
-  const [ checkboxValue, setCheckboxvValue ] = useState([]);
   const [ bookData, setBookData ] = useState("")
 
   const form = useRef(null)
-
+  
   const handleClickOpen = () => {
     if(props.bookAdd !== null) {
       setBookData([props.bookId, props.bookValue])
@@ -27,18 +26,25 @@ export default inject('books') (
 
   const handleClose = () => {
     setOpen(false);
-    props.setLoading("add"+ props.booksList.length+1);
+    props.setLoading("add"+(+props.booksList.length+1));
   };
 
   const handleSend = (event) => {
-    props.books.sendNewImageData(form.current, checkboxValue.join(','), event);
+
+    if(props.title === "редактировать") {
+      props.books.sendEditBookData(form.current, event, props.bookIndex);
+    } else {
+      props.books.sendNewBookData(form.current, event);
+    }
     handleClose();
   };
-
+  
   return (
     <div>
-      <Button variant={props.variant} 
-        onClick={handleClickOpen}>
+      <Button 
+        variant={props.variant} 
+        onClick={handleClickOpen}
+      >
         {props.title}
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -47,8 +53,8 @@ export default inject('books') (
             Вводите данные информацию о книге через запятую.
           </DialogContentText>
         <FormInputs 
+          bookItem={props.bookItem}
           bookData={bookData}
-          setCheckboxvValue={setCheckboxvValue}
           form={form}
         />
         </DialogContent>
@@ -56,10 +62,10 @@ export default inject('books') (
           <Button onClick={handleClose}>Отмена</Button>
           <Button> 
             <Link 
-              to={`/admin?bookslist=${props.booksList.length+1}`}
+              to={`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`}
               onClick={((event)=>{
                 handleSend(event);
-                props.history.push(`/admin?bookslist=${props.booksList.length+1}`);
+                props.history.push(`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`);
               })}>
               Отправить
             </Link>   

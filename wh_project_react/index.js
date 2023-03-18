@@ -27,11 +27,6 @@ app.post("/verification", (req, res) => {
   }
 });
 
-// app.post("/newBook", upload.single("img"), (req, res) => {
-//   let book = req.body
-//   insertDataBase(book);
-// });
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'client/src/assets/images/')
@@ -39,20 +34,25 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(null, file.originalname)
   }
-})
+});
 
 const upload = multer({ storage: storage })
 
 app.post('/addNewBook', upload.single("files"), (req, res) => {
   insertDataBase(req.body)
   res.json({ message:  "Книга успешно добавлена" });
-})
+});
 
 app.post('/deleteBook', upload.single("files"), (req, res) => {
-  console.log(req.body['id']);
   deleteRowDataBase(req.body['id'])
   res.json({ message:  "Книга успешно удалена" });
-})
+});
+
+app.post("/editBook", upload.single("img"), (req, res) => {
+  console.log(req.body);
+  editDataBase(req.body, req.body['id'])
+  res.json({ message:  "Книга успешно изменена" });
+});
 
 const PORT = process.env.PORT || 8080;
 
@@ -67,7 +67,7 @@ function getDataBase() {
       resolve(rows);
     })
   });
-}
+};
 
 function insertDataBase(book) {
   let col = Object.keys(book).join(", ");
@@ -80,10 +80,24 @@ function insertDataBase(book) {
       console.log('success');
     }
   }
-}
+};
+
+function editDataBase(book, rowid) {
+  let col = Object.keys(book).filter(item=> item !== 'rowid').join(", ");
+  let placeholder = Object.keys(book).filter(item=> item !== 'rowid').fill('?').join(", ");
+  let values = Object.values(book).filter(item=> item !== rowid)
+
+  console.log(col,placeholder,values);
+  // db.run('UPDATE whbooks SET (' + col + ') = (' + placeholder + ') WHERE rowid = (' + rowid + ')' , values), (err)=>{
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log('success');
+  //   }
+  // }
+};
 
 function deleteRowDataBase(rowid) {
-  console.log(rowid);
   db.run(`DELETE FROM whbooks WHERE rowid = ${rowid}`), (err)=>{
     if (err) {
       console.log(err);
@@ -91,4 +105,4 @@ function deleteRowDataBase(rowid) {
       console.log('success');
     }
   }
-}
+};
