@@ -29,22 +29,23 @@ export default class BooksList {
     }
   };
 
-  sendNewBookData = async (data,event) => {
+  sendNewBookData = async (data) => {
     let url = '/addNewBook';
-    
-    let formData = new FormData();
+    let checkbox = Object.values(data.race).filter(item=>item.checked === true).map((item)=>item.name);
 
+    let formData = new FormData();
     formData.append('id', data.id.value)
     formData.append('title', data.title.value)
     formData.append('author', data.author.value)
     formData.append('dateRealeased', data.dateRealeased.value)
     formData.append('dateContext', data.dateContext.value)
     formData.append('categories', `allbooks, ${data.categories.value}`)
-    // formData.append('race', checkbox) // исправить получение знаяения чекбоксов
+    formData.append('race', checkbox.join(','))
     formData.append('tags', data.tags.value)
     formData.append('description', data.description.value)
     formData.append('img', data.files.files[0]['name'])
     console.log(data.files.files[0]['name']);
+
     for(let i = 0; i < data.files.files.length; i++) {
       formData.append("files", data.files.files[i]);
     }
@@ -76,12 +77,11 @@ export default class BooksList {
     console.log(result.message);
   };
 
-  sendEditBookData = async (data,event,rowid) => {
+  sendEditBookData = async (data,rowid) => {
     let url = '/editBook';
     let checkbox = Object.values(data.race).filter(item=>item.checked === true).map((item)=>item.name)
-
+    console.log(data.files.files[0]);
     let formData = new FormData();
-
     formData.append('rowid', rowid)
     formData.append('id', data.id.value)
     formData.append('title', data.title.value)
@@ -89,11 +89,11 @@ export default class BooksList {
     formData.append('dateRealeased', data.dateRealeased.value)
     formData.append('dateContext', data.dateContext.value)
     formData.append('categories', `allbooks,${data.categories.value}`)
-    formData.append('race', checkbox.join(',')) // исправить получение знаяения чекбоксов
+    formData.append('race', checkbox.join(','))
     formData.append('tags', data.tags.value)
     formData.append('description', data.description.value)
     
-    if(data.files.files[0]===undefined){
+    if(data.files.files[0] === undefined){
       formData.append('img', data.img.value)
     } else {
       formData.append('img', data.files.files[0]['name'])

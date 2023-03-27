@@ -11,4 +11,7 @@ header .header_search {
   text-align: center;
   vertical-align: middle;
   justify-content: center;
+}
+header .header_vk {
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */

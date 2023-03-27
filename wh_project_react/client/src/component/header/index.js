@@ -17,7 +17,6 @@ export default function Header(props) {
       <div className="header_vk">
         <Vkdialog history={props.history}/>
       </div>
-      
     </header>
   )
 }

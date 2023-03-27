@@ -16,10 +16,10 @@ export default function FormInputs(props) {
   const [ radioDefaultValue, setRadioDefaultValue ] = useState(null);
   const [ isChecked, setIsChecked ] = useState(new Array(races.length).fill(false));
 
-  const handleOnChange = (checked, position) => {
-    const updatedCheckedState = checked.map((item, index) =>
-      index === position? item : !item
-    )
+  const handleOnChange = (position) => {
+    const updatedCheckedState = isChecked.map((item, index) =>
+      index === position? !item : item
+    );
     setIsChecked(updatedCheckedState);
   };
 
@@ -32,10 +32,10 @@ export default function FormInputs(props) {
   
   useMemo(()=>{
     if(props.bookItem) {
-      setRadioDefaultValue(props.bookItem.categories[1])
-      setCheckboxValue(races, props.bookItem.race)
+      setRadioDefaultValue(props.bookItem.categories[1]);
+      setCheckboxValue(races, props.bookItem.race);
     }
-  },[])
+  },[]);
 
   return (
     <Box component="form" ref={props.form} encType="multipart/form-data">
@@ -67,7 +67,7 @@ export default function FormInputs(props) {
                   defaultValue={race}
                   onChange={() => {
                     
-                    handleOnChange(isChecked,index)
+                    handleOnChange(index)
                   }}         
                   sx={{
                     color: red[900],

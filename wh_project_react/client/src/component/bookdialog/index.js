@@ -12,6 +12,7 @@ import './style.css';
 
 export default inject('books') (
   observer((props) => {
+
   const [ open, setOpen ] = useState(false);
   const [ bookData, setBookData ] = useState("")
 
@@ -26,21 +27,24 @@ export default inject('books') (
 
   const handleClose = () => {
     setOpen(false);
-    props.setLoading("add"+(+props.booksList.length+1));
+    if(props.title === "редактировать") {
+      props.setLoading("edit"+(Math.random()));
+    } else {
+      props.setLoading("add"+(+props.booksList.length+1));
+    }
   };
 
-  const handleSend = (event) => {
-
+  const handleSend = () => {
     if(props.title === "редактировать") {
-      props.books.sendEditBookData(form.current, event, props.bookIndex);
+      props.books.sendEditBookData(form.current, props.bookIndex+1);
     } else {
-      props.books.sendNewBookData(form.current, event);
+      props.books.sendNewBookData(form.current);
     }
     handleClose();
   };
   
   return (
-    <div>
+    <div className={props.className}>
       <Button 
         variant={props.variant} 
         onClick={handleClickOpen}
@@ -63,8 +67,8 @@ export default inject('books') (
           <Button> 
             <Link 
               to={`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`}
-              onClick={((event)=>{
-                handleSend(event);
+              onClick={(()=>{
+                handleSend();
                 props.history.push(`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`);
               })}>
               Отправить

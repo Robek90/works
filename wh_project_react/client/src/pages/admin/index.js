@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import Button from '@mui/material/Button';
 
@@ -11,8 +11,10 @@ export default inject('books') (
   observer((props) => {
     const [booksList, setGetBooksList] = useState([]);
     const [loading, setLoading] = useState(0);
-
-    props.history.push(props.history.location);
+    
+    let location = useLocation();
+    
+    props.history.push(location);
 
     const handleDelete = (index) => {
       props.books.sendDeleteBookData(index+1);
@@ -28,6 +30,7 @@ export default inject('books') (
       <>
         <div className="admin_panel">
           <BookDialog 
+            className="book_add"
             history={props.history}
             title={"добавить книгу"}
             variant={"outlined"}

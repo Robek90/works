@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { NavLink } from "react-router-dom";
-
 import { blue } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
-
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-
 import FormControlLabel from '@mui/material/FormControlLabel';
 
+import { filtersName } from '../../utils/filtersname';
 import { newSetArray, splitUrl } from '../../utils/common';
 import { useGetUrlParams, pathCol } from '../../services/url/index';
 import { changeCheckedStatus, getCheckboxFromUrl } from '../../services/filters/index';
@@ -16,7 +14,7 @@ import { changeCheckedStatus, getCheckboxFromUrl } from '../../services/filters/
 import './style.css';
 
 export default function BooksFilters(props) {
-  const {filters} = props;
+  const { filters } = props;
 
   const urlParams = useGetUrlParams();
   
@@ -91,10 +89,10 @@ export default function BooksFilters(props) {
         </NavLink>
       </div>
       <div className="sidebar_filters">
-        {Object.keys(filters).map((key,keysIndex) => (
+        {Object.keys(filters).map((key, keysIndex) => (
           <div key={keysIndex}>
             <div className="filter_group_name">
-              {key}
+              {filtersName(key)}
             </div>
             {key === 'categories' ?
               <RadioGroup

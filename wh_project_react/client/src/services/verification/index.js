@@ -11,7 +11,6 @@ export let getVerification = async (userInfo) => {
         {
           uid: userInfo.uid,
           first_name: userInfo.first_name,
-          last_name: userInfo.last_name,
         }
       )
     });

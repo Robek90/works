@@ -27,7 +27,7 @@ export default inject('books') (
     });
 
     let location = useLocation();
-
+    
     props.history.push(location);
 
     const urlParams = useGetUrlParams();

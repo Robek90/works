@@ -7,9 +7,6 @@ import './style.css';
 export default function Sidebar(props) { 
   return (
     <div className="sidebar_container">
-      <div className="sidebar_race_logo">
-        LOGO
-      </div>
       <div className="sidebar_menu">
         <ul className="sidebar_list">
           <li className="sidebar_main_button_container">

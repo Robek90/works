@@ -1,11 +1,10 @@
 .sidebar_container {
-  .sidebar_race_logo {
-    height: 50px;
-  }
   .sidebar_menu {
     .sidebar_list {
       list-style-type: none;
       margin: 0;
+      width: 260px;
+      padding-top: 10px;
       padding-left: 10px;
       padding-right: 10px;
       .sidebar_main_button_container {
