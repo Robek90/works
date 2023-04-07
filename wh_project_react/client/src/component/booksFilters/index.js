@@ -52,26 +52,16 @@ export default function BooksFilters(props) {
   };
 
   useEffect(()=> {
-    if(categories === 'allbooks') {
-      setRadioValue('allbooks')
-    };
-
-    // setIsChecked(getCheckboxFromUrl({filters, url, isChecked}).urlCheckList);
-
-    setIsChecked(new Array(Object.values(filters).map(item => newSetArray(item).map(elem => elem.length).fill(false))));
-    
-    
-    let filtersArray = getCheckboxFromUrl({filters, url, isChecked}).filtersArray;
-    
-    setSelectFiltersArr(selectFiltersArr => [...selectFiltersArr, filtersArray.map( item => item)])
-    
-  },[categories, filters]);
+    if(filters.categories.length>1) {
+      setIsChecked(new Array(Object.values(filters).map(item => newSetArray(item).map(elem => elem.length).fill(false))));
+    }
+  },[filters]);
 
   useMemo(()=>{
     if (url.length < 1) {
       setSelectFiltersArr([]);
     };
-  }, [urlTags]);
+  }, [url.length]);
 
   return (
     <>

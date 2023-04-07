@@ -38,6 +38,7 @@ export default inject('books') (
     if(searchParams.get('authorization')==='true') {
       setOpen(true)
     }
+    setStorage(sessionStorage.auth)
   },[userInfo, searchParams]);
 
   return (
@@ -53,9 +54,16 @@ export default inject('books') (
           };
         }}
       >
-        {
-          storage === 'true' ? 'выйти' : 'войти'
-        }
+        <Link 
+          to={storage === 'true' ? `/books?categories=allbooks&page=1` : ``}
+          onClick={()=> {
+            storage === 'true' ? props.history.push(`/books?categories=allbooks&page=1`) : props.history.push(``)
+          }}
+        >
+          {
+            storage === 'true' ? 'выйти' : 'войти'
+          }
+        </Link>
       </Button>
       <Dialog
         open={open}

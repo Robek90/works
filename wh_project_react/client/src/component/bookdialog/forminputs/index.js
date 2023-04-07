@@ -65,10 +65,7 @@ export default function FormInputs(props) {
                   name={race}
                   checked={isChecked[index]}
                   defaultValue={race}
-                  onChange={() => {
-                    
-                    handleOnChange(index)
-                  }}         
+                  onChange={() => handleOnChange(index)}         
                   sx={{
                     color: red[900],
                     '&.Mui-checked': {

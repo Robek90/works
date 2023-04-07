@@ -73,7 +73,7 @@ export const getCheckboxFromUrl = (props) => {
       })
       return result
     },isChecked);
-
+    
     return {urlCheckList, filtersArray}
   };
   

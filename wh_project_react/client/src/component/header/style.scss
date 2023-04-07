@@ -8,6 +8,12 @@ header {
   .header_logo {
     
   }
+  .header_button_show {
+    display: block;
+  }
+  .header_button_hide {
+    display: none;
+  }
   .header_search {
     height: 80px;
     text-align: center;
