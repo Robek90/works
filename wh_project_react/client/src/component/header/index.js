@@ -1,6 +1,5 @@
 import InputSearch from '../inputSearch/index';
 import Vkdialog from '../vkdialog/index';
-// import TitleLogo from '../../assets/logo/KK_logo.png'
 import TitleLogo from '../../assets/logo/KK_logo.gif'
 
 import './style.css';

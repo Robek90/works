@@ -43,7 +43,6 @@ function insertDataBase(book) {
 };
 
 function editDataBase(book, rowid) {
-  console.log(rowid);
   let col = Object.keys(book).filter(item=> item !== 'rowid').join(", ");
   let placeholder = Object.keys(book).filter(item=> item !== 'rowid').fill('?').join(", ");
   let values = Object.values(book).filter(item=> item !== rowid)

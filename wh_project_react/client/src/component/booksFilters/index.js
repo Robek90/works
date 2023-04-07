@@ -15,7 +15,7 @@ import './style.css';
 
 export default function BooksFilters(props) {
   const { filters } = props;
-
+  
   const urlParams = useGetUrlParams();
   
   const {categories, race, author, dateRealeased, dateContext, tags} = urlParams;
@@ -26,10 +26,8 @@ export default function BooksFilters(props) {
   
   const [selectFiltersArr, setSelectFiltersArr] = useState([]);
 
-  const [isChecked, setIsChecked] = useState(
-    new Array(Object.values(filters).map(item => newSetArray(item).map(elem => elem.length).fill(false)))
-  );
-  
+  const [isChecked, setIsChecked] = useState([]);
+
   const [radioValue, setRadioValue] = useState(categories || 'allbooks');
   
   const handleChangeRadio = (event) => {
@@ -58,18 +56,20 @@ export default function BooksFilters(props) {
       setRadioValue('allbooks')
     };
 
-    setIsChecked(getCheckboxFromUrl({filters, url, isChecked}).urlCheckList);
+    // setIsChecked(getCheckboxFromUrl({filters, url, isChecked}).urlCheckList);
 
+    setIsChecked(new Array(Object.values(filters).map(item => newSetArray(item).map(elem => elem.length).fill(false))));
+    
+    
     let filtersArray = getCheckboxFromUrl({filters, url, isChecked}).filtersArray;
     
     setSelectFiltersArr(selectFiltersArr => [...selectFiltersArr, filtersArray.map( item => item)])
     
-  },[categories]);
+  },[categories, filters]);
 
   useMemo(()=>{
     if (url.length < 1) {
-      setSelectFiltersArr([])
-      setIsChecked(new Array(Object.values(filters).map(item => newSetArray(item).map(elem => elem.length).fill(false))))
+      setSelectFiltersArr([]);
     };
   }, [urlTags]);
 
@@ -129,7 +129,7 @@ export default function BooksFilters(props) {
                         <Checkbox 
                         key={key}
                         checked={
-                          isChecked.map(item => item[keysIndex][filtersIndex])[0]
+                          isChecked.map(item => item[keysIndex][filtersIndex])[0] === undefined ? false : isChecked.map(item => item[keysIndex][filtersIndex])[0]
                         }
                         onChange={(event) => 
                           setCheckedStatus(

@@ -1,4 +1,4 @@
-export let getVerification = async (userInfo) => {
+export const getVerification = async (userInfo) => {
   try {
     let url = '/verification';
 

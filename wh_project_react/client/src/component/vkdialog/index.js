@@ -16,7 +16,7 @@ export default inject('books') (
 
   let [storage, setStorage] = useState(sessionStorage.auth || 'false');
   let [userInfo, setUserInfo] = useState(null);
-  console.log(typeof(storage),storage);
+
   const [searchParams, setSearchParams] = useSearchParams();
   
   const handleClickOpen = () => {

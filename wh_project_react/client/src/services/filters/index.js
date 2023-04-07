@@ -30,7 +30,7 @@ export const changeCheckedStatus = (props) => {
         }
       })
     );
-    
+
     return {updatedCheckedState, key, value, event}
   }
 };

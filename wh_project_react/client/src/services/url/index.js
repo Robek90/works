@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 
 export function useGetUrlParams() {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  
   let categories = searchParams.get('categories');
   let race = searchParams.get('race');
   let author = searchParams.get('author');

@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { inject, observer } from 'mobx-react';
 
 import Paper from '@mui/material/Paper';
@@ -8,13 +8,10 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
-// import Filter from '../../utils/filtersService';
 import './style.css';
 
 export default inject('books') (
   observer((props) => {
-    // let books = props.books.books;
-
     const [searchValue, setSearshValue] = useState('');
 
     function handleClick() {
