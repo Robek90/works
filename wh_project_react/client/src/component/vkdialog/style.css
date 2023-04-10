@@ -1,4 +1,18 @@
 .auth_dialog {
+  width: 370px;
+  display: inline-block;
   padding-top: 20px;
   padding-right: 20px;
+}
+
+.header_button_show {
+  float: left;
+}
+
+.header_button_hide {
+  display: none;
+}
+
+.auth_button {
+  float: right;
 }/*# sourceMappingURL=style.css.map */

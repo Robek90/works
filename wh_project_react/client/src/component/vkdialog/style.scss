@@ -1,4 +1,15 @@
 .auth_dialog {
+  width: 370px;
+  display: inline-block;
   padding-top: calc((80px - 40px)/2);
   padding-right: 20px;
+}
+.header_button_show {
+  float: left;
+}
+.header_button_hide {
+  display: none;
+}
+.auth_button {
+  float: right;
 }

@@ -11,6 +11,11 @@ function AppRouter(props) {
 
   let location = useLocation();
 
+  if(sessionStorage.length === 0) {
+    sessionStorage.setItem('auth', 'false')
+    sessionStorage.setItem('userInfo', JSON.stringify({'first_name': '', 'uid': ''}))
+  };
+
   let stringData = sessionStorage.getItem('userInfo');
   let userInfo = JSON.parse(stringData);
 
@@ -21,11 +26,12 @@ function AppRouter(props) {
       main: (props) => <Categories {...props} />
     }
   ];
-  
+
   const verification = () => {
     if(userVerification === true) {
       return (
         <>
+
           <Route
             path="/admin"
             element={<Admin history={props.history}/>}
@@ -73,7 +79,6 @@ function AppRouter(props) {
           className={`categories ${location.pathname !== "/books" ? "" : "categories_flex"}`}
         > 
           <Routes>
-            {userVerification === true ? verification() : 
             <>
               {routes.map((route, index) => (
                 <Route
@@ -95,8 +100,8 @@ function AppRouter(props) {
                 path="/book"
                 element={<Book history={props.history}/>}
               />
+              {userVerification === true ? verification() : <></>}
             </>
-              }
           </Routes>
         </div>
       </div>
