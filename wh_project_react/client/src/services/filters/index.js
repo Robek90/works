@@ -28,7 +28,7 @@ export const changeCheckedStatus = (props) => {
         }
       })
     );
-    console.log(updatedCheckedState);
+
     return {updatedCheckedState}
   }
 };
