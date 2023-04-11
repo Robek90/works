@@ -3,9 +3,7 @@ import { newSetArray } from '../../utils/common';
 export const changeCheckedStatus = (props) => {
   if(props) {
     const {
-      event, 
-      value, 
-      key, 
+      eCheck, 
       keysIndex, 
       filtersIndex, 
       isChecked,
@@ -16,7 +14,7 @@ export const changeCheckedStatus = (props) => {
         if(index === keysIndex) {
           return item.map((check,index) => {
             if(index === filtersIndex) {
-              if(event.target.checked) {
+              if(eCheck) {
                 return true
               } else {
                 return false
@@ -30,8 +28,8 @@ export const changeCheckedStatus = (props) => {
         }
       })
     );
-
-    return {updatedCheckedState, key, value, event}
+    console.log(updatedCheckedState);
+    return {updatedCheckedState}
   }
 };
 
@@ -73,7 +71,7 @@ export const getCheckboxFromUrl = (props) => {
       })
       return result
     },isChecked);
-    
+
     return {urlCheckList, filtersArray}
   };
   

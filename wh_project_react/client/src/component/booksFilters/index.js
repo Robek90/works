@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import { blue } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
@@ -15,7 +15,7 @@ import './style.css';
 
 export default function BooksFilters(props) {
   const { filters } = props;
-  
+
   const urlParams = useGetUrlParams();
   
   const {categories, race, author, dateRealeased, dateContext, tags} = urlParams;
@@ -27,7 +27,7 @@ export default function BooksFilters(props) {
   const [selectFiltersArr, setSelectFiltersArr] = useState([]);
 
   const [isChecked, setIsChecked] = useState([]);
-
+  
   const [radioValue, setRadioValue] = useState(categories || 'allbooks');
   
   const handleChangeRadio = (event) => {
@@ -39,12 +39,15 @@ export default function BooksFilters(props) {
   };
 
   const setCheckedStatus = (props) => {
-    setIsChecked(changeCheckedStatus(props).updatedCheckedState);
+    let {event, value, key, keysIndex, filtersIndex, isChecked} = props;
+    
+    let eCheck = event.target.checked;
 
-    let key = changeCheckedStatus(props).key;
-    let value = changeCheckedStatus(props).value;
+    let data = {eCheck, keysIndex, filtersIndex, isChecked};
 
-    if(changeCheckedStatus(props).event.target.checked === false) {
+    setIsChecked(changeCheckedStatus(data).updatedCheckedState);
+
+    if(eCheck === false) {
       setSelectFiltersArr(selectFiltersArr.filter(i => i.value !== value))
     } else {
       setSelectFiltersArr(selectFiltersArr => [...selectFiltersArr, {key, value}])
@@ -54,14 +57,13 @@ export default function BooksFilters(props) {
   useEffect(()=> {
     if(filters.categories.length>1) {
       setIsChecked(new Array(Object.values(filters).map(item => newSetArray(item).map(elem => elem.length).fill(false))));
+      if(isChecked.length>=1) {
+        getCheckboxFromUrl({filters, url, isChecked})
+        setIsChecked(getCheckboxFromUrl({filters, url, isChecked}).urlCheckList);
+        setSelectFiltersArr(getCheckboxFromUrl({filters, url, isChecked}).filtersArray);
+      }
     }
-  },[filters]);
-
-  useMemo(()=>{
-    if (url.length < 1) {
-      setSelectFiltersArr([]);
-    };
-  }, [url.length]);
+  },[filters, isChecked.length]);
 
   return (
     <>
@@ -76,6 +78,17 @@ export default function BooksFilters(props) {
           }}
         >
           Применить фильтры
+        </NavLink>
+        <NavLink 
+          className="sidebar_filter_button_clear"
+          color="inherit"
+          to={"/books?categories=allbooks&&page=1"}
+          onClick={() => {
+            path();
+            props.history.push("/books?categories=allbooks&&page=1")
+          }}
+        >
+          ОЧИСТИТЬ
         </NavLink>
       </div>
       <div className="sidebar_filters">
@@ -119,7 +132,7 @@ export default function BooksFilters(props) {
                         <Checkbox 
                         key={key}
                         checked={
-                          isChecked.map(item => item[keysIndex][filtersIndex])[0] === undefined ? false : isChecked.map(item => item[keysIndex][filtersIndex])[0]
+                          isChecked.map(item => item[keysIndex][filtersIndex])[0] || false
                         }
                         onChange={(event) => 
                           setCheckedStatus(
