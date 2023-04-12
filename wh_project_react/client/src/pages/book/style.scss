@@ -29,15 +29,39 @@
   .book_container_button {
     padding: 20px;
     height: 25px;
+    font-family: Merriweather,Georgia,Cambria,Serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 18px;
+    height: 36px;
+    :hover {
+      color: #eb3246 !important;
+      border-color: #eb3246 !important;
+    }
+    .book_button {
+      min-width: 5.5rem;
+      height: 36px;
+      align-items: center;
+      line-height: 1;
+      border: 1;
+      border-color: #961b1b;
+      transition: background-color .2s;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      text-decoration: none;
+      color: #961b1b;
+    }
   }
   .book_list {
     padding-top: 50px;
     height: calc(100% - 205px);
     display: grid;
     grid-template-columns: 30% 70%;
-    justify-items: center;
     .book_img {
+      margin: 0 auto;
       img {
+        height: 548px;
+        min-width: 363px;
         max-width: 400px;
       }
     }

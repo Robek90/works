@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { inject, observer } from 'mobx-react';
+import Button from '@mui/material/Button';
 
 import { useGetUrlParams } from '../../services/url/index';
 
@@ -40,14 +41,15 @@ export default inject('books') (
           </div> :
           <div className="book_container">
             <div className="book_container_button">
-              <button
+              <Button
                 className="book_button"
+                variant="outlined"
                 onClick={()=> {
                   props.history.go(-2);
                 }}
               > 
                 Назад 
-              </button>
+              </Button>
             </div>
             {book.map((item,index)=>
               <div 

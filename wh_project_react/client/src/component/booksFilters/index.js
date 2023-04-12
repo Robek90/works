@@ -6,7 +6,8 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import { filtersName } from '../../utils/filtersname';
+import { filtersCategories } from '../../utils/filtersrename';
+import { filtersRace } from '../../utils/filtersrename';
 import { newSetArray, splitUrl } from '../../utils/common';
 import { useGetUrlParams, pathCol } from '../../services/url/index';
 import { changeCheckedStatus, getCheckboxFromUrl } from '../../services/filters/index';
@@ -95,7 +96,7 @@ export default function BooksFilters(props) {
         {Object.keys(filters).map((key, keysIndex) => (
           <div key={keysIndex}>
             <div className="filter_group_name">
-              {filtersName(key)}
+              {filtersCategories(key)}
             </div>
             {key === 'categories' ?
               <RadioGroup
@@ -154,7 +155,7 @@ export default function BooksFilters(props) {
                         }}
                       />
                       }
-                      label={value}
+                      label={filtersRace(value)}
                       labelPlacement="end"
                     />
                   </div>

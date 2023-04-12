@@ -6,7 +6,7 @@ import BooksFilters from '../../booksfilters/index';
 export default inject('books') (
   observer((props) => {
     const [getBooksList, setGetBooksList] = useState([]);
-
+    console.log(props);
     let filters= {
       categories: [],
       race: [],

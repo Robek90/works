@@ -21,6 +21,7 @@ body .wrapper .router_container .sidebar_none {
 }
 body .wrapper .router_container .categories {
   height: 840px;
+  width: 100%;
   background-color: white;
 }
 body .wrapper .router_container .categories_flex {
