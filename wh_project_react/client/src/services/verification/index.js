@@ -14,9 +14,9 @@ export const getVerification = async (userInfo) => {
         }
       )
     });
-    
+
     let result = await response.json();
-  
+
     return result
   } catch (e) {
     console.log(e);

@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { formatBooksArray } from '../../utils/formatData';
 
 export default class BooksList {
@@ -10,22 +10,20 @@ export default class BooksList {
   };
 
   getBooksRequestData = async () => {
-    this.books = [];
-    this.state = "pending";
-
     try {
-      let url = '/booksList';
-      let response = await fetch(url);
+      const url = '/booksList';
+      const response = await fetch(url);
 
-      let data = response.json();
+      const data = response.json();
 
-      this.setBooks(data.then(res=>(formatBooksArray(res))))
-
-      this.setState("done") 
-
-      return this.books
+      runInAction(()=>{
+        this.books = data.then(res=>(formatBooksArray(res)));
+        this.state = "done";
+      })
     } catch (e) {
-      this.setState("error")
+      runInAction(()=>{
+        this.state = "error";
+      })
     }
   };
 
@@ -110,13 +108,5 @@ export default class BooksList {
     let result = await response.json();
 
     console.log(result.message);
-  };
-
-  setBooks = (data) => {
-    this.books = data
-  };
-
-  setState = (data) => {
-    this.state = data
   };
 };

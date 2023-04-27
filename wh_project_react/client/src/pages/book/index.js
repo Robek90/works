@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { inject, observer } from 'mobx-react';
-import Button from '@mui/material/Button';
+import { NavLink } from "react-router-dom";
 
 import { useGetUrlParams } from '../../services/url/index';
 
@@ -16,20 +16,23 @@ export default inject('books') (
     const {isbn} = urlParams;
 
     useEffect(()=>{
-      props.books.getBooksRequestData()
-      .then(res=>{
-        let data = res.filter(item => item.id === isbn)
-        setBook(data);
-      })
-      .catch(error=>console.log(error))
-    },[]);
-    
+      props.books.getBooksRequestData();
+
+      if(props.books.books.length === undefined) {
+        props.books.books.then(res=>{
+            let data = res.filter(item => item.id === isbn)
+            setBook(data);
+          })
+          .catch(error=>console.log(error))
+      }
+    },[props.books.state]);
+
     return (
       <>
         {props.books.state === 'pending' ? 
           <div className="book_loading">
             <img alt="Загрузка" src={LoadGear}/>
-            <p>Вознесенние хвалы Омнисии</p>
+            <p>Вознесение хвалы Омнисии</p>
           </div> :
           props.books.state === 'error' ? 
           <div className="book_error">
@@ -41,15 +44,16 @@ export default inject('books') (
           </div> :
           <div className="book_container">
             <div className="book_container_button">
-              <Button
+              <NavLink
                 className="book_button"
                 variant="outlined"
+                to={"/books?categories=allbooks&page=1"}
                 onClick={()=> {
-                  props.history.go(-2);
+                  props.history.push("/books?categories=allbooks&page=1")
                 }}
               > 
                 Назад 
-              </Button>
+              </NavLink>
             </div>
             {book.map((item,index)=>
               <div 

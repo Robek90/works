@@ -6,7 +6,7 @@ import BooksFilters from '../../booksfilters/index';
 export default inject('books') (
   observer((props) => {
     const [getBooksList, setGetBooksList] = useState([]);
-    console.log(props);
+
     let filters= {
       categories: [],
       race: [],
@@ -26,14 +26,18 @@ export default inject('books') (
     });
 
     useEffect(()=>{
-      props.books.getBooksRequestData()
-      .then(res=>{
-        if(props.books.state === 'done') {
-          setGetBooksList(res);
-        }
-      })
-      .catch(error=>console.log(error))
-    },[props.books]);
+      props.books.getBooksRequestData();
+
+      if(props.books.books.length === undefined) {
+        props.books.books
+        .then(res=>{
+          if(props.books.state === 'done') {
+            setGetBooksList(res);
+          }
+        })
+        .catch(error=>console.log(error))
+      }
+    },[props.books.state]);
 
     return (
       <>

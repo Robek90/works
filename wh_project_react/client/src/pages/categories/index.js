@@ -48,10 +48,14 @@ export default inject('books') (
     }, [booksArray, currentPage]);
 
     useEffect(()=>{
-      props.books.getBooksRequestData()
-        .then(res=>setGetBooksList(res))
-        .catch(error=>console.log(error))
-    },[]);
+      props.books.getBooksRequestData();
+
+      if(props.books.books.length === undefined) {
+        props.books.books
+          .then(res=>setGetBooksList(res))
+          .catch(error=>console.log(error))
+      }
+    },[props.books.state]);
 
     useMemo(()=>{
       if(search) {
@@ -61,10 +65,14 @@ export default inject('books') (
         setBooksArray(filters.getFilteredBooks(categories, splitUrl(filteredTags)));
       }
     },[getBooksList]);
-    
+
     return (
       <div className="categories_container">
-        {props.books.state === 'pending' ? 
+        {booksArray.length<1 ?
+        <div className="categories_notfound">
+          <p>Дух машины не смог ничего найти.</p>
+        </div> :
+        props.books.state === 'pending' ? 
         <div className="categories_loading">
           <img alt="Загрузка" src={LoadGear}/>
           <p>Вознесенние хвалы Омнисии</p>

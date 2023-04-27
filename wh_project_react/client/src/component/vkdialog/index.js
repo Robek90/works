@@ -44,6 +44,7 @@ export default inject('books') (
           variant="outlined" 
         >
           <Link
+            className="header_button_link"
             to={location.pathname === '/books'? "/admin?bookslist" : "/books?categories=allbooks&page=1"}
             onClick={()=>{
               location.pathname === '/books'? 
@@ -59,7 +60,7 @@ export default inject('books') (
       </div>
       <Button 
         className="auth_button"
-        variant="outlined" 
+        variant="outlined"
         onClick={()=>{
           handleClickOpen();
           if(storage === 'true') {
@@ -70,6 +71,7 @@ export default inject('books') (
         }}
       >
         <Link 
+          className="header_button_link"
           to={storage === 'true' ? `/books?categories=allbooks&page=1` : ``}
           onClick={()=> {
             storage === 'true' ? props.history.push(`/books?categories=allbooks&page=1`) : props.history.push(``)
