@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-import { blue } from '@mui/material/colors';
+import { red } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -78,7 +78,7 @@ export default function BooksFilters(props) {
             props.history.push(`/books?${path().join('&')}`)
           }}
         >
-          Применить фильтры
+          Применить
         </NavLink>
         <NavLink 
           className="sidebar_filter_button_clear"
@@ -89,7 +89,7 @@ export default function BooksFilters(props) {
             props.history.push("/books?categories=allbooks&&page=1")
           }}
         >
-          ОЧИСТИТЬ
+          Очистить
         </NavLink>
       </div>
       <div className="sidebar_filters">
@@ -113,7 +113,14 @@ export default function BooksFilters(props) {
                     label={item} 
                     value={item} 
                     control={
-                      <Radio/>
+                      <Radio
+                        sx={{
+                          color: red[400],
+                          '&.Mui-checked': {
+                            color: red[900],
+                          },
+                        }}
+                      />
                     } 
                   />
                 ))}
@@ -148,9 +155,9 @@ export default function BooksFilters(props) {
                           )
                         }          
                         sx={{
-                          color: blue[800],
+                          color: red[400],
                           '&.Mui-checked': {
-                            color: blue[600],
+                            color: red[900],
                           },
                         }}
                       />

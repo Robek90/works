@@ -14,9 +14,6 @@
   text-transform: capitalize;
   color: #222;
 }
-.admin_panel .admin_books .book_card :hover {
-  color: #eb3246;
-}
 .admin_panel .admin_books .book_card .book_img {
   grid-area: A;
   text-align: center;
@@ -58,12 +55,6 @@
 .admin_panel .admin_books .book_button {
   grid-area: C;
   padding: 0px 14px 0px;
-}
-.admin_panel .admin_books .book_button .books_delete {
-  padding: 1px 3px !important;
-}
-.admin_panel .admin_books .book_button .books_edit {
-  padding: 1px 3px !important;
 }
 .admin_panel a:-webkit-any-link {
   text-decoration: none;

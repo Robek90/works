@@ -21,16 +21,20 @@ export default inject('books') (
     };
 
     useEffect(()=>{
-      props.books.getBooksRequestData()
-        .then(res=>setGetBooksList(res))
-        .catch(error=>console.log(error))
-    },[loading]);
+      props.books.getBooksRequestData();
+
+      if(props.books.books.length === undefined) {
+        props.books.books
+          .then(res=>setGetBooksList(res))
+          .catch(error=>console.log(error))
+      }
+    },[props.books.state, loading]);
 
     return (
       <>
         <div className="admin_panel">
           <BookDialog 
-            className="book_add"
+            className="admin_book_add"
             history={props.history}
             title={"добавить книгу"}
             variant={"outlined"}
@@ -54,21 +58,21 @@ export default inject('books') (
                   </div>
                   <div className="book_button">
                     <Button 
-                      className="book_delete" 
+                      className="admin_book_button_delete"
                     >
                       <Link
+                        className="admin_book_link_delete"
                         to={`/admin?bookslist=${booksList.length-1}`}
                         onClick={()=>{
                           setLoading(booksList.length-1)
                           handleDelete(index);
                           props.history.push(`/admin?bookslist=${booksList.length-1}`);
                         }}
-                      >
-                        удалить
-                      </Link>
+                      />
+                      удалить
                     </Button>
                     <BookDialog 
-                      className="book_edit"
+                      className="admin_book_edit"
                       title={"редактировать"}
                       variant={""}
                       history={props.history}

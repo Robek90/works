@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -18,6 +16,14 @@ export default function Inputs(props) {
     setOpen(!open);
   };
 
+  const inputStyle = {
+    '&.Mui-focused': {
+      '&::after': {
+        borderBottom: "none",
+      }
+    },
+  };
+
   return(
     <div>
       <Input 
@@ -28,6 +34,7 @@ export default function Inputs(props) {
         type={"text"}
         fullWidth
         variant="standard"
+        sx={inputStyle}
       />
       <FormHelperText>Номер ISBN</FormHelperText>
       <Input 
@@ -38,6 +45,7 @@ export default function Inputs(props) {
         type={"text"}
         fullWidth
         variant="standard"
+        sx={inputStyle}
       />
       <FormHelperText>Название Книги</FormHelperText>
       <Input 
@@ -48,6 +56,7 @@ export default function Inputs(props) {
         type={"text"}
         fullWidth
         variant="standard"
+        sx={inputStyle}
       />
       <FormHelperText>Автор</FormHelperText>
       <Input 
@@ -58,6 +67,7 @@ export default function Inputs(props) {
         type={"number"}
         fullWidth
         variant="standard"
+        sx={inputStyle}
       />
       <FormHelperText>Дата релиза</FormHelperText>
       <Input 
@@ -68,6 +78,7 @@ export default function Inputs(props) {
         type={"number"}
         fullWidth
         variant="standard"
+        sx={inputStyle}
       />
       <FormHelperText>Миллениум событий книги</FormHelperText>
       <Input 
@@ -78,6 +89,7 @@ export default function Inputs(props) {
         type={"text"}
         fullWidth
         variant="standard"
+        sx={inputStyle}
       />
       <FormHelperText>Тэги</FormHelperText>
       <Input 
@@ -88,6 +100,7 @@ export default function Inputs(props) {
         type={"text"}
         fullWidth
         variant="standard"
+        sx={inputStyle}
       />
       <FormHelperText>Описание книги</FormHelperText>
       <List
@@ -101,6 +114,7 @@ export default function Inputs(props) {
             fullWidth 
             readOnly
             value={props.bookItem===undefined ? "Добавить Обложку" : props.bookItem.img} 
+            sx={inputStyle}
           />
           <FormHelperText>{props.bookItem===undefined ? "" : "Заменить"}</FormHelperText>
           {open ? <ExpandLess /> : <ExpandMore />}
@@ -114,6 +128,7 @@ export default function Inputs(props) {
                   <Input 
                     id="files" 
                     type="file"
+                    sx={inputStyle}
                   />
                 }
               />

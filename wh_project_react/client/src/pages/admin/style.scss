@@ -13,9 +13,6 @@
       "C C";
       text-transform: capitalize;
       color: #222;;
-      :hover {
-        color: #eb3246;
-      }
       .book_img {
         grid-area: A;
         text-align: center;
@@ -58,12 +55,6 @@
     .book_button {
       grid-area: C;
       padding: 0px 14px 0px;
-      .books_delete {
-        padding: 1px 3px !important;
-      }
-      .books_edit {
-        padding: 1px 3px !important;
-      }
     }
   }
   a:-webkit-any-link {

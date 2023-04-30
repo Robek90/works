@@ -10,9 +10,9 @@ import Inputs from './inputs/index';
 
 import { red } from '@mui/material/colors';
 
-const races = ['tau', 'eldar', 'imperium', 'chaos', 'necrons', 'dark eldar', 'tyranids'];
-
 export default function FormInputs(props) {
+  const races = ['tau', 'eldar', 'imperium', 'chaos', 'necrons', 'dark eldar', 'tyranids'];
+  
   const [ radioDefaultValue, setRadioDefaultValue ] = useState(null);
   const [ isChecked, setIsChecked ] = useState(new Array(races.length).fill(false));
 
@@ -41,12 +41,25 @@ export default function FormInputs(props) {
     <Box component="form" ref={props.form} encType="multipart/form-data">
       <FormLabel>Категория 30к или 40к</FormLabel>
       <RadioGroup
+        className="input_admin_radio_dialog_group"
         row={true}
         defaultValue={radioDefaultValue}
       >
         {[' wh30k',' wh40k'].map((categories,index)=>{
           return(
-            <FormControlLabel key={index} id="form-categories" value={categories} control={<Radio key={index} id="categories" value={categories}/>} label={categories} />
+            <FormControlLabel key={index} id="form-categories" value={categories} control={
+              <Radio 
+                key={index} 
+                id="categories" 
+                value={categories}
+                sx={{
+                  color: red[400],
+                  '&.Mui-checked': {
+                    color: red[900],
+                  },
+                }}
+              />} 
+            label={categories} />
           )
         })}
       </RadioGroup>
@@ -67,7 +80,7 @@ export default function FormInputs(props) {
                   defaultValue={race}
                   onChange={() => handleOnChange(index)}         
                   sx={{
-                    color: red[900],
+                    color: red[400],
                     '&.Mui-checked': {
                       color: red[900],
                     },

@@ -1,5 +1,5 @@
 .auth_dialog {
-  width: 370px;
+  width: 300px;
   display: inline-block;
   padding-top: calc((80px - 40px)/2);
   padding-right: 20px;
@@ -10,9 +10,63 @@
 .header_button_hide {
   display: none;
 }
-.auth_button {
+.header_button_admin {
+  font-family: Merriweather, Georgia, Cambria, Serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 18px;
+  padding: 10px 20px;
+  text-align: center;
+  border: 1px solid rgba(226, 226, 226, 0.1) !important;
+  border-radius: 5px;
+  color: rgb(226, 226, 226) !important;
   float: right;
+  text-decoration: none;
+  transition: 1s;
+  &:hover {
+    background-color: rgb(146, 0, 0, 0.5);
+    border: 1px solid rgba(226, 226, 226, 0.5) !important;
+  }
 }
-.header_button_link {
- text-decoration: none;
+.auth_button {
+  font-family: Merriweather, Georgia, Cambria, Serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 18px;
+  padding: 10px 20px;
+  text-align: center;
+  border: 1px solid rgba(226, 226, 226, 0.1) !important;
+  border-radius: 5px;
+  color: rgb(226, 226, 226) !important;
+  float: right;
+  text-decoration: none;
+  transition: 1s;
+  &:hover {
+    background-color: rgb(146, 0, 0, 0.5);
+    border: 1px solid rgba(226, 226, 226, 0.5) !important;
+  }
+}
+.header_workspace {
+  margin: 10px auto;
+  width: 170px;
+  height: 30px;
+  .header_button_workspace {
+    width: 170px !important;
+    border: 1px solid rgba(165, 42, 42, 0.774) !important;
+    &:hover {
+      border: 1px solid rgb(209, 0, 0) !important;
+      background-color: white;
+    }
+    .header_button_link_workspace{
+      color: rgba(165, 42, 42, 0.774);
+      text-decoration: none;
+      &:hover {
+        color: rgb(209, 0, 0) !important;
+      }
+    }
+  }
 }

@@ -46,6 +46,7 @@ export default inject('books') (
   return (
     <div className={props.className}>
       <Button 
+        className={props.className+"_button"}
         variant={props.variant} 
         onClick={handleClickOpen}
       >
@@ -63,16 +64,24 @@ export default inject('books') (
         />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Отмена</Button>
-          <Button> 
+          <Button 
+            className="admin_dialog_button_cancel"
+            onClick={handleClose}
+          >
+            Отмена
+          </Button>
+          <Button
+            className="admin_dialog_button_send"
+          > 
             <Link 
+              className="admin_dialog_link_send"
               to={`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`}
               onClick={(()=>{
                 handleSend();
                 props.history.push(`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`);
-              })}>
-              Отправить
-            </Link>   
+              })}
+            />
+            Отправить  
           </Button>
         </DialogActions>
       </Dialog>

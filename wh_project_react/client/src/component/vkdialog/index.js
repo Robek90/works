@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useSearchParams, useLocation} from "react-router-dom";
+import { NavLink, Link, useSearchParams, useLocation} from "react-router-dom";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -35,53 +35,41 @@ export default inject('books') (
     }
     setStorage(sessionStorage.auth)
   },[userInfo, searchParams]);
-
+  console.log(location.pathname);
   return (
     <div className="auth_dialog">
       <div className={storage==='true' ? "header_button_show" : "header_button_hide"}>
-        <Button 
+        <NavLink
           className="header_button_admin" 
           variant="outlined" 
+          to={location.pathname === '/books'? "/admin?bookslist" : "/books?categories=allbooks&page=1"}
+          onClick={()=>{
+            location.pathname === '/books'? props.history.push("/admin?bookslist") : props.history.push("/books?categories=allbooks&page=1")
+          }}
         >
-          <Link
-            className="header_button_link"
-            to={location.pathname === '/books'? "/admin?bookslist" : "/books?categories=allbooks&page=1"}
-            onClick={()=>{
-              location.pathname === '/books'? 
-              props.history.push("/admin?bookslist"):
-              props.history.push("/books?categories=allbooks&page=1")
-            }}
-          >
-            {
-              location.pathname === '/admin' ? 'Пользователь': 'Администратор' 
-            }
-          </Link>
-        </Button>
+          {
+            location.pathname === "/admin" ? "Пользователь": "Администратор"
+          }
+        </NavLink>
       </div>
-      <Button 
+      <NavLink 
         className="auth_button"
         variant="outlined"
+        to={storage === 'true' ? "/books?categories=allbooks&page=1" : ``}
         onClick={()=>{
           handleClickOpen();
           if(storage === 'true') {
             setStorage('false')
+            props.history.push("/books?categories=allbooks&page=1")
             sessionStorage.setItem('userInfo', JSON.stringify({'first_name': '', 'uid': ''}))
             sessionStorage.setItem('auth', 'false');
           }
         }}
       >
-        <Link 
-          className="header_button_link"
-          to={storage === 'true' ? `/books?categories=allbooks&page=1` : ``}
-          onClick={()=> {
-            storage === 'true' ? props.history.push(`/books?categories=allbooks&page=1`) : props.history.push(``)
-          }}
-        >
-          {
-            storage === 'true' ? 'выйти' : 'войти'
-          }
-        </Link>
-      </Button>
+        {
+          storage === 'true' ? 'выйти' : 'войти'
+        }
+      </NavLink>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -105,20 +93,25 @@ export default inject('books') (
               }}/>
             </VK>
             {
-              userInfo ? sessionStorage.auth === 'true' ? <div>
-                <Button variant="outlined" onClick={handleClose}>
+              userInfo ? sessionStorage.auth === 'true' ? <div className="header_workspace">
+                <Button 
+                  className="header_button_workspace"
+                  variant="outlined" 
+                  onClick={handleClose}
+                >
                   <Link 
+                    className="header_button_link_workspace"
                     to={`/admin?bookslist`}
                     onClick={()=> {
                       props.history.push(`/admin?bookslist`)
                     }}
                   >
-                    Мастерская шестеренки
+                    Мастерская
                   </Link>
                 </Button>
                 </div> : 
-                <div>Вы авторизованны</div> : 
-                <div>Вы не авторизованны</div>
+                <div className="header_workspace">Вы авторизованны</div> : 
+                <div className="header_workspace">Вы не авторизованны</div>
             }
           </DialogContentText>
         </DialogContent>

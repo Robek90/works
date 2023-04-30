@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import InputSearch from '../inputSearch/index';
 import Vkdialog from '../vkdialog/index';
 import TitleLogo from '../../assets/logo/KK_logo.gif';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+
 
 import './style.css';
 

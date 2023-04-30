@@ -1,0 +1,57 @@
+.admin_book_add {
+  margin: 10px 0 0 20px;
+  .admin_book_add_button {
+    border: 1px solid rgb(90, 5, 5, 0) !important;
+    background-color: rgb(90, 5, 5);
+    padding: 6px 15px !important;
+    color: rgb(230, 230, 230);
+    transition: 1s;
+    &:hover {
+      color: rgb(148, 0, 0);
+      border: 1px solid rgb(161, 1, 1, 0.2) !important;
+      background: rgb(252, 252, 252);
+    }
+  }
+}
+.admin_book_button_delete {
+  margin: 4px 0;
+  border: 1px solid rgb(75, 0, 0, 0.1) !important;
+  padding: 3px 6px !important;
+  color: rgb(90, 5, 5) !important;
+  transition: 1s !important;
+  &:hover {
+    color: rgb(255, 0, 0) !important;
+    border: 1px solid rgb(161, 1, 1, 0.7) !important;
+    background: none !important;
+  }
+}
+.admin_book_edit {
+  margin: 4px 0;
+  .admin_book_edit_button {
+    border: 1px solid rgb(75, 0, 0, 0.1);
+    padding: 3px 6px !important;
+    color: rgb(90, 5, 5);
+    transition: 1s;
+    &:hover {
+      color: rgb(255, 0, 0) !important;
+      border: 1px solid rgb(161, 1, 1, 0.7);
+      background: none;
+    }
+  }
+}
+.admin_dialog_button_cancel {
+  color: rgb(90, 5, 5) !important;
+  transition: 1s;
+  &:hover {
+    color: rgb(204, 2, 2) !important;
+    background: rgba(231, 180, 180, 0.1) !important;
+  }
+}
+.admin_dialog_button_send {
+  color: rgb(90, 5, 5) !important;
+  transition: 1s;
+  &:hover {
+    color: rgb(204, 2, 2) !important;
+    background: rgba(231, 180, 180, 0.1) !important;
+  }
+}
