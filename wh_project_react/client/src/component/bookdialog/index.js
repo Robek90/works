@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { inject, observer } from 'mobx-react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import FormInputs from './forminputs';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -13,8 +13,8 @@ import './style.css';
 export default inject('books') (
   observer((props) => {
 
-  const [ open, setOpen ] = useState(false);
-  const [ bookData, setBookData ] = useState("")
+  const [open, setOpen] = useState(false);
+  const [bookData, setBookData] = useState("")
 
   const form = useRef(null)
   
@@ -27,11 +27,6 @@ export default inject('books') (
 
   const handleClose = () => {
     setOpen(false);
-    if(props.title === "редактировать") {
-      props.setLoading("edit"+(Math.random()));
-    } else {
-      props.setLoading("add"+(+props.booksList.length+1));
-    }
   };
 
   const handleSend = () => {
@@ -70,19 +65,16 @@ export default inject('books') (
           >
             Отмена
           </Button>
-          <Button
-            className="admin_dialog_button_send"
-          > 
-            <Link 
-              className="admin_dialog_link_send"
-              to={`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`}
-              onClick={(()=>{
-                handleSend();
-                props.history.push(`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`);
-              })}
-            />
+          <NavLink 
+            className="admin_dialog_link_send"
+            to={`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`}
+            onClick={(()=>{
+              handleSend();
+              props.history.push(`/admin?bookslist=${props.title==="редактировать" ? props.booksList.length : props.booksList.length+1}`);
+            })}
+          >
             Отправить  
-          </Button>
+          </NavLink>
         </DialogActions>
       </Dialog>
     </div>

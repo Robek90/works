@@ -28,6 +28,7 @@ export default class BooksList {
   };
 
   sendNewBookData = async (data) => {
+    console.log(data);
     let url = '/addNewBook';
     let checkbox = Object.values(data.race).filter(item=>item.checked === true).map((item)=>item.name);
 
@@ -42,7 +43,6 @@ export default class BooksList {
     formData.append('tags', data.tags.value)
     formData.append('description', data.description.value)
     formData.append('img', data.files.files[0]['name'])
-    console.log(data.files.files[0]['name']);
 
     for(let i = 0; i < data.files.files.length; i++) {
       formData.append("files", data.files.files[i]);
@@ -57,6 +57,8 @@ export default class BooksList {
     let result = await response.json();
 
     console.log(result.message);
+
+    this.state = "add";
   };
 
   sendDeleteBookData = async (rowid) => {
@@ -73,12 +75,14 @@ export default class BooksList {
     let result = await response.json();
 
     console.log(result.message);
+
+    this.state = "delete";
   };
 
   sendEditBookData = async (data,rowid) => {
     let url = '/editBook';
     let checkbox = Object.values(data.race).filter(item=>item.checked === true).map((item)=>item.name)
-    console.log(data.files.files[0]);
+
     let formData = new FormData();
     formData.append('rowid', rowid)
     formData.append('id', data.id.value)
@@ -108,5 +112,7 @@ export default class BooksList {
     let result = await response.json();
 
     console.log(result.message);
+
+    this.state = "edit";
   };
 };

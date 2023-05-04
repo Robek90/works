@@ -13,11 +13,17 @@
     }
   }
 }
-.admin_book_button_delete {
+.admin_book_link_delete {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
   margin: 4px 0;
   border: 1px solid rgb(75, 0, 0, 0.1) !important;
+  border-radius: 3px;
   padding: 3px 6px !important;
   color: rgb(90, 5, 5) !important;
+  text-transform: uppercase;
   transition: 1s !important;
   &:hover {
     color: rgb(255, 0, 0) !important;
@@ -41,15 +47,18 @@
 }
 .admin_dialog_button_cancel {
   color: rgb(90, 5, 5) !important;
-  transition: 1s;
+  transition: 1s !important;
   &:hover {
     color: rgb(204, 2, 2) !important;
     background: rgba(231, 180, 180, 0.1) !important;
   }
 }
-.admin_dialog_button_send {
+.admin_dialog_link_send {
   color: rgb(90, 5, 5) !important;
+  padding: 10px 6px !important;
+  text-transform: uppercase;
   transition: 1s;
+  text-decoration: none;
   &:hover {
     color: rgb(204, 2, 2) !important;
     background: rgba(231, 180, 180, 0.1) !important;

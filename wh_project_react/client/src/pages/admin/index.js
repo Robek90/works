@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
-import Button from '@mui/material/Button';
 
 import BookDialog from '../../component/bookdialog/index';
 
@@ -10,8 +9,7 @@ import './style.css';
 export default inject('books') (
   observer((props) => {
     const [booksList, setGetBooksList] = useState([]);
-    const [loading, setLoading] = useState(0);
-    
+
     let location = useLocation();
     
     props.history.push(location);
@@ -28,7 +26,7 @@ export default inject('books') (
           .then(res=>setGetBooksList(res))
           .catch(error=>console.log(error))
       }
-    },[props.books.state, loading]);
+    },[props.books.state]);
 
     return (
       <>
@@ -39,7 +37,6 @@ export default inject('books') (
             title={"добавить книгу"}
             variant={"outlined"}
             booksList={booksList}
-            setLoading={setLoading}
           />
           <div className="admin_books">
             {booksList.map((item, index) => {
@@ -57,27 +54,22 @@ export default inject('books') (
                     <div className="book_dateRealeased">издание: {item.dateRealeased}г.</div>
                   </div>
                   <div className="book_button">
-                    <Button 
-                      className="admin_book_button_delete"
+                    <NavLink
+                      className="admin_book_link_delete"
+                      to={`/admin?bookslist=${booksList.length-1}`}
+                      onClick={()=>{
+                        handleDelete(index);
+                        props.history.push(`/admin?bookslist=${booksList.length-1}`);
+                      }}
                     >
-                      <Link
-                        className="admin_book_link_delete"
-                        to={`/admin?bookslist=${booksList.length-1}`}
-                        onClick={()=>{
-                          setLoading(booksList.length-1)
-                          handleDelete(index);
-                          props.history.push(`/admin?bookslist=${booksList.length-1}`);
-                        }}
-                      />
                       удалить
-                    </Button>
+                    </NavLink>
                     <BookDialog 
                       className="admin_book_edit"
                       title={"редактировать"}
                       variant={""}
                       history={props.history}
                       booksList={booksList}
-                      setLoading={setLoading}
                       bookItem={item}
                       bookIndex={index}
                     >

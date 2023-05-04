@@ -31,7 +31,6 @@ function AppRouter(props) {
     if(userVerification === true) {
       return (
         <>
-
           <Route
             path="/admin"
             element={<Admin history={props.history}/>}
