@@ -30,7 +30,7 @@ export default inject('books') (
         >
           <InputBase
             sx={{ ml: 1, flex: 1 }}
-            placeholder="Искать по названию, автору, году книги"
+            placeholder="Искать по названию книги"
             inputProps={{ 'aria-label': 'search google maps' }}
             value={searchValue}
             onChange={(evt) => setSearshValue(evt.target.value)}
