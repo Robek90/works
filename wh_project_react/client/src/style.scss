@@ -6,6 +6,7 @@ body {
     background-color: white;
     font-family: AlergiaNormal,"Segoe UI","San Francisco",sans-serif;
     .router_container {
+      height: calc(100% - 80px);
       display: flex;
       .sidebar {
         height: 840px;
@@ -17,7 +18,7 @@ body {
         display: none;
       }
       .categories {
-        height: 840px;
+        height: 100%;
         width: 100%;
         background-color: white;
       }

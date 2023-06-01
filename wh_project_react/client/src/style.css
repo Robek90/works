@@ -8,6 +8,7 @@ body .wrapper {
   font-family: AlergiaNormal, "Segoe UI", "San Francisco", sans-serif;
 }
 body .wrapper .router_container {
+  height: calc(100% - 80px);
   display: flex;
 }
 body .wrapper .router_container .sidebar {
@@ -20,7 +21,7 @@ body .wrapper .router_container .sidebar_none {
   display: none;
 }
 body .wrapper .router_container .categories {
-  height: 840px;
+  height: 100%;
   width: 100%;
   background-color: white;
 }

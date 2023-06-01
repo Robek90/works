@@ -16,7 +16,7 @@ export default inject('books') (
 
     function handleClick() {
       if(searchValue) {
-        props.history.push(`/books?search=${searchValue}`)
+        props.history.push(`/books?search=${searchValue}&page=1`)
       } else {
         alert(', пожалуйста введите название книги для выполнения поиска!!!')
       }
@@ -30,7 +30,7 @@ export default inject('books') (
         >
           <InputBase
             sx={{ ml: 1, flex: 1 }}
-            placeholder="Искать по названию книги"
+            placeholder="Искать по названию, автору книги"
             inputProps={{ 'aria-label': 'search google maps' }}
             value={searchValue}
             onChange={(evt) => setSearshValue(evt.target.value)}

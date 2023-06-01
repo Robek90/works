@@ -122,7 +122,7 @@ export default function Inputs(props) {
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             <ListItemButton sx={{ pl: 4 }}>
-            <FormControlLabel 
+              <FormControlLabel 
                 htmlFor="files"
                 control={
                   <Input 

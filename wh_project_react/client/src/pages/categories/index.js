@@ -93,9 +93,6 @@ export default inject('books') (
                 <Link 
                   key={index}
                   to={`/book?isbn=${item.id}`}
-                  onClick={()=> {
-                    props.history.push(`/book?isbn=${item.id}`)
-                  }}
                 >
                   <div className="books_card">
                     <div className="books_img">

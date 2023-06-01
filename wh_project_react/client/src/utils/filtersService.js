@@ -31,7 +31,18 @@ class Filters {
 
   searchBooks(searchParams) {
     let search = this.books.filter((books) => {
-      return books.title.includes(searchParams)
+      console.log(books);
+      switch(true) {
+        case books.title.includes(searchParams):
+          return true;
+        case books.author.join(';').toLowerCase().includes(searchParams):
+          return true;
+        default:
+          break;
+      }
+      
+      books.title.includes(searchParams)
+      books.title.includes(searchParams)
     });
 
     return search

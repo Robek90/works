@@ -4,6 +4,7 @@ import Sidebar from "./component/sidebar";
 import Book from "./pages/book";
 import Admin from './pages/admin/index';
 import Categories from "./pages/categories";
+import Galaxy from "./pages/galaxy/scene";
 import { getVerification } from './services/verification';
 
 function AppRouter(props) {
@@ -98,6 +99,10 @@ function AppRouter(props) {
               <Route
                 path="/book"
                 element={<Book history={props.history}/>}
+              />
+              <Route
+                path="/galaxy"
+                element={<Galaxy history={props.history}/>}
               />
               {userVerification === true ? verification() : <></>}
             </>

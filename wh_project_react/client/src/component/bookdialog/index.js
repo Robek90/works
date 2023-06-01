@@ -32,10 +32,15 @@ export default inject('books') (
   const handleSend = () => {
     if(props.title === "редактировать") {
       props.books.sendEditBookData(form.current, props.bookIndex+1);
+      handleClose();
     } else {
-      props.books.sendNewBookData(form.current);
+      if(form.current.files.files.length === 0) {
+        alert("Добавте обложку книги")
+      } else {
+        props.books.sendNewBookData(form.current);
+        handleClose();
+      }
     }
-    handleClose();
   };
   
   return (

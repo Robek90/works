@@ -28,7 +28,6 @@ export default class BooksList {
   };
 
   sendNewBookData = async (data) => {
-    console.log(data);
     let url = '/addNewBook';
     let checkbox = Object.values(data.race).filter(item=>item.checked === true).map((item)=>item.name);
 
