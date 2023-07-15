@@ -1,0 +1,8 @@
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .main_container {
+    flex: 1 1 100%;
+  }
+}
