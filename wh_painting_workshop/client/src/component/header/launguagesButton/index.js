@@ -1,35 +1,29 @@
 import React, { useState, useEffect }from "react";
-import { Link, useLocation} from "react-router-dom";
-import { FormattedMessage } from "react-intl";
-import { LOCALES } from "../../../trans/locales";
+
+import useLocalStorage from '../../../hooks/useLocalStorage';
+import i18n from '../../../services/i18n';
 
 export default function LaunguagesButton(props) {
-  let location = useLocation();
+  const [language, setLanguage] = useLocalStorage('language', 'ru');
 
-  const languages = [
-    { name: "Русский", code: LOCALES.RUSSIAN },
-    { name: "English", code: LOCALES.ENGLISH },
-  ];
-
+  const handleLenguageChange = () => {
+      if (language === 'en') {
+          i18n.changeLanguage('ru');
+          setLanguage('ru');
+      } else if (language === 'ru') {
+          i18n.changeLanguage('en');
+          setLanguage('en');
+      }
+  };
   return (
-    <header>
-      <div className="container header_content">
-        <div className="switcher">
-          <FormattedMessage id="languages" />{" "}
-          <div >
-            {languages.map(({ name, code }) => (
-              <Link 
-                key={code} 
-                value={code} 
-                onClick={()=>props.props.onClick(code)}
-                to={`/${code}${location.pathname.slice(6)}`}
-              >
-                {name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-    </header>
+    <div className="container header_content">
+      <button onClick={handleLenguageChange}>
+              {props.t("languages")}{' '}
+              {language === 'ru' ? props.t('english') : props.t('russian')}
+          </button>
+          <button className='reload' onClick={() => window.location.reload()}>
+              {props.t('refresh page')}
+          </button>
+    </div>
   );
 };

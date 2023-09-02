@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom";
 import { actionButton } from "./actionButtonList";
 import LanguagesButton from "./launguagesButton/index";
 
-import { FormattedMessage } from "react-intl";
+import { useTranslation } from 'react-i18next';
 
 import './style.css';
 
 export default function Header(props) {
+  const { t } = useTranslation();
+
   return (
     <header className="header">
       <div className="header_tier1">
@@ -19,7 +21,7 @@ export default function Header(props) {
             color="inherit"
             to={`/${props.currentLocale}`+item.path}
           >
-            <FormattedMessage id={item.name} />
+            {t(`${item.name}`)}
           </NavLink>
         ))}
       </div>
@@ -34,11 +36,11 @@ export default function Header(props) {
             color="inherit"
             to={`/${props.currentLocale}`+item.path}
           >
-            <FormattedMessage id={item.name} />
+            {t(`${item.name}`)}
           </NavLink>
         ))}
       </div>
-      <LanguagesButton handleChange={props.handleChange} props={props}/>
+      <LanguagesButton t={t} props={props}/>
     </header>
   )
 }
