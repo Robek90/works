@@ -14,6 +14,7 @@ export default function LaunguagesButton(props) {
           i18n.changeLanguage('en');
           setLanguage('en');
       }
+      props.props.handleClick()
   };
   return (
     <div className="container header_content">

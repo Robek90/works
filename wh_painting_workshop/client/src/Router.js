@@ -52,14 +52,14 @@ function AppRouter(props) {
               {routesPage.map((route, index) => (
                 <Route
                   key={index}
-                  path={`/${props.currentLocale+route.path}`}
-                  element={<route.main history={props.history} />}
+                  path={route.path}
+                  element={<route.main history={props.history} languagePath={props.languagePath}/>}
                 />
                 
               ))}
               <Route
                 path="/"
-                element={<Navigate to={`/${props.currentLocale}/News`} replace />}
+                element={<Navigate to={`/News`} replace />}
               />
             </>
           </Routes>
