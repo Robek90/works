@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation} from "react-router-dom";
 
 import { actionButton } from "./actionButtonList";
 import LanguagesButton from "./launguagesButton/index";
@@ -11,10 +11,14 @@ import './style.css';
 export default function Header(props) {
   const { t } = useTranslation();
 
+  const location = useLocation();
+    
+  props.history.push(location);
+  
   return (
     <header className="header">
       <div className="header_tier1">
-        <div className="menu_container_tier1">
+        <div className="header_menu_container_tier1">
           {actionButton[0].map((item,index) => (
             <NavLink 
               key={index}
@@ -28,11 +32,13 @@ export default function Header(props) {
         </div>
       </div>
       <div className="header_tier2">
-        Logo and search?
-        <LanguagesButton t={t} props={props}/>
+        <div className="header_menu_container_tier2">
+          <div className="header_tier2_logo">Logo and search?</div>
+          <LanguagesButton t={t} props={props}/>
+        </div>
       </div>
       <div className="header_tier3">
-        <div className="menu_container_tier3">
+        <div className="header_menu_container_tier3">
           {actionButton[1].map((item,index) => (
             <NavLink 
               key={index}

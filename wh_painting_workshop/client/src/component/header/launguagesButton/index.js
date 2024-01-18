@@ -6,7 +6,7 @@ import i18n from '../../../services/i18n';
 export default function LaunguagesButton(props) {
   const [language, setLanguage] = useLocalStorage('language', 'ru');
 
-  const handleLenguageChange = () => {
+  const handleLanguageChange = () => {
       if (language === 'en') {
           i18n.changeLanguage('ru');
           setLanguage('ru');
@@ -17,14 +17,16 @@ export default function LaunguagesButton(props) {
       props.props.handleClick()
   };
   return (
-    <div className="container header_content">
-      <button onClick={handleLenguageChange}>
-              {props.t("languages")}{' '}
-              {language === 'ru' ? props.t('english') : props.t('russian')}
-          </button>
-          <button className='reload' onClick={() => window.location.reload()}>
-              {props.t('refresh page')}
-          </button>
-    </div>
+    <>
+      <div className="header_tier2_button_language">
+        <div 
+          className="header_tier2_button_language_text"
+          onClick={handleLanguageChange}
+        >
+          {props.t("languages")}{' '}
+          {language === 'ru' ? props.t('english') : props.t('russian')}
+        </div>
+      </div>
+    </>
   );
 };

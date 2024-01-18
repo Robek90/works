@@ -1,0 +1,15 @@
+{
+  "name": "Warhammer Workshop",
+  "short_name": "WWShop",
+  "display": "standalone",
+  "background_color": "#95a5a6",
+  "theme_color": "#95a5a6",
+  "icons": [
+   {
+    "src": "assets\/icons\/iconhammer.png",
+    "sizes": "36x36",
+    "type": "image\/png",
+    "density": "0.75"
+   }
+  ]
+ }

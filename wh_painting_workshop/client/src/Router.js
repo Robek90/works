@@ -1,19 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import Authorization from './pages/authorization/index';
+import React from 'react';
+import { Navigate, Route, Routes } from "react-router-dom";
+import AboutUs from "./pages/aboutUs/index";
 import Contacts from "./pages/contacts/index";
 import News from "./pages/news/index";
 import ExampleWorks from "./pages/exampleWorks/index";
 import Reviews from "./pages/reviews/index";
 import PriceList from "./pages/priceList/index";
-import ShoppingCarts from "./pages/shoppingCarts/index";
-
+import ShoppingCart from "./pages/shoppingCart/index";
+import Sidebar from "./component/sidebarNavigation/index";
 
 function AppRouter(props) {
+  const sidebarPage = [
+    {
+      path: `/ExampleWorks`,
+      sidebar: (props) => <Sidebar {...props}/>,
+      main: (props) => <ExampleWorks {...props} />
+    },
+    {
+      path: `/PriceList`,
+      sidebar: (props) => <Sidebar {...props}/>,
+      main: (props) => <PriceList {...props} />
+    },
+  ]
   const routesPage = [
     {
-      path: `/Authorization`,
-      main: (props) => <Authorization {...props} />
+      path: `/AboutUs`,
+      main: (props) => <AboutUs {...props} />
     },
     {
       path: `/Contacts`,
@@ -24,48 +36,50 @@ function AppRouter(props) {
       main: (props) => <News {...props} />
     },
     {
-      path: `/ExampleWorks`,
-      main: (props) => <ExampleWorks {...props} />
-    },
-    {
       path: `/Reviews`,
       main: (props) => <Reviews {...props} />
     },
     {
-      path: `/PriceList`,
-      main: (props) => <PriceList {...props} />
-    },
-    {
       path: `/ShoppingCart`,
-      main: (props) => <ShoppingCarts {...props} />
+      main: (props) => <ShoppingCart {...props} />
     },
   ];
 
   return (
-    <>
-      <div className="router_container">
-        <div 
-          className={'main_container'}
-        > 
-          <Routes>
-            <>
-              {routesPage.map((route, index) => (
-                <Route
-                  key={index}
-                  path={route.path}
-                  element={<route.main history={props.history} languagePath={props.languagePath}/>}
-                />
-                
-              ))}
-              <Route
-                path="/"
-                element={<Navigate to={`/News`} replace />}
-              />
-            </>
-          </Routes>
-        </div>
-      </div>
-    </>
+    <div className="main_container">
+      <Routes>
+        {sidebarPage.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            element={<route.sidebar history={props.history} />}
+          />
+          ))}
+      </Routes>
+      <Routes>
+          {sidebarPage.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={<route.main history={props.history} />}
+            />
+            
+          ))}
+      </Routes>
+      <Routes>
+        {routesPage.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            element={<route.main history={props.history} languagePath={props.languagePath}/>}
+          />
+        ))}
+        <Route
+          path="/"
+          element={<Navigate to={`/News`} replace />}
+        />
+      </Routes>
+    </div>
   )
 }
 

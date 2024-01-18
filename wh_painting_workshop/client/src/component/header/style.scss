@@ -1,4 +1,6 @@
 header {
+  margin: 0;
+  padding: 0;
   background-color: #252525;
   display: -ms-flexbox;
   display: flex;
@@ -7,6 +9,7 @@ header {
   min-width: 320px;
   position: relative;
   z-index: 10;
+  height: 182px;
   .header_tier1 {
     background-color: #252525;
     display: -ms-flexbox;
@@ -16,9 +19,9 @@ header {
     -ms-flex-pack: start;
     justify-content: flex-start;
     width: 100%;
-    .menu_container_tier1 {
+    .header_menu_container_tier1 {
       margin: 0 auto;
-      max-width: 1400px;
+      max-width: 1920px;
       width: 100%;
       display: flex;
       -ms-flex-pack: space-between;
@@ -46,6 +49,27 @@ header {
     justify-content: space-around;
     padding: 0 1em;
     z-index: 1;
+    .header_menu_container_tier2 {
+      position: relative;
+      display: flex;
+      -ms-flex-pack: space-between;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1920px;
+      width: 100%;
+      z-index: 0;
+      .header_tier2_logo {
+        height: 70px;
+      }
+      .header_tier2_button_language {
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
+        .header_tier2_button_language_text {
+          cursor: pointer;
+        }
+      }
+    }
   }
   .header_tier3 {
     background-color: #252525;
@@ -56,17 +80,28 @@ header {
     -ms-flex-order: 3;
     order: 3;
     position: relative;
-    .menu_container_tier3 {
-      display: -ms-flexbox;
+    .header_menu_container_tier3 {
       display: flex;
       -ms-flex-direction: row;
       flex-direction: row;
       -ms-flex-pack: justify;
       justify-content: space-between;
       margin: 0 auto;
-      max-width: 1400px;
+      max-width: 1800px;
       width: 100%;
       height: 75px;
-  }
+      .header_tier3_button_Link {
+        padding: 22px 30px;
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+        border: 1px solid #252525;
+        text-align: center;
+        vertical-align: middle;
+      }
+      :hover {
+        background-color: #5c5c5cc5;
+      }
+    }
   }
 }

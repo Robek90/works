@@ -1,10 +1,13 @@
 header {
+  margin: 0;
+  padding: 0;
   background-color: #252525;
   display: flex;
   flex-flow: column;
   min-width: 320px;
   position: relative;
   z-index: 10;
+  height: 182px;
 }
 header .header_tier1 {
   background-color: #252525;
@@ -13,9 +16,9 @@ header .header_tier1 {
   justify-content: flex-start;
   width: 100%;
 }
-header .header_tier1 .menu_container_tier1 {
+header .header_tier1 .header_menu_container_tier1 {
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1920px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -23,14 +26,14 @@ header .header_tier1 .menu_container_tier1 {
   text-align: center;
   vertical-align: center;
 }
-header .header_tier1 .menu_container_tier1 .header_tier1_button_Link {
+header .header_tier1 .header_menu_container_tier1 .header_tier1_button_Link {
   padding: 7px 14px;
   color: white;
   background-color: transparent;
   text-decoration: none;
   border: 1px solid #252525;
 }
-header .header_tier1 .menu_container_tier1 :hover {
+header .header_tier1 .header_menu_container_tier1 :hover {
   background-color: rgba(92, 92, 92, 0.7725490196);
 }
 header .header_tier2 {
@@ -40,6 +43,26 @@ header .header_tier2 {
   padding: 0 1em;
   z-index: 1;
 }
+header .header_tier2 .header_menu_container_tier2 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
+  z-index: 0;
+}
+header .header_tier2 .header_menu_container_tier2 .header_tier2_logo {
+  height: 70px;
+}
+header .header_tier2 .header_menu_container_tier2 .header_tier2_button_language {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+header .header_tier2 .header_menu_container_tier2 .header_tier2_button_language .header_tier2_button_language_text {
+  cursor: pointer;
+}
 header .header_tier3 {
   background-color: #252525;
   display: flex;
@@ -47,12 +70,24 @@ header .header_tier3 {
   order: 3;
   position: relative;
 }
-header .header_tier3 .menu_container_tier3 {
+header .header_tier3 .header_menu_container_tier3 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1800px;
   width: 100%;
   height: 75px;
+}
+header .header_tier3 .header_menu_container_tier3 .header_tier3_button_Link {
+  padding: 22px 30px;
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid #252525;
+  text-align: center;
+  vertical-align: middle;
+}
+header .header_tier3 .header_menu_container_tier3 :hover {
+  background-color: rgba(92, 92, 92, 0.7725490196);
 }/*# sourceMappingURL=style.css.map */

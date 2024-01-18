@@ -1,10 +1,37 @@
-body {
+#root {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  color: #252525;
+  background-color: #eaeaea;
 }
-body .wrapper {
-  height: 100vh;
-  background-color: white;
+html body .wrapper {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: AlergiaNormal, "Segoe UI", "San Francisco", sans-serif;
+}
+html body .wrapper .main_container {
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+.card_catalog_container {
+  max-width: 1800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card_catalog_container .card_catalog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 }/*# sourceMappingURL=style.css.map */

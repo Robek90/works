@@ -5,8 +5,8 @@ export let actionButton = [
       name: "contacts",
     },
     {
-      path: "/Authorization",
-      name: "authorization",
+      path: "/AboutUs",
+      name: "aboutUs",
     },
   ],
   [
@@ -28,7 +28,7 @@ export let actionButton = [
     },
     {
       path: "/ShoppingCart",
-      name: "shoppingCart",
+      name: "shopping cart",
     },
   ]
 ]

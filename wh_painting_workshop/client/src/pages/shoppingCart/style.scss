@@ -1,0 +1,73 @@
+.shoppingCart_card {
+  margin: 40px auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  .shoppingCart_card_tittle {
+    width: 100%;
+    color: #070707;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 7px 0;
+  }
+  .shoppingCart_card_clearCart {
+    .shoppingCart_card_total_button_deleteAll {
+      color: red;
+    }
+  }
+  .shoppingCart_card_content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .shoppingCart_card_list {
+      width: calc(100% - 500px);
+      display: flex;
+      flex-basis: auto;
+      flex-direction: column;
+    }
+    .shoppingCart_card_list_empty {
+      width: 100%
+    }
+    .shoppingCart_card_widget {
+      margin-left: 50px;
+      width: 450px;
+      .shoppingCart_card_sticky {
+        top: 35px;
+        position: sticky;
+        display: block;
+        .shoppingCart_card_total {
+          display: flex;
+          flex-direction: column;
+          background-color: #fff;
+          border-radius: 2px;
+          position: relative;
+          padding: 24px;
+          .shoppingCart_card_total_button_container {
+            border-bottom: 1px solid rgba(204,214,228,.6);
+            .shoppingCart_card_total_button_order {
+              width: 100%;
+              background-color: rgb(79, 148, 1)
+            }
+          }
+          .shoppingCart_card_total_quantity {
+            display: flex;
+            flex-direction: column;
+          }
+          .shoppingCart_card_total_products_summ {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+}
