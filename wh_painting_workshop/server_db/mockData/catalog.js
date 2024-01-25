@@ -32,12 +32,12 @@ exports.catalog  =  [
     },
     "eldars": {
       id:6,
-      customId:"c6",
+      customId:"c7",
       name:"eldars"
     },
     "darkeldars": {
       id:7,
-      customId:"c6",
+      customId:"c8",
       name:"dark eldars"
     }
   }

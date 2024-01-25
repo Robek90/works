@@ -14,7 +14,7 @@ export default function Header(props) {
   const location = useLocation();
     
   props.history.push(location);
-  
+
   return (
     <header className="header">
       <div className="header_tier1">

@@ -7,7 +7,6 @@ import Preloader from '../../component/preLoader/index';
 import ShopCard from '../../component/shopCard/index';
 
 import { calcTotalSumm, calcTotalQuantity } from "../../services/cartAction";
-
 import { useTranslation } from 'react-i18next';
 
 import './style.css';
@@ -36,7 +35,7 @@ export default inject('shoppingCart') (
       setTotalQuantity(calcTotalQuantity(cartList));
       setLoading(true);
     }, [shoppingCart.shoppingCartData, cartList, totalSumm]);
-    console.log(totalQuantity);
+
     return (
         <div className="shoppingCart_card">
           {
@@ -61,7 +60,7 @@ export default inject('shoppingCart') (
                 <div className="shoppingCart_card_content">
                   <div className="shoppingCart_card_list">
                     {
-                    cartList.map((item, index) => (
+                      cartList.map((item, index) => (
                         <ShopCard 
                           key={index} 
                           card={item}
@@ -98,9 +97,11 @@ export default inject('shoppingCart') (
                 </div>
               </>
             ) : (
+              <>
                 <p className="shoppingCart_card_list_empty">
                   {t("empty cart")}
                 </p>
+              </>
             )
           }
         </div>

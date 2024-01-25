@@ -4,7 +4,7 @@ import AboutUs from "./pages/aboutUs/index";
 import Contacts from "./pages/contacts/index";
 import News from "./pages/news/index";
 import ExampleWorks from "./pages/exampleWorks/index";
-import Reviews from "./pages/reviews/index";
+import Feedback from "./pages/feedback/index";
 import PriceList from "./pages/priceList/index";
 import ShoppingCart from "./pages/shoppingCart/index";
 import Sidebar from "./component/sidebarNavigation/index";
@@ -36,8 +36,8 @@ function AppRouter(props) {
       main: (props) => <News {...props} />
     },
     {
-      path: `/Reviews`,
-      main: (props) => <Reviews {...props} />
+      path: `/Feedback`,
+      main: (props) => <Feedback {...props} />
     },
     {
       path: `/ShoppingCart`,

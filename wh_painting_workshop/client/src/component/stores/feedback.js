@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
-export default class reviews {
-  reviewsData = [];
+export default class feedback {
+  feedbackData = [];
   showAlert = false;
 
   constructor() {
@@ -12,7 +12,7 @@ export default class reviews {
     this.showAlert = data;
   };
   
-  setReviews = (data) => {
-    this.reviewsData.push(data);
+  setFeedback = (data) => {
+    this.feedbackData.push(data);
   };
 }

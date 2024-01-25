@@ -10,20 +10,20 @@ import catalogstore from './component/stores/catalog';
 import categorystore from './component/stores/category';
 import productstore from './component/stores/product';
 import shoppingcartstore from './component/stores/shoppingCart';
-import reviewsstore from './component/stores/reviews';
+import feedbackstore from './component/stores/feedback';
 
 const catalogStore = new catalogstore();
 const categoryStore = new categorystore(); 
 const productStore = new productstore();
 const shoppingCartStore = new shoppingcartstore(); 
-const reviewsStore = new reviewsstore();
+const feedbackStore = new feedbackstore();
 
 const stores = {
   catalog: catalogStore,
   category: categoryStore,
   product: productStore,
   shoppingCart: shoppingCartStore,
-  reviews: reviewsStore
+  feedback: feedbackStore
 }
 
 const root = createRoot(document.getElementById('root'));

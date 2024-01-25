@@ -12,8 +12,8 @@ export default function News(props) {
       <div className="mainNews">
         <div></div>
         <picture className="mainNewsPicture">
-          <source media={"(min-width: 1200px)"} srcset={require("../../assets/newsImg/mainNews1080.jpg")}/>
-          <source media={"(min-width: 700px)"} srcset={require("../../assets/newsImg/mainNews720.jpg")}/>
+          <source media={"(min-width: 1200px)"} srcSet={require("../../assets/newsImg/mainNews1080.jpg")}/>
+          <source media={"(min-width: 700px)"} srcSet={require("../../assets/newsImg/mainNews720.jpg")}/>
           <img src={require("../../assets/newsImg/mainNews720.jpg")} alt={`${t("Ooops... Let's use your imagination")}`}/>
         </picture>
         <div className="mainNewsTextContainer">
