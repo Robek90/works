@@ -1,27 +1,28 @@
 #root {
   height: 100%;
- }
- html {
-   height: 100%;
-   body {
-     height: 100%;
-     margin: 0;
-     padding: 0;
-     background-color: #eaeaea;
-     .wrapper {
-       margin: 0;
-       padding: 0;
-       height: 100%;
-       font-family: AlergiaNormal,"Segoe UI","San Francisco",sans-serif;
-       .main_container {
-        height: auto;
-         display: flex;
-         margin: 0 auto;
-         max-width: 1920px;
-       }
-     }
-   }
- }
+}
+html {
+  height: 100%;
+  overflow-y: scroll;
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #eaeaea;
+    .wrapper {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: AlergiaNormal,"Segoe UI","San Francisco",sans-serif;
+      .main_container {
+      height: auto;
+        display: flex;
+        margin: 0 auto;
+        max-width: 1920px;
+      }
+    }
+  }
+}
 
  .card_catalog_container {
   max-width: 1800px;
@@ -33,4 +34,7 @@
     flex-wrap: wrap;
     gap: 40px;
   }
+}
+.hidden {
+  display: none;
 }

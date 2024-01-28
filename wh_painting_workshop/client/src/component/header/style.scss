@@ -34,9 +34,13 @@ header {
         color: white;
         background-color: transparent;
         text-decoration: none;
+        text-transform: uppercase;
         border: 1px solid #252525;
       }
       :hover {
+        background-color: #5c5c5cc5;
+      }
+      .active {
         background-color: #5c5c5cc5;
       }
     }
@@ -67,6 +71,7 @@ header {
         box-sizing: border-box;
         .header_tier2_button_language_text {
           cursor: pointer;
+          text-transform: uppercase;
         }
       }
     }
@@ -94,12 +99,31 @@ header {
         padding: 22px 30px;
         color: white;
         background-color: transparent;
-        text-decoration: none;
         border: 1px solid #252525;
+        text-decoration: none;
+        text-transform: uppercase;
         text-align: center;
         vertical-align: middle;
       }
+      .header_tier3_button_Link:first-child {
+        width: 90px;
+      }
+      .header_tier3_button_Link:nth-child(2) {
+        width: 130px;
+      }
+      .header_tier3_button_Link:nth-child(3) {
+        width: 80px;
+      }
+      .header_tier3_button_Link:nth-child(4) {
+        width: 75px;
+      }
+      .header_tier3_button_Link:last-child {
+        width: 125px;
+      }
       :hover {
+        background-color: #5c5c5cc5;
+      }
+      .active {
         background-color: #5c5c5cc5;
       }
     }

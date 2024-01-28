@@ -1,11 +1,13 @@
 import React, { useState, useEffect }from "react";
-import { Link } from 'react-router-dom';
 import { inject, observer } from "mobx-react";
 
 import Preloader from '../../component/preLoader/index';
 import YaCaptcha from "../../component/yandexsmartcaptcha";
 import FeedbackForm from "../../component/feedbackForm";
 
+import Button from '@mui/material/Button';
+
+import getCurrentDate from "../../utils/getDate"
 import { useTranslation } from 'react-i18next';
 
 import './style.css';
@@ -24,7 +26,8 @@ export default inject('feedback') (
 
     let getNewStatus = (status) => {
       setGetStatus(status)
-    }
+    };
+
     let changeVisible=()=>{
       setVisible(true)
     };
@@ -43,11 +46,14 @@ export default inject('feedback') (
 
     return (
       <div className="feedback_page">
-        <Link 
-          onClick={changeVisible}
-        >
-          Оставить отзыв
-        </Link>
+        <div className={getStatus === 'success' ? 'hidden' : "feedback_page_button_container"}>
+          <Button 
+            variant="contained"
+            onClick={changeVisible}
+          >
+            <p>{t("add feedback")}</p>
+          </Button>
+        </div>
         <YaCaptcha 
           resetCaptcha={resetCaptcha}
           visible={visible}
@@ -64,10 +70,19 @@ export default inject('feedback') (
             ) : feedbackList.length ? (
               feedbackList.map((item, index)=>{
                 return (
-                  <div className="row" key={index}>
-                    <span className="feedback">{item.name}</span>
-                    <span className="feedback">{item.email}</span>
-                    <span className="feedback">{item.text}</span>
+                  <div className="feedback_content" key={index}>
+                    <div className="feedback_content_header">
+                      <div className="feedback_content_name">
+                        <span className="feedback_name_">{item.name}</span>
+                      </div>
+                      <div className="feedback_content_date">
+                        <span className="feedback_date">{getCurrentDate()}</span>
+                      </div>
+                    </div>
+                    <div className="feedback_content_main">
+                      <div className="feedback_content_main_header">{t("feedback")}</div>
+                      <span className="feedback_text">{item.text}</span>
+                    </div>
                   </div>
                 )
               })
