@@ -8,16 +8,17 @@ import { useTranslation } from 'react-i18next';
 
 import { styled } from '@mui/material/styles';
 import Button from "@mui/material/Button";
+import getCurrentDate from "../../utils/getDate";
 import './style.css';
 
-export default inject('feedback') (
+export default inject('review') (
   observer((props)=>{
-    const { feedback, getStatus, getNewStatus } = props;
+    const { review, getStatus, getNewStatus } = props;
     
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
-    const [ feedbacktext, setFeedbacktext ] = useState("");
-    const [ alertfeedback, setAlertfeedback ] = useState("");
+    const [ reviewtext, setReviewtext ] = useState("");
+    const [ alertreview, setAlertreview ] = useState("");
 
     const { t } = useTranslation();
 
@@ -30,8 +31,8 @@ export default inject('feedback') (
     }; 
   
   
-    const onChangeFeedback = (e) => {
-      setFeedbacktext(e.target.value);
+    const onChangeReview = (e) => {
+      setReviewtext(e.target.value);
     };
 
     const InputsFormButton = styled(Button)({
@@ -74,50 +75,51 @@ export default inject('feedback') (
 
     const onClick = () => {
       if( name === "") {
-        setAlertfeedback("")
-        feedback.setShowAlert(true)
+        setAlertreview("")
+        review.setShowAlert(true)
       }
   
-      if(feedback === "") {
-        setAlertfeedback("")
-        feedback.setShowAlert(true)
+      if(review === "") {
+        setAlertreview("")
+        review.setShowAlert(true)
       }
   
       if(email === "") {
-        setAlertfeedback("")
-        feedback.setShowAlert(true)
+        setAlertreview("")
+        review.setShowAlert(true)
       }
   
-      if(name && feedback && email !== "") {
+      if(name && review && email !== "") {
         if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
-          feedback.setFeedback({
+          review.setReviewData({
             name: name,
             email: email,
-            text: feedbacktext
+            text: reviewtext,
+            date: getCurrentDate()
           })
-          setAlertfeedback("feedback")
+          setAlertreview("review")
           setName("")
           setEmail("")
-          setFeedbacktext("")
-          feedback.setShowAlert(true)
+          setReviewtext("")
+          review.setShowAlert(true)
           getNewStatus('hidden')
         } else {
-          setAlertfeedback("")
+          setAlertreview("")
         }
       }
     };
-    
+
     return (
       <>
         {
           getStatus === 'success' && 
           <>
             {
-              feedback.showAlert && 
+              review.showAlert && 
               <ShowAlert 
-                alert={alertfeedback} 
-                data={feedback}
-                setAlert={setAlertfeedback}
+                alert={alertreview} 
+                data={review}
+                setAlert={setAlertreview}
                 textAlert={t("has been successfully added to the cart")}
                 textError={t("form is empty please enter text")}
               />
@@ -128,10 +130,10 @@ export default inject('feedback') (
                   t={t}
                   name={name}
                   email={email}
-                  feedbacktext={feedbacktext}
+                  reviewtext={reviewtext}
                   onChangeName={onChangeName}
                   onChangeEmail={onChangeEmail}
-                  onChangeFeedback={onChangeFeedback}
+                  onChangeReview={onChangeReview}
                 />
               </div>
               <div className="form_button">

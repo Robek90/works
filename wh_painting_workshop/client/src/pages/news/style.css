@@ -16,7 +16,7 @@
   right: 0;
   left: 0;
   position: absolute;
-  max-width: 1920px;
+  width: 100%;
 }
 .news_page .mainNews .mainNewsPicture source {
   width: 100%;
@@ -40,4 +40,15 @@
   color: rgb(255, 255, 255);
   text-transform: uppercase;
   width: 560px;
+}
+
+@media all and (max-width: 3840px) {
+  .news_page .mainNewsPicture {
+    max-width: 100%;
+  }
+}
+@media all and (max-width: 500px) {
+  .news_page .row {
+    flex-flow: column wrap;
+  }
 }/*# sourceMappingURL=style.css.map */

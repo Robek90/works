@@ -71,13 +71,22 @@ export default function CatalogCard(props) {
         />
         <CardMedia
           component="img"
-          sx={{ height: 400, weight: 'auto' }}
+          sx={{ height: 300, weight: 'auto' }}
           image={require(`../../assets/productImg/${cardData.img}`)}
           alt={t(`${cardData.name}`)}
         />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
+        <CardContent
+          sx={{ height: 140, weight: 'auto' }}
+        >
+          <Typography 
+            sx={{ height: 120, weight: 'auto' }}
+            variant="body2" 
+            color="text.primary"
+          >
             {t(`${cardData.description}`)}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {cardData.price} {t(`rub`)}.
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

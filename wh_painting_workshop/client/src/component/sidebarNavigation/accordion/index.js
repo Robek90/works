@@ -75,6 +75,7 @@ export default inject('catalog','category', 'product') (
 
     let selectPage = (race) => {
       let filter = [];
+
       if(pathMenuData === "PriceList") {
         Object.values(category).forEach((i) => {
           filter.push(i)
@@ -82,14 +83,14 @@ export default inject('catalog','category', 'product') (
         return filter
       } else {
         Object.values(product).forEach((i) => {
-          if(i.customId === race) {
+          if(i.type === "custom" && i.race === race) {
             filter.push(i)
           }
         })
         return filter
       }
     };
-    
+
     useMemo(()=>{
       if(location.pathname === '/ExampleWorks') {
         setPathMenuData("ExampleWorks")
@@ -104,9 +105,9 @@ export default inject('catalog','category', 'product') (
       props.catalog.getCatalogData();
       
       if(props.product.state === "done" && props.catalog.state === "done" && props.category.state === "done") {
-        props.product.productData.then(res => setProduct(res.product[0]));
-        props.catalog.catalogData.then(res => setCatalog(res.catalog[0]));
-        props.category.categoryData.then(res => setCategory(res.category[0]));
+        props.product.productData.then(res => setProduct(res));
+        props.catalog.catalogData.then(res => setCatalog(res));
+        props.category.categoryData.then(res => setCategory(res));
       };
 
     },[ props.catalog, props.category, props.product, props.product.state, props.catalog.state, props.category.state]);
@@ -124,7 +125,7 @@ export default inject('catalog','category', 'product') (
                   <Typography component={'div'}>
                     <List component={'ul'}>
                       {
-                        selectPage(catalog.id).map((item,index)=>{
+                        selectPage(catalog.name).map((item,index)=>{
                           return (
                             <ListItem disablePadding key={index}>
                               <ListItemButton>

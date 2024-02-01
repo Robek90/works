@@ -1,10 +1,10 @@
 
 export default function InputsForm(props) {
-  let {t, name, email, feedbacktext, onChangeName, onChangeEmail,onChangeFeedback } = props;
+  let {t, name, email, reviewtext, onChangeName, onChangeEmail,onChangeReview } = props;
     
   return (
     <>
-      <div className="feedback_inputs_row">
+      <div className="review_inputs_row">
         <input
           className="input_row"
           type="text"
@@ -20,13 +20,13 @@ export default function InputsForm(props) {
           onChange={onChangeEmail}
         />
       </div>
-      <div className="feedback_inputs_col">
+      <div className="review_inputs_col">
         <input
           className="input_col"
           type="text"
-          placeholder={t("enter your feedback")}
-          value={feedbacktext}
-          onChange={onChangeFeedback}
+          placeholder={t("enter your review")}
+          value={reviewtext}
+          onChange={onChangeReview}
         />
       </div>
     </>

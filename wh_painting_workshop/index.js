@@ -1,50 +1,42 @@
 const express = require('express');
 const app = express();
 
-// const multer  = require('multer');
-
 const dbApi = require('./server_db/db_module.js');
 
-const product = require('./server_db/mockData/product.js');
-const category = require('./server_db/mockData/category.js');
-const catalog = require('./server_db/mockData/catalog.js');
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'client/src/assets/images/')
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname)
-//   }
-// });
-
-// const upload = multer({ storage: storage });
-
 app.get("/product", (req, res) => {
-  // dbApi.db.getDataBase().then(x=>{
-  //   res.json(x)
-  // })
-  res.send(product)
+  dbApi.db.getProductDB().then(x=>{
+    res.json(x)
+  })
 });
 
 app.get("/catalog", (req, res) => {
-  // dbApi.db.getDataBase().then(x=>{
-  //   res.json(x)
-  // })
-  res.send(catalog)
+  dbApi.db.getCatalogDB().then(x=>{
+    res.json(x)
+  })
 });
 
 app.get("/category", (req, res) => {
-  // dbApi.db.getDataBase().then(x=>{
-  //   res.json(x)
-  // })
-  res.send(category)
+  dbApi.db.getCategoryDB().then(x=>{
+    res.json(x)
+  })
+});
+
+app.get("/getreview", (req, res) => {
+  dbApi.db.getReviewDB().then(x=> {
+    res.json(x)
+  })
 });
 
 app.use(express.json());
 
+app.post("/setreview", (req, res) => {
+  dbApi.db.setReviewDB(req.body)
+  res.json("add review")
+});
+
 app.post("/smartcaptcha", (req, res) => {
   let token = req.body.token;
+
   dbApi.db.checkCaptcha(token, (passed) => {
       if (passed) {
         res.json(true)
@@ -81,6 +73,7 @@ app.post("/smartcaptcha", (req, res) => {
 //   dbApi.db.editDataBase(req.body, req.body['rowid'])
 //   res.json({ message:  "Книга успешно изменена" });
 // });
+
 
 const PORT = process.env.PORT || 8080;
 

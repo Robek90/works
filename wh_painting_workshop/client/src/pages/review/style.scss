@@ -1,11 +1,11 @@
-.feedback_page {
+.review_page {
   display: flex;
   flex-flow: column;
   margin: 0 auto;
   width: 1000px;
   max-width: 1400px;
   padding: 0;
-  .feedback_page_button_container {
+  .review_page_button_container {
     display: block;
     padding: 70px 0 30px;
     margin: 0 auto;
@@ -16,22 +16,22 @@
       height: 50px;
     }
   }
-  .feedback_content {
+  .review_content {
     margin: 0 auto 20px;
     position: relative;
     width: 800px;
     min-height: 100px;
     border: 1px solid rgba(0, 0, 0, 0.13);
     background-color: whitesmoke;
-    .feedback_content_header {
+    .review_content_header {
       padding: 10px 20px;
       align-items: center;
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid rgba(0, 0, 0, 0.13);
-      .feedback_content_name {
+      .review_content_name {
         align-items: center;
-        .feedback_name_ {
+        .review_name_ {
           color: #070707;
           font-size: 24px;
           font-weight: 00;
@@ -40,24 +40,24 @@
           word-break: break-word;
         }
       }
-      .feedback_content_date {
+      .review_content_date {
         align-items: center;
-        .feedback_date {
+        .review_date {
           color: rgba(0,26,52,.6);
           font-size: 16px;
           line-height: 20px;
         }
       }
     }
-    .feedback_content_main {
+    .review_content_main {
       padding: 10px 20px;
-      .feedback_content_main_header {
+      .review_content_main_header {
         font-size: 20px;
         font-weight: 500;
         line-height: 20px;
         margin-bottom: 12px;
       }
-      .feedback_text {
+      .review_text {
         margin: 0;
         white-space: pre-line;
         color: #070707;

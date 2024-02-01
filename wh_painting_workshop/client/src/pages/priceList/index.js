@@ -26,7 +26,7 @@ export default inject('catalog', 'category', 'product', 'shoppingCart') (
 
       if(urlParams.catalog === null) {
         Object.values(product).forEach((i)=> {
-          if(i.race !== undefined) {
+          if(i.type !== "custom") {
             filter.push(i)
           }
         })
@@ -48,7 +48,7 @@ export default inject('catalog', 'category', 'product', 'shoppingCart') (
 
       if(props.product.state === "done") {
         setLoading(true);
-        props.product.productData.then(res => setProduct(res.product[0]));
+        props.product.productData.then(res => setProduct(res));
       }
     },[props.product, props.product.state, props.shoppingCart])
 

@@ -23,8 +23,8 @@ export let actionButton = [
       name: "priceList",
     },
     {
-      path: "/Feedback",
-      name: "feedback",
+      path: "/Reviews",
+      name: "reviews",
     },
     {
       path: "/ShoppingCart",

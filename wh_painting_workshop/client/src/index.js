@@ -1,4 +1,3 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'mobx-react';
@@ -10,20 +9,20 @@ import catalogstore from './component/stores/catalog';
 import categorystore from './component/stores/category';
 import productstore from './component/stores/product';
 import shoppingcartstore from './component/stores/shoppingCart';
-import feedbackstore from './component/stores/feedback';
+import reviewstore from './component/stores/review';
 
 const catalogStore = new catalogstore();
 const categoryStore = new categorystore(); 
 const productStore = new productstore();
 const shoppingCartStore = new shoppingcartstore(); 
-const feedbackStore = new feedbackstore();
+const reviewStore = new reviewstore();
 
 const stores = {
   catalog: catalogStore,
   category: categoryStore,
   product: productStore,
   shoppingCart: shoppingCartStore,
-  feedback: feedbackStore
+  review: reviewStore
 }
 
 const root = createRoot(document.getElementById('root'));

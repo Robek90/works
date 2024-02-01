@@ -42,7 +42,7 @@ exports.product = [
       img: "chaostank.jpg",
       description: "",
       price: "900",
-      name:"chaos tank",
+      name: "chaos tank",
       race: "chaos",
       type: "vechical",
     },

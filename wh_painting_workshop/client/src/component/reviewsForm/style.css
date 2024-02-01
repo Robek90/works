@@ -12,22 +12,22 @@
   width: 100%;
   margin: 0 auto;
 }
-.form_container .form_inputs .feedback_inputs_row {
+.form_container .form_inputs .review_inputs_row {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-.form_container .form_inputs .feedback_inputs_row .input_row {
+.form_container .form_inputs .review_inputs_row .input_row {
   width: 50%;
   height: 40px;
   border: 1px solid #626262;
   margin: 3px;
 }
-.form_container .form_inputs .feedback_inputs_col {
+.form_container .form_inputs .review_inputs_col {
   display: flex;
   width: 100%;
 }
-.form_container .form_inputs .feedback_inputs_col .input_col {
+.form_container .form_inputs .review_inputs_col .input_col {
   width: 100%;
   height: 40px;
   border: 1px solid #626262;
