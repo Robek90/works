@@ -49,9 +49,9 @@
   "Payment is made using a QR code": "Payment is made using a QR code",
   "has been successfully added to the cart": "has been successfully added to the cart",
   "form is empty please enter text": "form is empty please enter text",
-  "enter your name": "enter your name",
-  "enter your review": "enter your feedback",
-  "enter your Email": "enter your Email",
+  "Enter your name": "Enter your name",
+  "Enter your review": "Enter your feedback",
+  "Enter your Email": "Enter your Email",
   "add review": "add feedback",
   "no review": "no feedback",
   "submit": "submit",
@@ -65,5 +65,11 @@
   "The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium.":"The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium.",
   "Do you have any rewievs or suggestions about WarhammerWorkshop?": "Do you have any rewievs or suggestions about WarhammerWorkshop?",
   "We are open to conversation and are waiting for your rewievs.": " We are open to conversation and are waiting for your rewievs.",
-  "Start painting your army.": "Start painting your army."
+  "Start painting your army.": "Start painting your army.",
+  "welcome to our workshop": "welcome to our workshop",
+  "the painting cooming soon": "the painting cooming soon",
+  "Hurray!! you have submitted review.":"Hurray!! you have submitted the form.",
+  "You must confirm you are not a robot.": "You must confirm you are not a robot.",
+  "Enter the correct email address.": "Enter the correct email address.",
+  "Please fill in all form.": "Please fill in all form."
 }

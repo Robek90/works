@@ -1,4 +1,6 @@
 const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
 const app = express();
 
 const dbApi = require('./server_db/db_module.js');
@@ -28,52 +30,31 @@ app.get("/getreview", (req, res) => {
 });
 
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(cors());
 
 app.post("/setreview", (req, res) => {
   dbApi.db.setReviewDB(req.body)
   res.json("add review")
 });
 
-app.post("/smartcaptcha", (req, res) => {
-  let token = req.body.token;
-
-  dbApi.db.checkCaptcha(token, (passed) => {
-      if (passed) {
-        res.json(true)
-      } else {
-        res.json(false)
-      }
-  })
+app.post("/recaptcha", async (req,res) => {
+  try{
+      let token = req.body.token;
+      let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${'6Ldk9mspAAAAAO7YiVwD84H7Vjei4HWwtyhf2vBg'}&response=${token}`);
+      
+      return res.status(200).json({
+          success:true,
+          message: "Token successfully verified",
+          data: response.data
+      });
+  }catch(error){
+      return res.status(500).json({
+          success:false,
+          message: "Error verifying token"
+      })
+  }
 });
-
-// app.post("/verification", (req, res) => {
-//   dbApi.db.checkUserVerification()
-//     .then(value=>{
-//       value.map(item=>{
-//         if(item['name'] === req.body.first_name && item['uid'] === req.body.uid){
-//           res.json(true)
-//         } else {
-//           res.json(false)
-//         }
-//       })})
-//     .catch(err=>console.log(err))
-// });
-
-// app.post('/addNewBook', upload.single("files"), (req, res) => {
-//   dbApi.db.insertDataBase(req.body)
-//   res.json({ message:  "Книга успешно добавлена" });
-// });
-
-// app.post('/deleteBook', upload.single("files"), (req, res) => {
-//   dbApi.db.deleteRowDataBase(req.body['id'])
-//   res.json({ message:  "Книга успешно удалена" });
-// });
-
-// app.post("/editBook", upload.single("files"), (req, res) => {
-//   dbApi.db.editDataBase(req.body, req.body['rowid'])
-//   res.json({ message:  "Книга успешно изменена" });
-// });
-
 
 const PORT = process.env.PORT || 8080;
 

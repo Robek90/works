@@ -66,11 +66,11 @@ export default inject('catalog', 'category', 'product', 'shoppingCart') (
               textError={"product is already in the cart"}
             />
           }
-          <div className="priceList_news_container">
+          {/* <div className="priceList_news_container">
             <div className="priceList_news">
               НОВОСТИ РЕКЛАМА
             </div>
-          </div>
+          </div> */}
           <div className="card_catalog_container">
             <ul className="card_catalog">
               {

@@ -1,0 +1,59 @@
+.captch_form_container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  margin: 25px auto 15px;
+  .captch_form_inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 auto;
+    .review_inputs_row {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      .input_row {
+        width: 50%;
+        height: 40px;
+        border: 1px solid #626262;
+        margin: 3px;
+        padding-left: 20px;
+      }
+    }
+    .review_inputs_col {
+      display: flex;
+      width: 100%;
+      .input_col {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #626262;
+        margin: 3px;
+        padding-left: 20px;
+      }
+    }
+  }
+  .form_button {
+    margin-left: 20px;
+  }
+}
+.captcha_form_group {
+  margin-bottom: 20px; 
+  display: flex;
+  flex-direction: row;
+  .captch_text_error {
+    padding-left: 40px;
+    color: red;
+    font-size: 20px;
+    line-height: 10px;
+    font-weight: 500;
+  }
+  .captch_text_success {
+    padding-left: 40px;
+    color: green;
+    font-size: 20px;
+    line-height: 10px;
+    font-weight: 500;
+  }
+}

@@ -19,10 +19,9 @@ html body .wrapper {
   font-family: AlergiaNormal, "Segoe UI", "San Francisco", sans-serif;
 }
 html body .wrapper .main_container {
-  height: calc(100% - 182px);
+  height: calc(100% - 188px);
   display: flex;
   margin: 0 auto;
-  max-width: 1920px;
 }
 
 .card_catalog_container {

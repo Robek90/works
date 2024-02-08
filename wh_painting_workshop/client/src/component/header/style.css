@@ -1,16 +1,16 @@
 header {
   margin: 0;
   padding: 0;
-  background-color: #252525;
+  background-color: #000000;
   display: flex;
   flex-flow: column;
   min-width: 320px;
   position: relative;
   z-index: 10;
-  height: 182px;
+  height: 188px;
 }
 header .header_tier1 {
-  background-color: #252525;
+  background-color: #000000;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -33,7 +33,7 @@ header .header_tier1 .header_menu_container_tier1 .header_tier1_button_Link {
   background-color: transparent;
   text-decoration: none;
   text-transform: uppercase;
-  border: 1px solid #252525;
+  border: 1px solid #000000;
 }
 header .header_tier1 .header_menu_container_tier1 :hover {
   background-color: rgba(92, 92, 92, 0.7725490196);
@@ -45,7 +45,7 @@ header .header_tier2 {
   background: white;
   flex-flow: row;
   justify-content: space-around;
-  padding: 0 1em;
+  padding: 0;
   z-index: 1;
 }
 header .header_tier2 .header_menu_container_tier2 {
@@ -58,7 +58,10 @@ header .header_tier2 .header_menu_container_tier2 {
   z-index: 0;
 }
 header .header_tier2 .header_menu_container_tier2 .header_tier2_logo {
-  height: 70px;
+  height: 76px;
+  width: 410px;
+  background-image: url("../../assets/icons/Paint_Logo.png");
+  background-size: cover;
 }
 header .header_tier2 .header_menu_container_tier2 .header_tier2_button_language {
   display: inline-flex;
@@ -70,7 +73,7 @@ header .header_tier2 .header_menu_container_tier2 .header_tier2_button_language 
   text-transform: uppercase;
 }
 header .header_tier3 {
-  background-color: #252525;
+  background-color: #000000;
   display: flex;
   flex-direction: column;
   order: 3;
@@ -89,7 +92,7 @@ header .header_tier3 .header_menu_container_tier3 .header_tier3_button_Link {
   padding: 22px 30px;
   color: white;
   background-color: transparent;
-  border: 1px solid #252525;
+  border: 1px solid rgba(37, 37, 37, 0);
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;

@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import { appendItem, } from '../../services/cartAction';
 import { useTranslation } from 'react-i18next';
 
+import './style.css';
 
 export default function CatalogCard(props) {
   let { cardData, shoppingCart, setAlert } = props;
@@ -77,6 +78,7 @@ export default function CatalogCard(props) {
     <>
       <Card sx={{ width: 450, height: 600, margin: 1 }}>
         <CardHeader
+          className="card_header"
           title={t(`${cardData.name}`)}
         />
         <CardMedia
@@ -95,7 +97,11 @@ export default function CatalogCard(props) {
           >
             {t(`${cardData.description}`)}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography 
+            className="card_price"
+            variant="body2" 
+            color="text.secondary"
+          >
             {cardData.price} {t(`rub`)}.
           </Typography>
         </CardContent>

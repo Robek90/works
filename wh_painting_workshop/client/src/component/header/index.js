@@ -33,7 +33,7 @@ export default function Header(props) {
       </div>
       <div className="header_tier2">
         <div className="header_menu_container_tier2">
-          <div className="header_tier2_logo">Logo and search?</div>
+          <div className="header_tier2_logo"/>
           <LanguagesButton t={t} props={props}/>
         </div>
       </div>

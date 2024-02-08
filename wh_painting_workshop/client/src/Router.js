@@ -21,7 +21,7 @@ function AppRouter(props) {
       children: [
         {
           index: true,
-          element: <News history={history}/>,
+          element: <News/>,
         },
         {
           path: "news",
