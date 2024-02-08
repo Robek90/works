@@ -1,8 +1,8 @@
 {
-  "contacts": "наши контакты",
+  "contacts": "контакты",
   "aboutUs": "о нас",
   "news": "новости",
-  "exampleWorks": "примеры работ",
+  "exposition": "примеры",
   "priceList": "цены",
   "reviews": "отзывы",
   "shopping cart": "корзина",
@@ -37,7 +37,7 @@
   "factory": "завод",
   "fortress": "крепость",
   "ultramarin": "ультрамарин",
-  "demon": "демон",
+  "demon khorne": "демон кхорна",
   "roboute guilliman" : "робаут жилиман",
   "heavy tank": "тяжелый танк",
   "Ooops... Let's use your imagination": "Ууупс... давайте воспользуемся воображением",
@@ -63,5 +63,8 @@
   "rub": "руб",
   "The Space Marines or Adeptus Astartes is an elite military organization of the Imperium. Space Marines are also often called Angels of Death.": "Космический Десант или Адептус Астартес — элитная военная организация Империума. Космических десантников также часто называют Ангелами Смерти.", 
   "Chaos Space Marines, are considered among the most powerful and privileged servants of the Dark Gods, as well as the most hated enemies of the Imperium of Mankind.": "Космодесантники Хаоса, считаются одними из самых могущественных и привилегированных служителей Тёмных богов, а также самыми ненавистными врагами Империума Человечества.",
-  "The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium.":"Имперская Гвардия, на высоком готике известная как Áстра Милитáрум — основная военная сила Империума."
+  "The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium.":"Имперская Гвардия, на высоком готике известная как Áстра Милитáрум — основная военная сила Империума.",
+  "Do you have any rewievs or suggestions about WarhammerWorkshop?": "У вас есть отзывы или предложения о WarhammerWorkshop?",
+  "We are open to conversation and are waiting for your rewievs.": " Мы открыты для разговора и ждем ваших отзывов.",
+  "Start painting your army.": "Начать красить свою армию."
 }

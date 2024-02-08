@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from "react";
+import React from "react";
 
 import useLocalStorage from '../../../hooks/useLocalStorage';
 import i18n from '../../../services/i18n';

@@ -1,6 +1,4 @@
 import { useState, useEffect }from "react";
-
-import Header from "./component/header";
 import Router from "./Router";
 
 import "./style.css";
@@ -24,8 +22,7 @@ export default function App(props) {
 
   return (
       <div className="wrapper">
-        <Header history={props.history} languagePath={languagePath} handleClick={handleClick}/>
-        <Router history={props.history} languagePath={languagePath}/>
+        <Router history={props.history} languagePath={languagePath} handleClick={handleClick}/>
       </div>
   );
 }

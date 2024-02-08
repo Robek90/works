@@ -1,33 +1,29 @@
 export let actionButton = [
   [
     {
-      path: "/Contacts",
-      name: "contacts",
-    },
-    {
-      path: "/AboutUs",
+      path: "/aboutus",
       name: "aboutUs",
     },
   ],
   [
     {
-      path: "/News",
+      path: "/news",
       name: "news",
     },
     {
-      path: "/ExampleWorks",
-      name: "exampleWorks",
+      path: "/exposition",
+      name: "exposition",
     },
     {
-      path: "/PriceList",
+      path: "/pricelist",
       name: "priceList",
     },
     {
-      path: "/Reviews",
+      path: "/reviews",
       name: "reviews",
     },
     {
-      path: "/ShoppingCart",
+      path: "/shoppingcart",
       name: "shopping cart",
     },
   ]

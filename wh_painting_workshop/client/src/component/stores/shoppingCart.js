@@ -6,7 +6,7 @@ export default class shoppingCart {
 
   constructor() {
     makeAutoObservable(this);
-  }
+  };
 
   setShowAlert = (data) => {
     this.showAlert = data;

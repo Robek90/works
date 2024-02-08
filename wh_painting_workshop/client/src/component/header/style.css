@@ -27,6 +27,7 @@ header .header_tier1 .header_menu_container_tier1 {
   vertical-align: center;
 }
 header .header_tier1 .header_menu_container_tier1 .header_tier1_button_Link {
+  width: 100px;
   padding: 7px 14px;
   color: white;
   background-color: transparent;

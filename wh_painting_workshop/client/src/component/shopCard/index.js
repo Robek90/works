@@ -22,7 +22,7 @@ const Demo = styled('div')(({ theme }) => ({
 }));
 
 export default function ShoppingCartList(props) {
-  let { card, cardIndex, cartList, setCartList } = props;
+  let { card, cardIndex, cartList, shoppingCart } = props;
 
   const [ count, setCount ] = useState(card.quantity);
 
@@ -34,7 +34,7 @@ export default function ShoppingCartList(props) {
 
   const handleClickDeleteProduct = () => {
     arr.splice(cardIndex,1)
-    setCartList.deleteShoppingCartProduct(arr);
+    shoppingCart.deleteShoppingCartProduct(arr);
   };
 
   const calcPrice = () => {
@@ -43,20 +43,20 @@ export default function ShoppingCartList(props) {
 
   const addCount = () => {
     setCount(count => count + 1)
-    setCartList.quantityShoppingCart(quantityItem(cardIndex, arr, count+1))
+    shoppingCart.quantityShoppingCart(quantityItem(cardIndex, arr, count+1))
   };
 
   const removeCount = () => {
     if(count > 1) {
       setCount(count => count - 1)
-      setCartList.quantityShoppingCart(quantityItem(cardIndex, arr, count-1))
+      shoppingCart.quantityShoppingCart(quantityItem(cardIndex, arr, count-1))
     }
   };
   
   useEffect(()=>{
     calcPrice();
-  },[count]);
-
+  },[]);
+  
   return(
     <Box sx={{ 
       width: "100%", 
@@ -88,35 +88,28 @@ export default function ShoppingCartList(props) {
                 primary={t(card.name)}
                 secondary={productPrice}
               />
-              <ListItem
-              secondaryAction={
-                <>
-                   <IconButton 
-                      edge="end" 
-                      aria-label="delete"
-                      onClick={()=>{
-                        addCount()
-                      }}
-                    >
-                      <AddIcon></AddIcon>
-                    </IconButton>
-                    <ListItemText
-                      primary={count}
-                    />
-                    <IconButton 
-                      edge="end" 
-                      aria-label="delete"
-                      onClick={()=>{
-                        removeCount()
-                      }}
-                    >
-                      <RemoveIcon></RemoveIcon>
-                    </IconButton>
-                </>
-              }
-              >
-              </ListItem>
-            </ListItem>,
+              <>
+                <IconButton 
+                  edge="start" 
+                  aria-label="delete"
+                  onClick={()=>{
+                    addCount()
+                  }}
+                >
+                  <AddIcon></AddIcon>
+                </IconButton>
+                <span>{count}</span>
+                <IconButton 
+                  edge="end" 
+                  aria-label="delete"
+                  onClick={()=>{
+                    removeCount()
+                  }}
+                >
+                  <RemoveIcon></RemoveIcon>
+                </IconButton>
+              </>
+            </ListItem>
           </List>
         </Demo>
       </Grid>

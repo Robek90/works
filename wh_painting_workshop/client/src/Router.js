@@ -1,85 +1,60 @@
 import React from 'react';
-import { Navigate, Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AboutUs from "./pages/aboutUs/index";
-import Contacts from "./pages/contacts/index";
 import News from "./pages/news/index";
-import ExampleWorks from "./pages/exampleWorks/index";
+import Exposition from "./pages/exposition/index";
 import Reviews from "./pages/review/index";
 import PriceList from "./pages/priceList/index";
 import ShoppingCart from "./pages/shoppingCart/index";
-import Sidebar from "./component/sidebarNavigation/index";
+import Sidebar from "./component/sidebarNavigation";
+import ErrorPage from './component/error';
+import Layout from './Layout';
 
 function AppRouter(props) {
-  const sidebarPage = [
+  let { history, languagePath, handleClick } = props;
+
+  const router = createBrowserRouter([
     {
-      path: `/ExampleWorks`,
-      sidebar: (props) => <Sidebar {...props}/>,
-      main: (props) => <ExampleWorks {...props} />
+      path: "/",
+      element: <Layout history={history} languagePath={languagePath} handleClick={handleClick}/>,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          index: true,
+          element: <News history={history}/>,
+        },
+        {
+          path: "news",
+          element: <News history={history}/>,
+        },
+        {
+          path: "exposition",
+          element: [<Sidebar key={"sidebar"}/>, <Exposition key={"exposition"} history={history}/>],
+        },
+        {
+          path: "reviews",
+          element: <Reviews history={history}/>,
+        },
+        {
+          path: "pricelist",
+          element:  [<Sidebar key={"sidebar"}/>, <PriceList key={"pricelist"} history={history}/>],
+        },
+        {
+          path: "shoppingcart",
+          element: <ShoppingCart history={history}/>,
+        },
+        {
+          path: "aboutus",
+          element: <AboutUs history={history}/>,
+        },
+      ],
     },
-    {
-      path: `/PriceList`,
-      sidebar: (props) => <Sidebar {...props}/>,
-      main: (props) => <PriceList {...props} />
-    },
-  ]
-  const routesPage = [
-    {
-      path: `/AboutUs`,
-      main: (props) => <AboutUs {...props} />
-    },
-    {
-      path: `/Contacts`,
-      main: (props) => <Contacts {...props} />
-    },
-    {
-      path: `/News`,
-      main: (props) => <News {...props} />
-    },
-    {
-      path: `/Reviews`,
-      main: (props) => <Reviews {...props} />
-    },
-    {
-      path: `/ShoppingCart`,
-      main: (props) => <ShoppingCart {...props} />
-    },
-  ];
+  ]);
 
   return (
-    <div className="main_container">
-      <Routes>
-        {sidebarPage.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            element={<route.sidebar history={props.history} />}
-          />
-          ))}
-      </Routes>
-      <Routes>
-          {sidebarPage.map((route, index) => (
-            <Route
-              key={index}
-              path={route.path}
-              element={<route.main history={props.history} />}
-            />
-            
-          ))}
-      </Routes>
-      <Routes>
-        {routesPage.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            element={<route.main history={props.history} languagePath={props.languagePath}/>}
-          />
-        ))}
-        <Route
-          path="/"
-          element={<Navigate to={`/News`} replace />}
-        />
-      </Routes>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   )
 }
 

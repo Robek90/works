@@ -14,26 +14,26 @@ export default inject('catalog', 'category', 'product', 'shoppingCart') (
     const [ alertCart, setAlertCart ] = useState();
 
     const [ product, setProduct ] = useState({});
-    
+
     const [ shoppingCart, setShoppingCart ] = useState([]);
 
     const [ loading, setLoading ] = useState(false);
 
     const urlParams = useUrlParams();
-    
+
     let pageLoading = () => {
       let filter = [];
 
       if(urlParams.catalog === null) {
         Object.values(product).forEach((i)=> {
-          if(i.type !== "custom") {
+          if(i.type === "custom") {
             filter.push(i)
           }
         })
         return filter
       } else {
         Object.values(product).forEach((i)=> {
-          if(i.race === urlParams.catalog && i.type === urlParams.category) {
+          if(i.race === urlParams.catalog && i.name === urlParams.category) {
             filter.push(i)
           }
         })
@@ -46,16 +46,19 @@ export default inject('catalog', 'category', 'product', 'shoppingCart') (
     },[props.product])
 
     useEffect(()=>{
+      props.product.getProductData();
+      
       setShoppingCart(props.shoppingCart);
+
       if(props.product.state === "done") {
         setLoading(true);
         props.product.productData.then(res => setProduct(res));
       }
     },[props, props.product.state])
-    
+
     return (
       <>
-        <section className="priceList_page">
+        <section className="exposition_page">
           {
             props.shoppingCart.showAlert && 
             <ShowAlert 
@@ -66,14 +69,14 @@ export default inject('catalog', 'category', 'product', 'shoppingCart') (
               textError={"product is already in the cart"}
             />
           }
-          <div className="priceList_news_container">
-            <div className="priceList_news">
+          <div className="exposition_news_container">
+            <div className="exposition_news">
               НОВОСТИ РЕКЛАМА
             </div>
           </div>
           <div className="card_catalog_container">
             <ul className="card_catalog">
-              {
+            {
                 !loading ? (
                     <Preloader />
                 ) : (

@@ -1,0 +1,28 @@
+.aboutUs_page {
+  height: 100%;
+  width: 550px;
+  margin: 0 auto;
+  background-color: #fff;
+  .aboutUs_page_contact {
+    margin-left: 20px;
+    h3 {
+      margin-top: 50px;
+      border-bottom: 0.15rem solid #eee;
+      padding: 10px 0;
+      font-size: 155%;
+      text-transform: uppercase;
+    }
+    .aboutUs_page_text {
+      padding: 10px 0;
+      margin: 5px 0;
+    }
+    .aboutUs_page_list {
+      padding: 10px 20px;
+      a {
+        color: #111;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    }
+  }
+}

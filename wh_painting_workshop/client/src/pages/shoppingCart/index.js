@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 
 import Button from '@mui/material/Button';
@@ -25,10 +26,12 @@ export default inject('shoppingCart') (
 
     const { t } = useTranslation();
 
+    let store = localStorage.getItem('store');
+
     const handleClickDeleteAll = () => {
       shoppingCart.deleteShoppingCartProduct([]);
     };
-    
+
     useEffect(() => {
       setTotalSumm(calcTotalSumm(shoppingCart.shoppingCartData))
       setCartList(shoppingCart.shoppingCartData);
@@ -65,7 +68,7 @@ export default inject('shoppingCart') (
                           key={index} 
                           card={item}
                           cartList={cartList}
-                          setCartList={shoppingCart}
+                          shoppingCart={shoppingCart}
                           cardIndex={index}
                         />
                       ))
@@ -97,11 +100,12 @@ export default inject('shoppingCart') (
                 </div>
               </>
             ) : (
-              <>
-                <p className="shoppingCart_card_list_empty">
+              <div className="shoppingCart_card_list_empty">
+                <p className="shoppingCart_card_list_empty_text">
                   {t("empty cart")}
                 </p>
-              </>
+                <Link className="shoppingCart_card_list_empty_link" to="/pricelist">{t("Start painting your army.")}</Link>
+              </div>
             )
           }
         </div>

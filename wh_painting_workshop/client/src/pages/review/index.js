@@ -5,7 +5,6 @@ import Preloader from '../../component/preLoader/index';
 import YaCaptcha from "../../component/yandexsmartcaptcha";
 import ReviewForm from "../../component/reviewsForm";
 
-import Button from '@mui/material/Button';
 import { useTranslation } from 'react-i18next';
 
 import './style.css';
@@ -35,14 +34,11 @@ export default inject('review') (
         setLoading(true);
         props.review.reviewData.then(res => setReviewList(res));
       }
-    }, [props.review, props.review.state]);
-
-    useEffect(() => {
       if(getStatus === 'hidden') {
         setResetCaptcha((prev) => prev + 1)
         setVisible(false)
       }
-    },[getStatus]);
+    }, [props.review, props.review.state, getStatus]);
 
     return (
       <div className="review_page">

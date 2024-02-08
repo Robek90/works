@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation} from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import { actionButton } from "./actionButtonList";
 import LanguagesButton from "./launguagesButton/index";

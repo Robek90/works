@@ -76,7 +76,7 @@ export default inject('catalog','category', 'product') (
     let selectPage = (race) => {
       let filter = [];
 
-      if(pathMenuData === "PriceList") {
+      if(pathMenuData === "pricelist") {
         Object.values(category).forEach((i) => {
           filter.push(i)
         })
@@ -92,10 +92,10 @@ export default inject('catalog','category', 'product') (
     };
 
     useMemo(()=>{
-      if(location.pathname === '/ExampleWorks') {
-        setPathMenuData("ExampleWorks")
+      if(location.pathname === "/exposition") {
+        setPathMenuData("exposition")
       } else {
-        setPathMenuData("PriceList")
+        setPathMenuData("pricelist")
       }
     },[location.pathname]);
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -15,6 +15,8 @@ import { useTranslation } from 'react-i18next';
 
 export default function CatalogCard(props) {
   let { cardData, shoppingCart, setAlert } = props;
+
+  const [ imgSize, setImgSize ] = useState(320);
 
   const { t } = useTranslation();
 
@@ -63,23 +65,31 @@ export default function CatalogCard(props) {
     },
   });
 
+  useMemo(()=>{
+    if(cardData.type === "infantry") {
+      setImgSize(220)
+    } else {
+      setImgSize(320)
+    }
+  },[cardData.type])
+
   return (
     <>
-      <Card sx={{ width: 400, height: 600, margin: 1 }}>
+      <Card sx={{ width: 450, height: 600, margin: 1 }}>
         <CardHeader
           title={t(`${cardData.name}`)}
         />
         <CardMedia
           component="img"
-          sx={{ height: 300, weight: 'auto' }}
+          sx={{ height: 300, width: imgSize, margin: '0 auto' }}
           image={require(`../../assets/productImg/${cardData.img}`)}
           alt={t(`${cardData.name}`)}
         />
         <CardContent
-          sx={{ height: 140, weight: 'auto' }}
+          sx={{ height: 140, width: 'auto' }}
         >
           <Typography 
-            sx={{ height: 120, weight: 'auto' }}
+            sx={{ height: 120, width: 'auto' }}
             variant="body2" 
             color="text.primary"
           >

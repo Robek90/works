@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'mobx-react';
 import history from './utils/history';
 
@@ -27,9 +26,7 @@ const stores = {
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter history={history}>
     <Provider {...stores}>
       <App history={history}/>
     </Provider>
-  </BrowserRouter>,
 );

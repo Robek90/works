@@ -18,7 +18,7 @@ export default class review {
       const response = await fetch(url);
 
       const data = response.json();
-      console.log(data);
+
       runInAction(()=>{
         this.reviewData = data.then(res=>(res));
         this.state = "done";

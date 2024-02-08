@@ -15,7 +15,7 @@ html {
       height: 100%;
       font-family: AlergiaNormal,"Segoe UI","San Francisco",sans-serif;
       .main_container {
-      height: auto;
+        height: calc(100% - 182px);
         display: flex;
         margin: 0 auto;
         max-width: 1920px;

@@ -1,8 +1,8 @@
 {
-  "contacts": "contacts us",
+  "contacts": "contacts",
   "aboutUs": "about us",
   "news": "news",
-  "exampleWorks": "example works",
+  "exposition": "exposition",
   "priceList": "prices",
   "reviews": "reviews",
   "shopping cart": "cart",
@@ -36,7 +36,7 @@
   "factory": "factory",
   "fortress": "fortress",
   "ultramarin": "ultramarin",
-  "demon": "demon",
+  "demon khorne": "demon khorne",
   "roboute guilliman" : "roboute guilliman",
   "heavy tank": "heavy tank",
   "Ooops... Let's use your imagination": "Ooops... Let's use your imagination",
@@ -62,5 +62,8 @@
   "rub": "RUR",
   "The Space Marines or Adeptus Astartes is an elite military organization of the Imperium. Space Marines are also often called Angels of Death.": "The Space Marines or Adeptus Astartes is an elite military organization of the Imperium. Space Marines are also often called Angels of Death.",
   "Chaos Space Marines, are considered among the most powerful and privileged servants of the Dark Gods, as well as the most hated enemies of the Imperium of Mankind.": "Chaos Space Marines, are considered among the most powerful and privileged servants of the Dark Gods, as well as the most hated enemies of the Imperium of Mankind.",
-  "The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium.":"The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium."
+  "The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium.":"The Imperial Guard, known in High Gothic as the Astra Militarum, is the main military force of the Imperium.",
+  "Do you have any rewievs or suggestions about WarhammerWorkshop?": "Do you have any rewievs or suggestions about WarhammerWorkshop?",
+  "We are open to conversation and are waiting for your rewievs.": " We are open to conversation and are waiting for your rewievs.",
+  "Start painting your army.": "Start painting your army."
 }
