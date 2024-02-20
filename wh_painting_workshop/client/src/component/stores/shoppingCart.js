@@ -1,7 +1,7 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 
 export default class shoppingCart {
-  shoppingCartData = [];
+  shoppingCartData = JSON.parse(localStorage.getItem("cart")) || [];
   showAlert = false;
 
   constructor() {
@@ -14,13 +14,16 @@ export default class shoppingCart {
   
   setShoppingCart = (data) => {
     this.shoppingCartData.push(data);
+    runInAction(()=>{
+      localStorage.setItem("cart", JSON.stringify(this.shoppingCartData));
+    })
   };
 
-  quantityShoppingCart = (data) => {
+  changeShoppingCart = (data) => {
     this.shoppingCartData = data;
+    runInAction(()=>{
+      localStorage.setItem("cart", JSON.stringify(this.shoppingCartData));
+    })
   };
 
-  deleteShoppingCartProduct = (data) => {
-    this.shoppingCartData = data;
-  };
 }

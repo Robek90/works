@@ -1,15 +1,16 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-
 import { inject, observer } from "mobx-react";
-
 import InputsForm from "./inputsForm";
+import i18n from '../../services/i18n';
 
 import { useTranslation } from 'react-i18next';
 
 import { styled } from '@mui/material/styles';
 import Button from "@mui/material/Button";
 import getCurrentDate from "../../utils/getDate";
+import { getCaptchaRequest } from '../../services/captchaReq';
+
 import './style.css';
 
 let REACT_APP_SITE_KEY = "6Ldk9mspAAAAAOjDmxibcUwNQb5rer4OzpG-SWlw";
@@ -17,34 +18,21 @@ let REACT_APP_SITE_KEY = "6Ldk9mspAAAAAOjDmxibcUwNQb5rer4OzpG-SWlw";
 export default inject('review') (
   observer((props)=>{
     const { review } = props;
-    
+
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ reviewtext, setReviewtext ] = useState("");
     const [ message, setMessage] = useState("");
     const [ error,setError] = useState("");
+    const [captchaLanguage, setCaptchaLanguage] = useState(i18n.language);
+    const [recaptchaKey, setRecaptchaKey] = useState(0);
 
-    const { t } = useTranslation();
     const captchaRef = useRef(null);
 
-    const verifyToken = async (token) => {
-      try { 
-        const url = '/recaptcha';
-        const response = await fetch(url,{
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            token: token
-          })
-        })
-        let result = await response.json();
-        console.log(result);
-        return result
-      } catch (error){
-        console.log("error ",error);
-      }
+    const { t } = useTranslation();
+
+    const verifyToken = (token) => {
+      return getCaptchaRequest(token);
     };
 
     const handleSubmit  = async e => {
@@ -55,21 +43,21 @@ export default inject('review') (
         if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
           let token = captchaRef.current.getValue();
           if(token) {
-              let valid_token = await verifyToken(token);
-              if(valid_token.success) {
-                review.setReviewData({
-                  name: name,
-                  email: email,
-                  text: reviewtext,
-                  date: getCurrentDate()
-                })
-                setName("")
-                setEmail("")
-                setReviewtext("")
-                review.setShowAlert(true)
-                setMessage(t("Hurray!! you have submitted review."));
-              }
-          }else{
+            let valid_token = await verifyToken(token);
+            if(valid_token.success) {
+              review.setReviewData({
+                name: name,
+                email: email,
+                text: reviewtext,
+                date: getCurrentDate()
+              })
+              setName("")
+              setEmail("")
+              setReviewtext("")
+              review.setShowAlert(true)
+              setMessage(t("Hurray!! You have submitted review."));
+            }
+          } else {
             setError(t("You must confirm you are not a robot."));
           }
         } else {
@@ -83,7 +71,6 @@ export default inject('review') (
     const InputsFormButton = styled(Button)({
       width: "100px",
       height: "100px",
-      boxShadow: 'none',
       textTransform: 'uppercase',
       fontSize: 14,
       padding: '6px 12px',
@@ -92,18 +79,6 @@ export default inject('review') (
       color: 'white',
       backgroundColor: '#0063cc',
       borderColor: '#0063cc',
-      fontFamily: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(','),
       '&:hover': {
         backgroundColor: 'rgb(71, 124, 173)',
         borderColor: '#0062cc',
@@ -119,6 +94,12 @@ export default inject('review') (
       },
     });
     
+    useEffect(() => {
+      setCaptchaLanguage(i18n.language);
+      setRecaptchaKey((prevKey) => prevKey + 1);
+      captchaRef.current.reset();
+    }, [i18n.language]);
+
     return (
       <>
         <form onSubmit={handleSubmit} className="captch_form_container">
@@ -142,7 +123,12 @@ export default inject('review') (
           </div>
         </form>
         <div className="captcha_form_group">
-          <ReCAPTCHA sitekey={REACT_APP_SITE_KEY} ref={captchaRef}  />
+          <ReCAPTCHA
+            key={recaptchaKey} 
+            sitekey={REACT_APP_SITE_KEY} 
+            ref={captchaRef}  
+            hl={captchaLanguage}
+          />
           {
             error && <p className="captch_text_error">{t('Error')}!! {error}</p>
           }

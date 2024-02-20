@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 import './style.css';
 
 export default function CatalogCard(props) {
-  let { cardData, shoppingCart, setAlert } = props;
+  let { cardData, shoppingCart, setAlert, upcart } = props;
 
   const [ imgSize, setImgSize ] = useState(320);
 
@@ -73,7 +73,7 @@ export default function CatalogCard(props) {
       setImgSize(320)
     }
   },[cardData.type])
-
+  
   return (
     <>
       <Card sx={{ width: 450, height: 600, margin: 1 }}>

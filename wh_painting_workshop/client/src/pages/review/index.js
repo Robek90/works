@@ -2,7 +2,7 @@ import { useState, useEffect }from "react";
 import { inject, observer } from "mobx-react";
 
 import Preloader from '../../component/preLoader/index';
-import ReCaptcha from "../../component/reCaptcha";
+import ReviewForm from "../../component/reviewForm/index";
 
 import { useTranslation } from 'react-i18next';
 
@@ -25,7 +25,7 @@ export default inject('review') (
 
     return (
       <div className="review_page">
-        <ReCaptcha/>
+        <ReviewForm/>
         {
           !loading ? (
             <Preloader />

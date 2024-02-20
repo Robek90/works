@@ -12,11 +12,8 @@ import './style.css';
 export default inject('catalog', 'category', 'product', 'shoppingCart') (
   observer((props) => {
     const [ alertCart, setAlertCart ] = useState();
-
     const [ product, setProduct ] = useState({});
-
     const [ shoppingCart, setShoppingCart ] = useState([]);
-
     const [ loading, setLoading ] = useState(false);
 
     const urlParams = useUrlParams();

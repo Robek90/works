@@ -34,7 +34,7 @@ export default function ShoppingCartList(props) {
 
   const handleClickDeleteProduct = () => {
     arr.splice(cardIndex,1)
-    shoppingCart.deleteShoppingCartProduct(arr);
+    shoppingCart.changeShoppingCart(arr);
   };
 
   const calcPrice = () => {
@@ -43,13 +43,13 @@ export default function ShoppingCartList(props) {
 
   const addCount = () => {
     setCount(count => count + 1)
-    shoppingCart.quantityShoppingCart(quantityItem(cardIndex, arr, count+1))
+    shoppingCart.changeShoppingCart(quantityItem(cardIndex, arr, count+1))
   };
 
   const removeCount = () => {
     if(count > 1) {
       setCount(count => count - 1)
-      shoppingCart.quantityShoppingCart(quantityItem(cardIndex, arr, count-1))
+      shoppingCart.changeShoppingCart(quantityItem(cardIndex, arr, count-1))
     }
   };
   

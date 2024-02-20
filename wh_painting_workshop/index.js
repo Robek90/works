@@ -56,6 +56,12 @@ app.post("/recaptcha", async (req,res) => {
   }
 });
 
+app.post("/sendemail", (req,res) => {
+  dbApi.db.emailEventHandler(req.body).then(x=> {
+    res.json(x)
+  })
+});
+
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

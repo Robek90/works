@@ -1,6 +1,6 @@
 export const getCaptchaRequest = async (token) => {
   try {
-    const url = "/smartcaptcha";
+    const url = "/recaptcha";
 
     const response =  await fetch(url, {
       method: 'POST',
