@@ -5,7 +5,7 @@ import Blackhole from "./blackhole";
 const GalaxyCanvas = () => {
   const stars = Array.from({ length: 10000 }, (_, i) => {
     const angle = Math.random() * Math.PI * 2;
-    const radius = 25 + Math.random() * (window.innerHeight / 2);
+    const radius = 10 + Math.random() * (window.innerWidth);
     return {
       x: radius * Math.cos(angle) + window.innerWidth / 2,
       y: radius * Math.sin(angle) + window.innerHeight / 2,

@@ -6,7 +6,10 @@ module.exports = {
   module: {
     rules: [
       { test: /\.svg$/, use: 'svg-inline-loader' },
-      { test: /\.(jpe?g|png|gif|svg)$/i, loader: "file-loader?name=/public/image/[name].[ext]"},
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
+      },
       { test: /\.css$/,
         use: [
           'style-loader',
