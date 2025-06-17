@@ -8,7 +8,7 @@ document.body.innerHTML = '<div id="app"></div>';
 const root = createRoot(document.getElementById('app'));
 root.render(
   <React.StrictMode>
-    <div className="bg-black">
+    <div className="bg-[#343637] justify-center flex h-full">
       <App />
     </div>
   </React.StrictMode>

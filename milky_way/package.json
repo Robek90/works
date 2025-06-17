@@ -34,7 +34,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "konva": "^9.3.20",
     "postcss-loader": "^8.1.1",
-    "postcss-preset-env": "^10.2.3"
+    "postcss-preset-env": "^10.2.3",
+    "react-konva": "^19.0.6",
+    "use-image": "^1.1.4"
   }
 }

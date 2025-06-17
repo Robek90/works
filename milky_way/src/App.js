@@ -1,9 +1,10 @@
 import React from 'react';
-import GalaxyCanvas from "./componets/blackhole"
+import GalaxyCanvas from "./componets/galaxy";
+import './index.css';
 
 function App() {
   return (
-    <div class="bg-black">
+    <div className="content-center">
       <GalaxyCanvas />
     </div>
   );
