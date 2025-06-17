@@ -1,4 +1,3 @@
-// src/components/Blackhole.js
 import React, { useRef, useEffect, useState } from 'react';
 import { Stage, Layer, Image, Ring, Shape } from 'react-konva';
 import useImage from 'use-image';
